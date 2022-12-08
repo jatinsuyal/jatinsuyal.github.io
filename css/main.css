@@ -618,13 +618,35 @@ button:focus {
     .nav-menu {
         display: none;
     } 
+    .experience-designation {
+        font-size: 1.2rem;
+    }
+    
+    .experience-company-name {
+        margin: 5px 0 0;
+        color: #eb822d;
+        font-weight: 400;
+        font-size: 1rem;
+    }
+    
+    .experience-duration {
+        color: #9e9b9b;
+        font-weight: 100;
+        color: grey;
+        font-size: 0.8rem;
+    }
+    
+    /* .experience-description {
+        font-size: 10px;
+        padding: 2px;
+        color: grey;
+        line-height: 20px;
+    } */
 }
 
 
 
-@media only screen and (max-width: 900px) {
-
-
+@media only screen and (max-width: 700px) {
     .timeline-box {
         width: 90%;
         left: 10% !important;
