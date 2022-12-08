@@ -642,7 +642,7 @@ button:focus {
         left: 10% !important;
     } */
 
-    .timeline-box::after {
+    /* .timeline-box::after {
         left: -9.3% !important;
     }
 
@@ -667,7 +667,7 @@ button:focus {
     #contact-form-container {
         width: 80%;
         margin: 10%;
-    }
+    } */
 
 }
 
