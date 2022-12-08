@@ -603,7 +603,7 @@ button:focus {
 }
 
 
-@media only screen and (max-width: 572px) {
+/* @media only screen and (max-width: 572px) {
     
     .timeline-box {
         width: 100%;
@@ -618,17 +618,29 @@ button:focus {
     .nav-menu {
         display: none;
     } 
-}
+} */
 
 
 
 @media only screen and (max-width: 768px) {
 
-
     .timeline-box {
-        width: 90%;
+        width: 100%;
         left: 10% !important;
     }
+
+    .bars {
+        display: block;
+    }
+    
+    
+    .nav-menu {
+        display: none;
+    } 
+    /* .timeline-box {
+        width: 90%;
+        left: 10% !important;
+    } */
 
     .timeline-box::after {
         left: -9.3% !important;
