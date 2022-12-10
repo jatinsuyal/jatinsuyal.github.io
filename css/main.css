@@ -607,12 +607,22 @@ button:focus {
 
 
 @media only screen and (max-width: 700px) {
-    
+    #timeline-divider {
+        position: absolute;
+        width: 0;
+        top: 15%;
+        left: 50%;
+        border: 1px dashed #0096fa6b;
+        height: 0%;
+        color: #433E3F;
+    }
     .timeline-box {
         width: 100%;
         left: 10% !important;
     }
-
+    .portfolio-details{
+        font-size: large;
+    }
     .bars {
         display: block;
     }
@@ -662,6 +672,9 @@ button:focus {
 
 
 @media only screen and (max-width: 700px) {
+    .timeline {
+        width: 90%;
+    }
     .timeline-box {
         width: 90%;
         left: 10% !important;
