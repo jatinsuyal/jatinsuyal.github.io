@@ -351,6 +351,7 @@ section:nth-child(2n + 1) {
     background-repeat: no-repeat;
     position: relative;
 }
+
 .hassets {
     position: relative;
 }
@@ -369,7 +370,7 @@ section:nth-child(2n + 1) {
     height: 100%;
 }
 .Gif-container{
-    height: 80%;
+    height: 100%;
 }
 .portfolio-details {
     transition: all 0.5s ease-in-out;
