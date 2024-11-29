@@ -205,21 +205,13 @@ section:nth-child(2n + 1) {
 
 /*Skills Section*/
 
-/* .skills-display {
+.skills-display {
     width: 75%;
     padding: 10px;
     margin-bottom: 30px;
     display: flex;
     flex-wrap: wrap;
     justify-content: space-evenly;
-} */
-.skills-display {
-    width: 75%;
-    padding: 10px;
-    margin-bottom: 30px;
-    display: grid; /* Changed from flex to grid */
-    grid-template-columns: repeat(auto-fit, minmax(150px, 1fr)); /* Responsive grid with flexible column widths */
-    gap: 15px; /* Adds consistent spacing between grid items */
 }
 
 .skill-progress {
@@ -737,99 +729,3 @@ button:focus {
 
 }
 
-:root {
-    --orange: #ec4d1c;
-    --dark-red: #8f002b;
-    --teal: #0b8176;
-    --blue: #2857a4;
-}
-
-.mb-orange {
-    background-color: var(--orange);
-}
-.mb-dark-red {
-    background-color: var(--dark-red);
-}
-.mb-teal {
-    background-color: var(--teal);
-}
-.mb-blue {
-    background-color: var(--blue);
-}
-
-
-.dark-mode {
-    background-color: #121212;
-    color: #ffffff;
-}
-
-.dark-mode a {
-    color: #1e90ff;
-}
-
-.dark-mode .section-heading span {
-    color: #ffd700;
-}
-
-
-/* Theme Toggle Container */
-.theme-toggle {
-    position: fixed; /* Ensures it's always on the screen */
-    top: 10px; /* Adjust as needed */
-    right: 20px; /* Adjust as needed */
-    z-index: 1000; /* Ensures it's above all other elements */
-    display: flex;
-    align-items: center;
-    gap: 10px;
-    font-size: 1rem;
-    color: #fff;
-    background-color: rgba(0, 0, 0, 0.6);
-    padding: 5px 10px;
-    border-radius: 20px;
-}
-
-/* Slide Toggle Switch */
-.switch {
-    position: relative;
-    display: inline-block;
-    width: 40px;
-    height: 20px;
-}
-
-.switch input {
-    opacity: 0;
-    width: 0;
-    height: 0;
-}
-
-.slider {
-    position: absolute;
-    cursor: pointer;
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    background-color: #ccc;
-    transition: 0.4s;
-    border-radius: 20px;
-}
-
-.slider:before {
-    position: absolute;
-    content: "";
-    height: 14px;
-    width: 14px;
-    left: 3px;
-    bottom: 3px;
-    background-color: white;
-    transition: 0.4s;
-    border-radius: 50%;
-}
-
-input:checked + .slider {
-    background-color: #2857a4;
-}
-
-input:checked + .slider:before {
-    transform: translateX(20px);
-}
