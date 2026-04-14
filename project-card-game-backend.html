@@ -1,0 +1,508 @@
+<!DOCTYPE html>
+<html class="dark" lang="en">
+<head>
+    <meta charset="utf-8"/>
+    <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+    <title>CARD_GAME_SYS_v2.0 // TECHNICAL CASE STUDY</title>
+    <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&amp;family=Manrope:wght@300;400;500;600;700&amp;display=swap" rel="stylesheet"/>
+    <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+    <script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            colors: {
+              "secondary-fixed-dim": "#9ccee2",
+              "surface-container-lowest": "#0e0e0e",
+              "tertiary": "#ffd59c",
+              "outline-variant": "#3c494e",
+              "outline": "#859399",
+              "on-secondary-container": "#8ec0d3",
+              "surface-dim": "#131313",
+              "on-tertiary": "#442b00",
+              "on-surface-variant": "#bbc9cf",
+              "on-primary-fixed": "#001f28",
+              "primary-container": "#00d1ff",
+              "primary-fixed-dim": "#4cd6ff",
+              "on-tertiary-fixed-variant": "#624000",
+              "surface-bright": "#393939",
+              "on-error": "#690005",
+              "inverse-surface": "#e5e2e1",
+              "surface-container-low": "#1c1b1b",
+              "secondary-fixed": "#b8eafe",
+              "on-background": "#e5e2e1",
+              "inverse-on-surface": "#313030",
+              "primary-fixed": "#b7eaff",
+              "surface-container": "#201f1f",
+              "background": "#131313",
+              "tertiary-fixed-dim": "#ffba49",
+              "tertiary-fixed": "#ffddb1",
+              "on-tertiary-fixed": "#291800",
+              "secondary": "#9ccee2",
+              "on-secondary-fixed": "#001f28",
+              "inverse-primary": "#00677f",
+              "surface-container-highest": "#353534",
+              "surface-variant": "#353534",
+              "primary": "#a4e6ff",
+              "on-primary-fixed-variant": "#004e60",
+              "error": "#ffb4ab",
+              "surface": "#131313",
+              "on-tertiary-container": "#6b4700",
+              "on-error-container": "#ffdad6",
+              "on-surface": "#e5e2e1",
+              "error-container": "#93000a",
+              "surface-tint": "#4cd6ff",
+              "tertiary-container": "#feb127",
+              "on-primary-container": "#00566a",
+              "on-primary": "#003543",
+              "secondary-container": "#184f60",
+              "on-secondary": "#003543",
+              "on-secondary-fixed-variant": "#154d5d",
+              "surface-container-high": "#2a2a2a"
+            },
+            fontFamily: {
+              "headline": ["Space Grotesk"],
+              "body": ["Manrope"],
+              "label": ["Space Grotesk"]
+            },
+            borderRadius: {"DEFAULT": "0px", "lg": "0px", "xl": "0px", "full": "9999px"},
+          },
+        },
+      }
+    </script>
+    <style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        body {
+            background-color: #131313;
+            color: #e5e2e1;
+            font-family: 'Manrope', sans-serif;
+            overflow-x: hidden;
+            scroll-behavior: smooth;
+        }
+        .glass-panel {
+            backdrop-filter: blur(20px);
+            background: rgba(53, 53, 52, 0.6);
+        }
+        .scanline {
+            background: linear-gradient(to bottom, transparent 50%, rgba(0, 209, 255, 0.05) 50%);
+            background-size: 100% 4px;
+        }
+    </style>
+</head>
+<body class="selection:bg-primary-container/30">
+<!-- TopAppBar -->
+<header class="fixed top-0 left-0 w-full z-50 rounded-none border-l-4 border-cyan-400 bg-[#1c1b1b]/60 backdrop-blur-xl flex justify-between items-center px-6 py-3 shadow-[0_20px_50px_rgba(0,209,255,0.04)]">
+    <a href="index.html" class="text-xl font-bold tracking-tighter text-cyan-400 drop-shadow-[0_0_10px_rgba(0,209,255,0.3)] font-['Space_Grotesk']">
+        CARD_GAME_SYS_v2.0
+    </a>
+    <nav class="hidden md:flex gap-8 items-center">
+        <a class="font-['Space_Grotesk'] uppercase tracking-[0.1rem] text-sm text-slate-500 hover:text-cyan-400 transition-colors" href="index.html">Home</a>
+        <a class="font-['Space_Grotesk'] uppercase tracking-[0.1rem] text-sm text-cyan-400 border-b border-cyan-400 pb-1" href="projects.html">Archive</a>
+        <a class="font-['Space_Grotesk'] uppercase tracking-[0.1rem] text-sm text-slate-500 hover:text-cyan-400 transition-colors" href="about.html">Dossier</a>
+        <a class="font-['Space_Grotesk'] uppercase tracking-[0.1rem] text-sm text-slate-500 hover:text-cyan-400 transition-colors" href="contact.html">Comms</a>
+    </nav>
+    <a href="https://github.com/jatinsuyal/CardGameStrapi" target="_blank" class="bg-gradient-to-r from-primary to-primary-container text-on-primary-container px-4 py-1.5 font-['Space_Grotesk'] uppercase text-xs font-bold tracking-widest hover:shadow-[0_0_15px_#00D1FF] transition-all active:scale-95 flex items-center">
+        EXECUTE_DEMO
+    </a>
+</header>
+<!-- SideNavBar -->
+<aside class="hidden lg:flex fixed left-0 top-0 h-full w-72 border-r border-cyan-400/10 rounded-none bg-[#131313] flex-col py-8 z-40 pt-20">
+<div class="px-6 mb-8">
+<div class="text-cyan-400 font-black tracking-widest uppercase text-xs font-['Space_Grotesk']">SERVER_CONSOLE</div>
+<div class="text-slate-600 text-[10px] uppercase font-['Space_Grotesk'] tracking-widest">OPERATOR: ARCHITECT</div>
+</div>
+<nav class="flex-1 space-y-1">
+<a href="#core-infra" id="nav-db" class="nav-link flex items-center px-6 py-4 gap-4 text-slate-600 hover:text-cyan-300 hover:bg-white/5 transition-all font-['Space_Grotesk'] font-medium uppercase text-xs cursor-pointer">
+<span class="material-symbols-outlined text-lg">database</span>
+<span>API_DATA_HUB</span>
+</a>
+<a href="#arch-schema" id="nav-security" class="nav-link flex items-center px-6 py-4 gap-4 text-slate-600 hover:text-cyan-300 hover:bg-white/5 transition-all font-['Space_Grotesk'] font-medium uppercase text-xs cursor-pointer">
+<span class="material-symbols-outlined text-lg">security</span>
+<span>JWT_AUTH_SYS</span>
+</a>
+<a href="#monitoring" id="nav-metrics" class="nav-link flex items-center px-6 py-4 gap-4 text-slate-600 hover:text-cyan-300 hover:bg-white/5 transition-all font-['Space_Grotesk'] font-medium uppercase text-xs cursor-pointer">
+<span class="material-symbols-outlined text-lg">speed</span>
+<span>LATENCY_METRICS</span>
+</a>
+<a href="#traffic" id="nav-traffic" class="nav-link flex items-center px-6 py-4 gap-4 text-slate-600 hover:text-cyan-300 hover:bg-white/5 transition-all font-['Space_Grotesk'] font-medium uppercase text-xs cursor-pointer">
+<span class="material-symbols-outlined text-lg">terminal</span>
+<span>TRAFFIC_ANALYZER</span>
+</a>
+</nav>
+<div class="px-6 space-y-4">
+<button onclick="alert('SYSTEM_INITIALIZING... \n> Establishing PostgreSQL Connection...\n> Starting Strapi Cluster v4.2...\n> Live sync active.')" class="w-full bg-surface-container-high py-3 text-cyan-400 font-bold uppercase text-[10px] tracking-widest border border-cyan-400/20 hover:border-cyan-400 transition-all active:scale-95">
+                START_SERVER
+            </button>
+<div class="flex flex-col gap-2 pt-4 border-t border-cyan-400/10">
+<div class="flex items-center gap-3 text-slate-600 text-[10px] uppercase font-['Space_Grotesk'] hover:text-cyan-400 cursor-pointer">
+<span class="material-symbols-outlined text-sm">settings</span>
+                    CONFIG
+                </div>
+<a href="projects.html" class="flex items-center gap-3 text-slate-600 text-[10px] uppercase font-['Space_Grotesk'] hover:text-cyan-400 cursor-pointer">
+<span class="material-symbols-outlined text-sm">arrow_back</span>
+                    VALUT_RETURN
+                </a>
+</div>
+</div>
+</aside>
+<!-- Main Content Canvas -->
+<main class="lg:ml-72 pt-16 pb-12">
+<!-- Hero Section -->
+<section id="hero" class="relative h-[819px] flex items-center px-10 overflow-hidden">
+<div class="absolute inset-0 z-0">
+<img src="OnlineCardGame.jpeg" class="w-full h-full object-cover" alt="Card Game Backend Architecture"/>
+<div class="absolute inset-0 bg-gradient-to-r from-background via-background/60 to-transparent"></div>
+<div class="absolute inset-0 scanline opacity-20"></div>
+</div>
+<div class="relative z-10 max-w-4xl">
+<div class="flex items-center gap-4 mb-4">
+<span class="h-px w-12 bg-cyan-400"></span>
+<span class="text-cyan-400 font-['Space_Grotesk'] text-sm tracking-[0.3em] uppercase">Core_Deployment_v2.0</span>
+</div>
+<h1 class="text-7xl md:text-9xl font-headline font-bold text-on-surface tracking-tighter leading-none mb-6">
+                    SYSTEM: <span class="text-transparent bg-clip-text bg-gradient-to-br from-primary to-primary-container">CARD_BACKEND</span>
+</h1>
+<p class="text-xl md:text-2xl text-on-surface-variant font-light max-w-2xl font-body leading-relaxed">
+                    Scalable, high-performance infrastructure built on Node.js and Strapi, optimized for real-time multiplayer card gaming environments.
+                </p>
+<div class="mt-12 flex gap-6">
+<div class="px-6 py-4 bg-surface-container-low border-l-4 border-cyan-400">
+<div class="text-[10px] text-cyan-400/60 uppercase tracking-widest font-['Space_Grotesk'] mb-1">Database</div>
+<div class="text-sm font-bold uppercase tracking-tighter text-on-surface">POSTGRESQL_v14</div>
+</div>
+<div class="px-6 py-4 bg-surface-container-low border-l-4 border-slate-600">
+<div class="text-[10px] text-slate-600 uppercase tracking-widest font-['Space_Grotesk'] mb-1">Architecture</div>
+<div class="text-sm font-bold uppercase tracking-tighter text-on-surface">DOCKER_SWARM</div>
+</div>
+</div>
+</div>
+<!-- Decorative HUD elements -->
+<div class="absolute right-10 bottom-20 hidden md:block">
+<div class="w-48 h-48 border border-cyan-400/20 rounded-full flex items-center justify-center p-8 animate-pulse">
+<div class="w-full h-full border border-cyan-400/40 rounded-full flex items-center justify-center">
+<div class="w-4 h-4 bg-cyan-400"></div>
+</div>
+</div>
+<div class="text-[10px] text-cyan-400/40 font-mono mt-4 text-center tracking-widest">SERVER_LOAD: 12%</div>
+</div>
+</section>
+<!-- 01_CORE_ARCHITECTURE -->
+<section id="core-infra" class="px-10 py-24 grid grid-cols-1 lg:grid-cols-12 gap-10 bg-surface-container-low">
+<div class="lg:col-span-5 space-y-8">
+<div class="inline-block border-l-4 border-cyan-400 pl-4">
+<h2 class="text-4xl font-headline font-bold text-on-surface tracking-tight uppercase">01_CORE_INFRA</h2>
+<p class="text-cyan-400 text-xs tracking-widest uppercase mt-2">Node.js / Strapi / PostgreSQL</p>
+</div>
+<p class="text-on-surface-variant leading-relaxed font-body text-lg">
+                    The backend utilizes a headless CMS approach for rapid data modeling and content management, paired with a robust PostgreSQL database for persistent player profiles and game session history.
+                </p>
+<div class="space-y-4">
+<div class="flex items-start gap-4 group">
+<span class="text-cyan-400 font-bold font-['Space_Grotesk']">/01</span>
+<div>
+<h4 class="text-on-surface font-bold uppercase text-sm tracking-widest">Real-time Data Sync</h4>
+<p class="text-on-surface-variant text-sm mt-1">WebSocket integration for zero-latency card state propagation across all players.</p>
+</div>
+</div>
+<div class="flex items-start gap-4 group">
+<span class="text-cyan-400 font-bold font-['Space_Grotesk']">/02</span>
+<div>
+<h4 class="text-on-surface font-bold uppercase text-sm tracking-widest">Containerized Scaling</h4>
+<p class="text-on-surface-variant text-sm mt-1">Docker-based deployment ensures consistent performance across Render, Railway, and private servers.</p>
+</div>
+</div>
+</div>
+</div>
+<div class="lg:col-span-7">
+<div class="bg-surface-container-lowest p-6 border border-outline-variant/30 relative shadow-2xl">
+<div class="absolute top-0 left-0 w-2 h-2 bg-cyan-400"></div>
+<div class="flex justify-between items-center mb-4 border-b border-outline-variant/20 pb-4">
+<div class="flex gap-2">
+<div class="w-3 h-3 rounded-full bg-error/40"></div>
+<div class="w-3 h-3 rounded-full bg-tertiary/40"></div>
+<div class="w-3 h-3 rounded-full bg-primary/40"></div>
+</div>
+<div class="text-[10px] text-slate-500 font-mono tracking-widest">FILE: server/services/game-session.js</div>
+</div>
+<pre class="font-mono text-sm leading-relaxed overflow-x-auto text-on-surface/80"><span class="text-cyan-400">async</span> <span class="text-primary">processMatchmaking</span>(playerId) {
+  <span class="text-slate-500">// Efficient matchmaking queue logic</span>
+  <span class="text-cyan-400">const</span> queue = <span class="text-cyan-400">await</span> strapi.service(<span class="text-tertiary">'api::match.queue'</span>).find();
+  
+  <span class="text-cyan-400">if</span> (queue.length >= <span class="text-slate-400">1</span>) {
+    <span class="text-cyan-400">const</span> partner = queue[<span class="text-slate-400">0</span>];
+    <span class="text-cyan-400">return await</span> this.<span class="text-primary">initializeGame</span>(playerId, partner.id);
+  }
+  
+  <span class="text-slate-400">Debug</span>.<span class="text-primary">log</span>(<span class="text-tertiary">"PLAYER_QUEUED: "</span> + playerId);
+}</pre>
+<div class="mt-4 flex justify-between items-center text-[10px] text-cyan-400/40 uppercase tracking-[0.2em]">
+<span>LN: 112 | COL: 08</span>
+<span>UTF-8</span>
+</div>
+</div>
+</div>
+</section>
+<!-- 02_SYSTEM_ARCHITECTURE (Node Graph Style) -->
+<section id="arch-schema" class="px-10 py-24 bg-surface">
+<div class="text-center mb-16">
+<h2 class="text-4xl font-headline font-bold text-on-surface tracking-tight uppercase mb-2">02_ARCH_SCHEMA</h2>
+<div class="w-24 h-1 bg-cyan-400 mx-auto"></div>
+</div>
+<div class="relative max-w-6xl mx-auto h-[500px] flex items-center justify-center">
+<svg class="absolute inset-0 w-full h-full pointer-events-none opacity-20">
+<line stroke="#00D1FF" stroke-width="1" x1="20%" x2="50%" y1="50%" y2="50%"></line>
+<line stroke="#00D1FF" stroke-width="1" x1="50%" x2="80%" y1="50%" y2="50%"></line>
+<line stroke="#00D1FF" stroke-width="1" x1="50%" x2="50%" y1="50%" y2="20%"></line>
+<line stroke="#00D1FF" stroke-width="1" x1="50%" x2="50%" y1="50%" y2="80%"></line>
+</svg>
+<div class="absolute left-[10%] top-[40%] bg-surface-container-high border border-cyan-400/30 p-6 w-56 text-center z-10">
+<div class="text-cyan-400 text-[10px] tracking-widest uppercase mb-2">Request Module</div>
+<div class="text-on-surface font-bold font-['Space_Grotesk'] text-sm">FRONTEND_UPLINK</div>
+</div>
+<div class="absolute right-[10%] top-[40%] bg-surface-container-high border border-cyan-400/30 p-6 w-56 text-center z-10">
+<div class="text-cyan-400 text-[10px] tracking-widest uppercase mb-2">Auth Module</div>
+<div class="text-on-surface font-bold font-['Space_Grotesk'] text-sm">SECURE_JWT</div>
+</div>
+<div class="bg-primary-container/10 border-2 border-cyan-400 p-10 w-72 text-center relative z-20 shadow-[0_0_50px_rgba(0,209,255,0.2)]">
+<div class="text-cyan-400 text-xs tracking-widest uppercase mb-3">Core Backend</div>
+<div class="text-on-surface font-black font-['Space_Grotesk'] text-xl tracking-tighter">STRAPI_NODE_SERV</div>
+<div class="mt-4 flex justify-center gap-2">
+<span class="w-1.5 h-1.5 bg-cyan-400 animate-ping"></span>
+<span class="text-[9px] text-cyan-400 font-mono">CONNECTION_LIVE</span>
+</div>
+</div>
+<div class="absolute left-[40%] top-[10%] bg-surface-container-high border border-cyan-400/30 p-6 w-56 text-center z-10">
+<div class="text-cyan-400 text-[10px] tracking-widest uppercase mb-2">Data Layer</div>
+<div class="text-on-surface font-bold font-['Space_Grotesk'] text-sm">PGSQL_CLUSTER</div>
+</div>
+<div class="absolute left-[40%] bottom-[10%] bg-surface-container-high border border-cyan-400/30 p-6 w-56 text-center z-10">
+<div class="text-cyan-400 text-[10px] tracking-widest uppercase mb-2">Infra Layer</div>
+<div class="text-on-surface font-bold font-['Space_Grotesk'] text-sm">DOCKER_RUNTIME</div>
+</div>
+</div>
+</section>
+<!-- 03_MONITORING_HUB -->
+<section id="monitoring" class="px-10 py-24 bg-surface-container-low border-y border-cyan-400/10">
+<div class="flex flex-col md:flex-row justify-between items-end mb-16 gap-8">
+<div>
+<h2 class="text-4xl font-headline font-bold text-on-surface tracking-tight uppercase mb-2">03_MONITORING_HUB</h2>
+<p class="text-cyan-400 text-xs tracking-widest uppercase">Live performance diagnostics & throughput</p>
+</div>
+<div class="flex gap-4">
+<div class="px-4 py-2 border border-cyan-400/20 bg-cyan-400/5 text-cyan-400 text-[10px] font-mono tracking-widest uppercase">REGION: US-EAST-1</div>
+<div class="px-4 py-2 border border-cyan-400/20 bg-cyan-400/5 text-cyan-400 text-[10px] font-mono tracking-widest uppercase">Uptime: 99.99%</div>
+</div>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+<!-- Latency Metric -->
+<div class="bg-surface-container-lowest p-8 border border-outline-variant/30 relative overflow-hidden group">
+<div class="absolute top-0 left-0 w-full h-1 bg-gradient-to-r from-cyan-400 to-transparent"></div>
+<div class="text-slate-500 text-[10px] uppercase tracking-widest mb-4 font-mono">End-to-End Latency</div>
+<div class="flex items-baseline gap-2 mb-6">
+<span class="text-5xl font-black text-cyan-400 font-headline">24</span>
+<span class="text-cyan-400/60 font-mono text-sm uppercase">ms</span>
+</div>
+<div class="h-16 flex items-end gap-1">
+<div class="w-full bg-cyan-400/20 h-[40%] animate-pulse"></div>
+<div class="w-full bg-cyan-400/20 h-[60%] animate-pulse"></div>
+<div class="w-full bg-cyan-400/40 h-[45%] animate-pulse"></div>
+<div class="w-full bg-cyan-400/20 h-[70%] animate-pulse"></div>
+<div class="w-full bg-cyan-400/60 h-[55%]"></div>
+</div>
+</div>
+<!-- CPU Usage -->
+<div class="bg-surface-container-lowest p-8 border border-outline-variant/30 relative overflow-hidden group">
+<div class="absolute top-0 left-0 w-full h-1 bg-gradient-to-r from-emerald-400 to-transparent"></div>
+<div class="text-slate-500 text-[10px] uppercase tracking-widest mb-4 font-mono">CPU Core Load</div>
+<div class="flex items-baseline gap-2 mb-6">
+<span class="text-5xl font-black text-emerald-400 font-headline">18</span>
+<span class="text-emerald-400/60 font-mono text-sm">%</span>
+</div>
+<div class="space-y-3">
+<div class="h-2 bg-slate-800 w-full relative">
+<div class="absolute left-0 top-0 h-full bg-emerald-400 w-[18%] shadow-[0_0_10px_#34d399]"></div>
+</div>
+<div class="flex justify-between text-[8px] font-mono text-slate-600 tracking-widest uppercase">
+<span>CORE_01</span>
+<span>OPTIMAL</span>
+</div>
+</div>
+</div>
+<!-- Memory Usage -->
+<div class="bg-surface-container-lowest p-8 border border-outline-variant/30 relative overflow-hidden group">
+<div class="absolute top-0 left-0 w-full h-1 bg-gradient-to-r from-amber-400 to-transparent"></div>
+<div class="text-slate-500 text-[10px] uppercase tracking-widest mb-4 font-mono">V8 Heap Memory</div>
+<div class="flex items-baseline gap-2 mb-6">
+<span class="text-5xl font-black text-amber-400 font-headline">512</span>
+<span class="text-amber-400/60 font-mono text-sm uppercase">MB</span>
+</div>
+<div class="flex gap-2">
+<div class="w-1/4 h-8 bg-amber-400/40"></div>
+<div class="w-1/4 h-8 bg-amber-400/20"></div>
+<div class="w-1/4 h-8 bg-amber-400/10"></div>
+<div class="w-1/4 h-8 border border-amber-400/20"></div>
+</div>
+</div>
+</div>
+</section>
+<!-- 04_TRAFFIC_ANALYZER -->
+<section id="traffic" class="px-10 py-24 bg-surface">
+<div class="max-w-6xl mx-auto">
+<div class="inline-block border-l-4 border-cyan-400 pl-4 mb-12">
+<h2 class="text-4xl font-headline font-bold text-on-surface tracking-tight uppercase">04_TRAFFIC_ANALYZER</h2>
+<p class="text-cyan-400 text-xs tracking-widest uppercase mt-2">Real-time WebSocket event Stream</p>
+</div>
+<div class="bg-surface-container-lowest border border-outline-variant/30 font-mono text-xs overflow-hidden shadow-2xl">
+<div class="bg-surface-container-high px-6 py-3 flex justify-between items-center border-b border-outline-variant/30">
+<div class="flex items-center gap-4">
+<span class="w-2 h-2 rounded-full bg-cyan-400 animate-ping"></span>
+<span class="text-on-surface font-bold">LIVE_STREAM_v4.2</span>
+</div>
+<div class="text-slate-500 uppercase">FILTER: [MATCHMAKING, AUTH]</div>
+</div>
+<div class="p-6 space-y-3 h-[400px] overflow-y-auto" id="traffic-logs">
+<div class="flex gap-4 text-slate-500 uppercase">
+<span>[15:24:01]</span>
+<span class="text-cyan-400">INFO</span>
+<span>MATCHMAKING_QUEUE_JOINED: Player_88293</span>
+</div>
+<div class="flex gap-4 text-slate-500 uppercase">
+<span>[15:24:05]</span>
+<span class="text-emerald-400">SUCCESS</span>
+<span>JWT_VERIFIED: Session_X8K2 (User: 102)</span>
+</div>
+<div class="flex gap-4 text-slate-500 uppercase">
+<span>[15:24:12]</span>
+<span class="text-amber-400">WARN</span>
+<span>LATENCY_SPIKE: 142ms detected in Cluster_03</span>
+</div>
+<div class="flex gap-4 text-slate-500 uppercase">
+<span>[15:24:18]</span>
+<span class="text-cyan-400">INFO</span>
+<span>GAME_STATE_SYNC: Match_4492 (Turn: 12)</span>
+</div>
+<div class="flex gap-4 text-slate-400 animate-pulse uppercase">
+<span>[15:24:22]</span>
+<span class="text-cyan-400">EXEC</span>
+<span>PROCESSING_REFRESH_TOKEN...</span>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- Floating Diagnostic HUD -->
+<div class="fixed bottom-20 right-8 z-40 hidden xl:flex flex-col gap-4">
+<div class="bg-black/80 backdrop-blur-xl border border-cyan-400/30 p-4 w-48 shadow-[0_0_30px_rgba(0,209,255,0.1)]">
+<div class="text-[9px] text-cyan-400 font-mono tracking-widest border-b border-cyan-400/20 pb-2 mb-3 flex justify-between uppercase">
+<span>SYS_DIAGNOSTICS</span>
+<span class="animate-pulse">●</span>
+</div>
+<div class="space-y-4">
+<div>
+<div class="flex justify-between text-[8px] text-slate-500 mb-1 uppercase">
+<span>SVR_LOAD</span>
+<span>12.4%</span>
+</div>
+<div class="h-1 bg-slate-800 w-full">
+<div class="h-full bg-cyan-400 w-[12%]"></div>
+</div>
+</div>
+<div>
+<div class="flex justify-between text-[8px] text-slate-500 mb-1 uppercase">
+<span>MEM_USAGE</span>
+<span>44.1%</span>
+</div>
+<div class="h-1 bg-slate-800 w-full">
+<div class="h-full bg-white w-[44%]"></div>
+</div>
+</div>
+</div>
+<div class="mt-4 pt-3 border-t border-cyan-400/20 text-center">
+<span class="text-[8px] text-cyan-400/50 font-mono tracking-[0.3em] uppercase">SECURE_ENCRYPTED</span>
+</div>
+</div>
+<div class="self-end bg-cyan-400 text-black p-2 text-xs cursor-pointer hover:bg-white transition-colors" onclick="window.scrollTo({top: 0, behavior: 'smooth'})">
+<span class="material-symbols-outlined block">arrow_upward</span>
+</div>
+</div>
+</main>
+<footer class="fixed bottom-0 w-full bg-[#1c1b1b]/80 backdrop-blur-lg border-t border-cyan-400/20 flex justify-between items-center px-10 py-3 z-50">
+<div class="font-mono text-[10px] tracking-[0.2em] uppercase text-cyan-400 flex items-center gap-3">
+<span class="w-1.5 h-1.5 rounded-full bg-cyan-400 animate-pulse"></span>
+            SYSTEM STATUS: OPERATIONAL // SYNC: ACTIVE // VERSION: 2.0.4-BETA
+        </div>
+<div class="flex gap-8 items-center">
+<div class="hidden md:flex gap-4 border-r border-cyan-400/10 pr-8 mr-2 font-mono text-[10px] text-slate-500 tracking-widest uppercase">
+<span>52.122.94.1</span>
+<span>NODE_CLUST_4</span>
+</div>
+<a class="font-mono text-[10px] tracking-[0.2em] uppercase text-slate-500 hover:text-cyan-400 transition-colors" href="projects.html">BACK_TO_VAULT</a>
+</div>
+</footer>
+<script>
+    // Handle Side Nav Active States
+    const navLinks = document.querySelectorAll('.nav-link');
+    const sections = ['hero', 'core-infra', 'arch-schema', 'monitoring', 'traffic']; // Added hero
+
+    function updateActiveNav() {
+        let current = "hero";
+        const scrollPos = window.pageYOffset || document.documentElement.scrollTop || document.body.scrollTop;
+        
+        sections.forEach((section) => {
+            const element = document.getElementById(section);
+            if (element && element.offsetTop <= scrollPos + 300) {
+                current = section;
+            }
+        });
+
+        navLinks.forEach((link) => {
+            link.classList.remove('bg-cyan-400/5', 'text-cyan-400', 'border-r-2', 'border-cyan-400');
+            link.classList.add('text-slate-600');
+            
+            const href = link.getAttribute('href').substring(1);
+            if (href === current) {
+                link.classList.add('bg-cyan-400/5', 'text-cyan-400', 'border-r-2', 'border-cyan-400');
+                link.classList.remove('text-slate-600');
+            }
+        });
+    }
+
+    window.addEventListener('scroll', updateActiveNav);
+    window.addEventListener('load', updateActiveNav); // Call on load too
+
+    // Add click event for instant feedback
+    navLinks.forEach(link => {
+       link.addEventListener('click', (e) => {
+          navLinks.forEach(l => {
+              l.classList.remove('bg-cyan-400/5', 'text-cyan-400', 'border-r-2', 'border-cyan-400');
+              l.classList.add('text-slate-600');
+          });
+          link.classList.add('bg-cyan-400/5', 'text-cyan-400', 'border-r-2', 'border-cyan-400');
+          link.classList.remove('text-slate-600');
+       });
+    });
+
+    // Simulated Log updates for Traffic Analyzer
+    const logs = document.querySelector('#traffic-logs');
+    const playerIds = [1292, 4421, 8821, 9902, 3341, 7712];
+    const events = ["MATCH_START", "TURN_SYNC", "TOKEN_REFRESH", "DB_QUERY", "HEARTBEAT"];
+    
+    if (logs) {
+        setInterval(() => {
+            const time = new Date().toLocaleTimeString('en-GB', { hour12: false });
+            const player = playerIds[Math.floor(Math.random() * playerIds.length)];
+            const event = events[Math.floor(Math.random() * events.length)];
+            
+            const logEntry = document.createElement('div');
+            logEntry.className = "flex gap-4 text-slate-500 animate-pulse uppercase";
+            logEntry.innerHTML = `<span>[${time}]</span> <span class="text-cyan-400 text-[10px]">AUTO</span> <span>${event}: Player_${player}</span>`;
+            
+            logs.prepend(logEntry);
+            if (logs.children.length > 15) logs.removeChild(logs.lastChild);
+        }, 4000);
+    }
+</script>
+</body></html>

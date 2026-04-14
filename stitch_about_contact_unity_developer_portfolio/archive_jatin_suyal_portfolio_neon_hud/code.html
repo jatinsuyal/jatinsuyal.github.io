@@ -1,0 +1,339 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>JATIN SUYAL | ARCHIVE_VAULT</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&amp;family=Manrope:wght@300;400;500;600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        "error-container": "#93000a",
+                        "surface-container-high": "#2a2a2c",
+                        "on-surface-variant": "#bac9cc",
+                        "on-tertiary": "#00363d",
+                        "on-error": "#690005",
+                        "tertiary-fixed-dim": "#00daf3",
+                        "on-secondary": "#283500",
+                        "on-secondary-container": "#556d00",
+                        "surface-container-low": "#1c1b1d",
+                        "surface-container": "#201f22",
+                        "surface-variant": "#353437",
+                        "on-background": "#e5e1e4",
+                        "background": "#131315",
+                        "inverse-on-surface": "#313032",
+                        "tertiary-fixed": "#9cf0ff",
+                        "inverse-primary": "#006875",
+                        "secondary-fixed": "#c3f400",
+                        "surface": "#131315",
+                        "error": "#ffb4ab",
+                        "on-tertiary-container": "#00626e",
+                        "outline-variant": "#3b494c",
+                        "surface-container-highest": "#353437",
+                        "primary-container": "#00e5ff",
+                        "primary": "#c3f5ff",
+                        "inverse-surface": "#e5e1e4",
+                        "primary-fixed-dim": "#00daf3",
+                        "tertiary": "#c3f5ff",
+                        "secondary-fixed-dim": "#abd600",
+                        "on-primary-fixed": "#001f24",
+                        "on-surface": "#e5e1e4",
+                        "on-error-container": "#ffdad6",
+                        "surface-bright": "#39393b",
+                        "on-primary-fixed-variant": "#004f58",
+                        "secondary-container": "#c3f400",
+                        "surface-dim": "#131315",
+                        "on-secondary-fixed-variant": "#3c4d00",
+                        "outline": "#849396",
+                        "secondary": "#ffffff",
+                        "surface-tint": "#00daf3",
+                        "on-tertiary-fixed": "#001f24",
+                        "on-primary": "#00363d",
+                        "on-secondary-fixed": "#161e00",
+                        "primary-fixed": "#9cf0ff",
+                        "on-tertiary-fixed-variant": "#004f58",
+                        "tertiary-container": "#00e5ff",
+                        "on-primary-container": "#00626e",
+                        "surface-container-lowest": "#0e0e10"
+                    },
+                    fontFamily: {
+                        "headline": ["Space Grotesk"],
+                        "body": ["Manrope"],
+                        "label": ["Space Grotesk"]
+                    },
+                    borderRadius: {"DEFAULT": "0px", "lg": "0px", "xl": "0px", "full": "9999px"},
+                },
+            },
+        }
+    </script>
+<style>
+        body {
+            background-color: #131315;
+            background-image: radial-gradient(circle at 2px 2px, rgba(0, 229, 255, 0.05) 1px, transparent 0);
+            background-size: 24px 24px;
+        }
+        .scanline {
+            width: 100%;
+            height: 100px;
+            z-index: 99;
+            background: linear-gradient(0deg, rgba(0, 0, 0, 0) 0%, rgba(0, 229, 255, 0.02) 50%, rgba(0, 0, 0, 0) 100%);
+            opacity: 0.1;
+            position: fixed;
+            bottom: 100%;
+            animation: scanline 10s linear infinite;
+        }
+        @keyframes scanline {
+            0% { bottom: 100%; }
+            100% { bottom: -100px; }
+        }
+        .mil-spec-clip {
+            clip-path: polygon(0 0, calc(100% - 8px) 0, 100% 8px, 100% 100%, 0 100%);
+        }
+        .corner-accent::before {
+            content: '';
+            position: absolute;
+            top: 0; left: 0; width: 10px; height: 10px;
+            border-top: 2px solid #00E5FF; border-left: 2px solid #00E5FF;
+        }
+        .corner-accent::after {
+            content: '';
+            position: absolute;
+            bottom: 0; right: 0; width: 10px; height: 10px;
+            border-bottom: 2px solid #00E5FF; border-right: 2px solid #00E5FF;
+        }
+    </style>
+</head>
+<body class="font-body text-on-background selection:bg-primary-container selection:text-on-primary-container overflow-x-hidden">
+<div class="scanline"></div>
+<!-- TopNavBar -->
+<header class="fixed top-0 left-0 w-full z-50 flex justify-between items-center px-6 py-3 bg-[#131315]/60 backdrop-blur-xl border-b border-[#00E5FF]/10 shadow-[0_0_15px_rgba(0,229,255,0.1)]">
+<div class="text-[#00E5FF] font-black tracking-tighter text-xl font-headline">SYSTEM_CORE_v5</div>
+<nav class="hidden md:flex items-center gap-8">
+<a class="text-slate-500 hover:text-[#00E5FF]/80 font-['Space_Grotesk'] tracking-[0.1em] uppercase text-xs font-bold transition-all duration-200" href="#">HOME</a>
+<a class="text-slate-500 hover:text-[#00E5FF]/80 font-['Space_Grotesk'] tracking-[0.1em] uppercase text-xs font-bold transition-all duration-200" href="#">DOSSIER</a>
+<a class="text-[#00E5FF] border-b-2 border-[#00E5FF] pb-1 font-['Space_Grotesk'] tracking-[0.1em] uppercase text-xs font-bold transition-all duration-200" href="#">ARCHIVE</a>
+<a class="text-slate-500 hover:text-[#00E5FF]/80 font-['Space_Grotesk'] tracking-[0.1em] uppercase text-xs font-bold transition-all duration-200" href="#">COMMS</a>
+</nav>
+<button class="mil-spec-clip bg-primary-container text-on-primary px-4 py-2 font-headline text-xs font-bold tracking-widest hover:brightness-110 active:scale-95 transition-all">
+            INITIATE_UPLINK
+        </button>
+</header>
+<main class="pt-24 pb-20 px-6 max-w-7xl mx-auto">
+<!-- Dashboard Header -->
+<div class="mb-12 flex flex-col md:flex-row justify-between items-end border-l-4 border-primary-container pl-6 py-2">
+<div>
+<p class="font-label text-primary-container text-[10px] tracking-[0.2em] mb-1">LOCAL_PATH: ROOT/VAULT/PROJECTS</p>
+<h1 class="font-headline text-4xl md:text-6xl font-bold tracking-tight text-white uppercase">Archive Vault</h1>
+</div>
+<div class="text-right mt-4 md:mt-0">
+<p class="font-label text-outline text-[10px] tracking-widest">SYSTEM_STATUS // ENCRYPTED_STORAGE</p>
+<p class="font-label text-secondary-container text-xs font-bold">5 ACTIVE_ENTRIES_FOUND</p>
+</div>
+</div>
+<!-- Project Grid -->
+<div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+<!-- Project 1: Construction VR -->
+<div class="group relative bg-surface-container-low border border-outline-variant/20 overflow-hidden hover:border-primary-container/40 transition-all duration-500">
+<div class="aspect-video overflow-hidden">
+<img alt="Construction VR" class="w-full h-full object-cover grayscale group-hover:grayscale-0 group-hover:scale-105 transition-all duration-700" data-alt="Technical VR simulation of a construction site with high-fidelity safety equipment and realistic lighting architecture" src="https://lh3.googleusercontent.com/aida-public/AB6AXuD9p3Sx9MwRTbI9peD8aqezwkVRP26QAgDAlfH6ZI8i9ARbNl2Mng9YX0N3zT5EtuchRCm8_jFIdgaE0ZzzrIS2glpb1Kw5Ve6-swroK2Ddmhrmayqrk3zOMkgbX0mfsPrwjijTfQQAfYMzxY33M6z3PeeczTkkpDeMhuawkBAKAlLv727ozkzWDvBmHD3RpOlRNZtl9TpzmQIPRhpNYn_Z_IDS6rIqYuNAG9M4-2rq7I2m4GhweQNYlJma5oz_a76w8OBdCi5sFGwb"/>
+</div>
+<div class="p-6 relative">
+<div class="flex justify-between items-start mb-4">
+<span class="font-label text-[10px] text-primary-container tracking-widest uppercase bg-primary-container/10 px-2 py-0.5">SIMULATION_VR</span>
+<span class="font-label text-[10px] text-outline">ID_2024_01</span>
+</div>
+<h3 class="font-headline text-xl font-bold text-white mb-2 uppercase">Construction VR</h3>
+<p class="text-on-surface-variant text-sm mb-6 leading-relaxed">Immersive safety training module for heavy industrial operations and site management.</p>
+<!-- Metadata HUD (Visible on Hover) -->
+<div class="absolute inset-x-0 bottom-0 p-6 bg-surface-container-highest/95 backdrop-blur-md translate-y-full group-hover:translate-y-0 transition-transform duration-300 border-t border-primary-container/20">
+<div class="grid grid-cols-2 gap-4 mb-4">
+<div>
+<p class="font-label text-[8px] text-outline tracking-widest uppercase">Engine</p>
+<p class="font-headline text-xs text-secondary-container font-bold">UNITY 2022.3 LTS</p>
+</div>
+<div>
+<p class="font-label text-[8px] text-outline tracking-widest uppercase">Platform</p>
+<p class="font-headline text-xs text-primary-container font-bold">OCULUS QUEST 3</p>
+</div>
+<div class="col-span-2">
+<p class="font-label text-[8px] text-outline tracking-widest uppercase">Core Tech</p>
+<p class="font-headline text-[10px] text-white">SPATIAL_MAPPING, PHYSICS_INTERACTION</p>
+</div>
+</div>
+<button class="w-full mil-spec-clip bg-primary-container text-on-primary py-2 font-headline text-[10px] font-black tracking-[0.2em] hover:brightness-110 active:scale-95">LEARN MORE</button>
+</div>
+<!-- Static Button (Hidden on Hover) -->
+<button class="w-full border border-outline-variant py-2 font-headline text-[10px] font-bold tracking-[0.2em] group-hover:opacity-0 transition-opacity uppercase">Learn More</button>
+</div>
+</div>
+<!-- Project 2: Metaverse Platform -->
+<div class="group relative bg-surface-container-low border border-outline-variant/20 overflow-hidden hover:border-primary-container/40 transition-all duration-500">
+<div class="aspect-video overflow-hidden">
+<img alt="Metaverse Platform" class="w-full h-full object-cover grayscale group-hover:grayscale-0 group-hover:scale-105 transition-all duration-700" data-alt="Futuristic digital cityscape representing a metaverse environment with glowing neon structural grids and holographic interfaces" src="https://lh3.googleusercontent.com/aida-public/AB6AXuA2StA4EHRyF0Eh26lkidIc0nhVyytlckUUDyZPWVzxXgxScJDPFieh_yCaHFhcUb_OVundPCH5QxMW_BRVTZv5lm5iExqDnUfZU8rqMHz2p7WK19ao_wo7InnC-gukBZuK3rXy_Calkyi226RpMYXW8O54kxuwDb0xtmRR1GC9zEFx8B_fugSm4DOsWH8GDoq5_DY2sBAuoo5NFvvIWcpKqDJk5weNyHm7ZBhmoLdhoUjAtySwVafE-hRco-Q8fpQRHS_3Ec8-Pyos"/>
+</div>
+<div class="p-6 relative">
+<div class="flex justify-between items-start mb-4">
+<span class="font-label text-[10px] text-primary-container tracking-widest uppercase bg-primary-container/10 px-2 py-0.5">VIRTUAL_ECONOMY</span>
+<span class="font-label text-[10px] text-outline">ID_2024_02</span>
+</div>
+<h3 class="font-headline text-xl font-bold text-white mb-2 uppercase">Metaverse Platform</h3>
+<p class="text-on-surface-variant text-sm mb-6 leading-relaxed">Large-scale social integration hub with real-time economic transaction layers.</p>
+<div class="absolute inset-x-0 bottom-0 p-6 bg-surface-container-highest/95 backdrop-blur-md translate-y-full group-hover:translate-y-0 transition-transform duration-300 border-t border-primary-container/20">
+<div class="grid grid-cols-2 gap-4 mb-4">
+<div>
+<p class="font-label text-[8px] text-outline tracking-widest uppercase">Engine</p>
+<p class="font-headline text-xs text-secondary-container font-bold">UNREAL ENGINE 5</p>
+</div>
+<div>
+<p class="font-label text-[8px] text-outline tracking-widest uppercase">Platform</p>
+<p class="font-headline text-xs text-primary-container font-bold">CROSS-PLATFORM</p>
+</div>
+<div class="col-span-2">
+<p class="font-label text-[8px] text-outline tracking-widest uppercase">Core Tech</p>
+<p class="font-headline text-[10px] text-white">BLOCKCHAIN_LEDGER, PERSISTENT_WORLDS</p>
+</div>
+</div>
+<button class="w-full mil-spec-clip bg-primary-container text-on-primary py-2 font-headline text-[10px] font-black tracking-[0.2em] hover:brightness-110 active:scale-95">LEARN MORE</button>
+</div>
+<button class="w-full border border-outline-variant py-2 font-headline text-[10px] font-bold tracking-[0.2em] group-hover:opacity-0 transition-opacity uppercase">Learn More</button>
+</div>
+</div>
+<!-- Project 3: Project Superfun -->
+<div class="group relative bg-surface-container-low border border-outline-variant/20 overflow-hidden hover:border-primary-container/40 transition-all duration-500 lg:row-span-1">
+<div class="aspect-video overflow-hidden">
+<img alt="Project Superfun" class="w-full h-full object-cover grayscale group-hover:grayscale-0 group-hover:scale-105 transition-all duration-700" data-alt="Vibrant stylized game environment with playful character models and high-energy visual effects in a park setting" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBaJVQBaeMBgh3512putdaoBG_pCRtdbu7MAUl273TnZFbC5ZpwH5VcNtjs2iodoQKGMnAFe2Zm1y2o4u8zeX8hPTZH0kmXSZzs19LrUki7frMCN-McmtjIug_EQAFUachTEI89CQup4gFrLl27s2DSSLehdTeQmIzQ8-uJRGdt3ZgXeEVsI5PwVMgpIKvHtqmrH0ukowNDnQHCU45hfmFk3ejjZV7H657Z_fTgTfibSS2GLa5vxlNyPHbK_kgFtSdNP3-8og10UyH3"/>
+</div>
+<div class="p-6 relative">
+<div class="flex justify-between items-start mb-4">
+<span class="font-label text-[10px] text-primary-container tracking-widest uppercase bg-primary-container/10 px-2 py-0.5">GAMEPLAY_EXP</span>
+<span class="font-label text-[10px] text-outline">ID_2023_04</span>
+</div>
+<h3 class="font-headline text-xl font-bold text-white mb-2 uppercase">Project Superfun</h3>
+<p class="text-on-surface-variant text-sm mb-6 leading-relaxed">Fast-paced arcade mechanic prototype focusing on tactile player feedback loop.</p>
+<div class="absolute inset-x-0 bottom-0 p-6 bg-surface-container-highest/95 backdrop-blur-md translate-y-full group-hover:translate-y-0 transition-transform duration-300 border-t border-primary-container/20">
+<div class="grid grid-cols-2 gap-4 mb-4">
+<div>
+<p class="font-label text-[8px] text-outline tracking-widest uppercase">Engine</p>
+<p class="font-headline text-xs text-secondary-container font-bold">UNITY URP</p>
+</div>
+<div>
+<p class="font-label text-[8px] text-outline tracking-widest uppercase">Platform</p>
+<p class="font-headline text-xs text-primary-container font-bold">PC / CONSOLE</p>
+</div>
+<div class="col-span-2">
+<p class="font-label text-[8px] text-outline tracking-widest uppercase">Core Tech</p>
+<p class="font-headline text-[10px] text-white">CUSTOM_SHADERS, JUICE_MECHANICS</p>
+</div>
+</div>
+<button class="w-full mil-spec-clip bg-primary-container text-on-primary py-2 font-headline text-[10px] font-black tracking-[0.2em] hover:brightness-110 active:scale-95">LEARN MORE</button>
+</div>
+<button class="w-full border border-outline-variant py-2 font-headline text-[10px] font-bold tracking-[0.2em] group-hover:opacity-0 transition-opacity uppercase">Learn More</button>
+</div>
+</div>
+<!-- Project 4: Road Safety VR -->
+<div class="group relative bg-surface-container-low border border-outline-variant/20 overflow-hidden hover:border-primary-container/40 transition-all duration-500">
+<div class="aspect-video overflow-hidden">
+<img alt="Road Safety VR" class="w-full h-full object-cover grayscale group-hover:grayscale-0 group-hover:scale-105 transition-all duration-700" data-alt="Virtual reality driving simulation showing traffic patterns and hazardous road conditions for safety training" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDdNYd3lFE1JONHppG4n0c9TwV2eVCbX2bXuDbeIOprugacZrJLv3KCxFC2ybLAQTA9gTG8ZPIwo0Rpu92Hnfh-Ji3kYIbegPrhAuZ_yL8sf_QTvjk0iKqu5SmdepXgA1g7vLhpQS_i3seKivWX-aLivuU_mafb3pqvLLzSqLLF2kNkommmCWCDwNdoksYaB_shwaZ_RaClI--KTGT2KYzQpE14r8uExrpXQl5F4v0SFa1FgR-MyCLmdUVotETz1Eu1tqX75nMALJMV"/>
+</div>
+<div class="p-6 relative">
+<div class="flex justify-between items-start mb-4">
+<span class="font-label text-[10px] text-primary-container tracking-widest uppercase bg-primary-container/10 px-2 py-0.5">TRAINING_ED</span>
+<span class="font-label text-[10px] text-outline">ID_2023_08</span>
+</div>
+<h3 class="font-headline text-xl font-bold text-white mb-2 uppercase">Road Safety VR</h3>
+<p class="text-on-surface-variant text-sm mb-6 leading-relaxed">Urban traffic hazard identification system for novice drivers and logistics staff.</p>
+<div class="absolute inset-x-0 bottom-0 p-6 bg-surface-container-highest/95 backdrop-blur-md translate-y-full group-hover:translate-y-0 transition-transform duration-300 border-t border-primary-container/20">
+<div class="grid grid-cols-2 gap-4 mb-4">
+<div>
+<p class="font-label text-[8px] text-outline tracking-widest uppercase">Engine</p>
+<p class="font-headline text-xs text-secondary-container font-bold">UNITY 2021.3</p>
+</div>
+<div>
+<p class="font-label text-[8px] text-outline tracking-widest uppercase">Platform</p>
+<p class="font-headline text-xs text-primary-container font-bold">QUEST / VIVE</p>
+</div>
+<div class="col-span-2">
+<p class="font-label text-[8px] text-outline tracking-widest uppercase">Core Tech</p>
+<p class="font-headline text-[10px] text-white">AI_TRAFFIC, SENSORY_FEEDBACK</p>
+</div>
+</div>
+<button class="w-full mil-spec-clip bg-primary-container text-on-primary py-2 font-headline text-[10px] font-black tracking-[0.2em] hover:brightness-110 active:scale-95">LEARN MORE</button>
+</div>
+<button class="w-full border border-outline-variant py-2 font-headline text-[10px] font-bold tracking-[0.2em] group-hover:opacity-0 transition-opacity uppercase">Learn More</button>
+</div>
+</div>
+<!-- Project 5: Space Mission -->
+<div class="group relative bg-surface-container-low border border-outline-variant/20 overflow-hidden hover:border-primary-container/40 transition-all duration-500 lg:col-span-2">
+<div class="aspect-[21/9] overflow-hidden">
+<img alt="Space Mission" class="w-full h-full object-cover grayscale group-hover:grayscale-0 group-hover:scale-105 transition-all duration-700" data-alt="Cinematic wide view of a spacecraft approaching a massive orbital station with dynamic starfields and particle thrusters" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCIYok4BTwNqRkbG9Bdov4aWO-1cUFzfK6cORI2k5G4d-GtW1dyFwHLN7gCj7FsN1RCyVGnRfkuu-9seOtwYaHsDhH_FBsRp3RAfy2jNJtRvdhu91x95NBggiFaFG4rx3WmI36gYZsE1Byob40rWG23jppkvAlOi-BIKRd7_6pFXBFuervrjgoUaqsE9akedbZXpNI_sJdqWhmhDG-higAtjnRlORI55N45dXkA5Jr31yhxZrnPlepksBzyl6Z4JDk7DB1l1kxKPJhq"/>
+</div>
+<div class="p-6 relative flex flex-col md:flex-row md:items-center justify-between">
+<div>
+<div class="flex items-center gap-4 mb-4">
+<span class="font-label text-[10px] text-primary-container tracking-widest uppercase bg-primary-container/10 px-2 py-0.5">MULTIPLAYER_XP</span>
+<span class="font-label text-[10px] text-outline">ID_2025_EXP</span>
+</div>
+<h3 class="font-headline text-2xl font-bold text-white mb-2 uppercase">Space Mission</h3>
+<p class="text-on-surface-variant text-sm mb-4 leading-relaxed max-w-lg">Advanced multiplayer orbital mechanics and zero-G navigation suite prototype.</p>
+</div>
+<div class="md:w-64">
+<button class="w-full mil-spec-clip bg-secondary-container text-on-secondary py-3 font-headline text-xs font-black tracking-[0.2em] hover:brightness-110 active:scale-95 transition-all">DECRYPT_DATA</button>
+</div>
+<div class="absolute inset-x-0 bottom-0 p-6 bg-surface-container-highest/95 backdrop-blur-md translate-y-full group-hover:translate-y-0 transition-transform duration-300 border-t border-primary-container/20">
+<div class="flex flex-wrap gap-8 items-center justify-between">
+<div class="flex gap-8">
+<div>
+<p class="font-label text-[8px] text-outline tracking-widest uppercase">Engine</p>
+<p class="font-headline text-xs text-secondary-container font-bold">UNITY DOTS</p>
+</div>
+<div>
+<p class="font-label text-[8px] text-outline tracking-widest uppercase">Network</p>
+<p class="font-headline text-xs text-primary-container font-bold">PHOTON FUSION</p>
+</div>
+<div>
+<p class="font-label text-[8px] text-outline tracking-widest uppercase">Core Tech</p>
+<p class="font-headline text-[10px] text-white">ORBITAL_PHYSICS, SERVER_AUTH</p>
+</div>
+</div>
+<button class="mil-spec-clip bg-primary-container text-on-primary px-8 py-2 font-headline text-[10px] font-black tracking-[0.2em] hover:brightness-110 active:scale-95">INITIATE_SESSION</button>
+</div>
+</div>
+</div>
+</div>
+</div>
+</main>
+<!-- Telemetry Log -->
+<div class="fixed bottom-16 left-6 z-40 hidden lg:block">
+<div class="bg-surface-container-lowest/80 border-l border-primary-container p-3 backdrop-blur-md max-w-xs">
+<div class="flex items-center gap-2 mb-2">
+<div class="w-1 h-1 rounded-full bg-primary-container animate-pulse"></div>
+<p class="font-label text-[8px] text-primary-container tracking-widest">LIVE_TELEMETRY</p>
+</div>
+<div class="space-y-1">
+<p class="font-label text-[8px] text-outline">VAULT_LOADED ... SUCCESS</p>
+<p class="font-label text-[8px] text-outline">ASSETS_SYNCED ... 100%</p>
+<p class="font-label text-[8px] text-secondary-container">USER_IDENTIFIED: JATIN_SUYAL</p>
+</div>
+</div>
+</div>
+<!-- Footer -->
+<footer class="w-full px-6 py-4 flex justify-between items-center border-l-4 border-[#CCFF00] bg-[#131315] relative">
+<div class="flex items-center gap-4">
+<div class="text-[#CCFF00] font-bold font-['Space_Grotesk'] text-[10px] tracking-widest uppercase">© 2026 JATIN SUYAL</div>
+<div class="h-4 w-[1px] bg-slate-800"></div>
+<div class="text-slate-600 font-['Space_Grotesk'] text-[10px] tracking-widest uppercase">VERSION_4.0.2</div>
+</div>
+<div class="flex gap-6">
+<a class="text-slate-600 hover:text-[#CCFF00] font-['Space_Grotesk'] text-[10px] tracking-widest uppercase transition-all duration-200" href="#">GITHUB</a>
+<a class="text-slate-600 hover:text-[#CCFF00] font-['Space_Grotesk'] text-[10px] tracking-widest uppercase transition-all duration-200" href="#">LINKEDIN</a>
+</div>
+<!-- Corner Accents for Footer -->
+<div class="absolute bottom-0 right-0 w-2 h-2 border-b border-r border-[#CCFF00]/30"></div>
+</footer>
+</body></html>

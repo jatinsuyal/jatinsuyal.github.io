@@ -1,0 +1,242 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Public+Sans:wght@300;400;600;700;800&amp;family=Space+Grotesk:wght@300;400;500;600;700&amp;family=Manrope:wght@300;400;500;600;700;800&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            colors: {
+              surface: "#FFFFFF",
+              "surface-variant": "#F1F5F9",
+              primary: "#0EA5E9",
+              "on-primary": "#FFFFFF",
+              "primary-container": "#E0F2FE",
+              "on-primary-container": "#0369A1",
+              secondary: "#64748B",
+              outline: "#E2E8F0",
+            },
+            fontFamily: {
+              "headline": ["Public Sans", "sans-serif"],
+              "body": ["Public Sans", "sans-serif"],
+              "label": ["Public Sans", "sans-serif"],
+              "mono": ["Space Grotesk", "monospace"],
+            },
+            borderRadius: {"DEFAULT": "0.25rem", "lg": "0.5rem", "xl": "0.75rem", "full": "9999px"},
+          },
+        },
+      }
+    </script>
+<style>
+      .material-symbols-outlined {
+        font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+      }
+      .glass-panel {
+        background: rgba(255, 255, 255, 0.7);
+        backdrop-filter: blur(12px);
+        -webkit-backdrop-filter: blur(12px);
+      }
+      .scanline {
+        background: linear-gradient(to bottom, transparent 50%, rgba(14, 165, 233, 0.05) 50%);
+        background-size: 100% 4px;
+      }
+    </style>
+</head>
+<body class="bg-white text-slate-900 font-body selection:bg-primary selection:text-white">
+<!-- TopNavBar -->
+<nav class="fixed top-0 w-full border-b border-white/10 bg-surface-variant/60 backdrop-blur-xl z-50 shadow-[0_20px_50px_rgba(0,209,255,0.04)] flex justify-between items-center w-full px-8 py-4 h-16">
+<div class="text-xl font-bold tracking-tighter text-cyan-400 font-['Space_Grotesk']">UNITY_DEV_PORTFOLIO</div>
+<div class="hidden md:flex space-x-8">
+<a class="font-['Space_Grotesk'] uppercase tracking-widest text-sm text-white/70 hover:text-white transition-colors" href="#">Home</a>
+<a class="font-['Space_Grotesk'] uppercase tracking-widest text-sm text-cyan-400 border-b-2 border-cyan-400 pb-1" href="#">Projects</a>
+<a class="font-['Space_Grotesk'] uppercase tracking-widest text-sm text-white/70 hover:text-white transition-colors" href="#">About</a>
+<a class="font-['Space_Grotesk'] uppercase tracking-widest text-sm text-white/70 hover:text-white transition-colors" href="#">Contact</a>
+</div>
+<button class="px-6 py-2 bg-cyan-400 text-slate-950 font-['Space_Grotesk'] uppercase text-xs font-bold tracking-widest hover:bg-cyan-300 transition-all duration-300 active:scale-95">
+            Initiate Connection
+        </button>
+</nav>
+<main class="pt-16">
+<!-- Hero Section: Cinematic Gameplay -->
+<section class="relative h-[819px] w-full overflow-hidden bg-slate-950">
+<img class="w-full h-full object-cover opacity-60 mix-blend-luminosity" data-alt="cinematic widescreen capture of a futuristic cyberpunk city with neon blue lights and flying vehicles in a high-fidelity game engine environment" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAaHJtwLCEP2jjuCklvCnJo3u6oaKMp_rYjxsVprlNDgvHpkn3gbIGoJpJP44s0NrXLFW5dNi-UQO0lxH8XzrI5fpZUU7rL0y9yxyxpUcPlBsOM_YI9-KMmR_DwK4XrWFG0OIYh48OKpcQwPjnsFol0_fQ-nxzVJWb3JK0-ysGeZjJ9EJ43-PlY6p8b4Ia6BrYtYCdVT92_Fz30u66V-OUqjq1DBQfKkoHDbtX_QZsL31OEotH_1EHcxU832ifn1P0z4ruf99JQ60P-"/>
+<div class="absolute inset-0 bg-gradient-to-t from-slate-950 via-transparent to-transparent"></div>
+<div class="absolute inset-0 scanline pointer-events-none"></div>
+<div class="absolute bottom-0 left-0 w-full p-12 flex flex-col items-start max-w-7xl mx-auto">
+<span class="font-mono text-cyan-400 mb-4 tracking-widest text-sm bg-cyan-400/10 px-3 py-1 border border-cyan-400/20">CASE_STUDY_047</span>
+<h1 class="text-6xl md:text-8xl font-black text-white tracking-tighter leading-none mb-6">PROJECT <span class="text-cyan-400">SUPERFUN</span></h1>
+<p class="text-xl text-slate-300 max-w-2xl font-light leading-relaxed">
+                    A technical deep dive into next-generation real-time synchronization, custom shader graphs, and memory optimization for large-scale interactive environments.
+                </p>
+</div>
+</section>
+<!-- Content Grid -->
+<div class="max-w-7xl mx-auto px-8 py-24 space-y-32">
+<!-- 01_OVERVIEW & Engineering Challenges -->
+<section class="grid grid-cols-1 md:grid-cols-12 gap-12">
+<div class="md:col-span-4 sticky top-24 self-start">
+<h2 class="font-mono text-2xl font-bold border-l-4 border-cyan-400 pl-4 mb-8">01_OVERVIEW</h2>
+<p class="text-slate-600 leading-relaxed mb-6">
+                        Superfun required a paradigm shift in how we handle concurrent entity updates across distributed client instances. The goal was 100% visual parity with sub-50ms latency.
+                    </p>
+<div class="space-y-4">
+<div class="p-4 bg-slate-50 border border-slate-200">
+<span class="block text-[10px] font-mono text-slate-400 uppercase">Status</span>
+<span class="text-sm font-bold text-slate-800">STABLE // PRODUCTION_READY</span>
+</div>
+<div class="p-4 bg-slate-50 border border-slate-200">
+<span class="block text-[10px] font-mono text-slate-400 uppercase">Engine</span>
+<span class="text-sm font-bold text-slate-800">UNITY 2023.2 LTS // HDRP</span>
+</div>
+</div>
+</div>
+<div class="md:col-span-8 space-y-12">
+<div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+<div class="aspect-square bg-slate-100 group overflow-hidden relative border border-slate-200">
+<img class="w-full h-full object-cover grayscale group-hover:grayscale-0 transition-all duration-700" data-alt="high-tech computer circuit board with glowing blue light paths showing complex electronic architecture" src="https://lh3.googleusercontent.com/aida-public/AB6AXuB1zhiMmVjjDLYwGw9wlQoCtxsGIXcV1WhcIEX78LG2mGnB1OxdcLhprALE32xnzNKVhOakW6NU4bZMaSyTYfmZXgOr07WY4m8G89js9MiVz5cmzMepr8TIJNJMiLvk1ivg_Fo5IyN74RSxd3gF3akSLz6KTsWhwQyoNVCzGiS6u3hTFBEIaUMzdJg0j38mNqUCuQ5gcbp1ru7rrlH7GV4Q_LBioUVrwEM5d8OjAXpLEMebIQqzLphRn_10jbcS8nKRsBXHUv3qV2Hb"/>
+<div class="absolute bottom-4 left-4 right-4 bg-white/90 p-4 backdrop-blur-md">
+<h4 class="font-mono text-xs font-bold text-cyan-600 mb-1">MODULE_A</h4>
+<p class="text-xs text-slate-600 uppercase tracking-tight">Real-time dynamic mesh deformation logic</p>
+</div>
+</div>
+<div class="aspect-square bg-slate-100 group overflow-hidden relative border border-slate-200">
+<img class="w-full h-full object-cover grayscale group-hover:grayscale-0 transition-all duration-700" data-alt="abstract close up of fiber optic cables glowing with blue and purple data transmission light" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDI7gULBiXrF4ze4-GKvp61G4OnPYPkAehEAIWwSyDR5umPRACbUELzPYzwj5G2B7In3kvqVmllNPpYoNty3eFczLoVjFvxXWxCtt6VHX_ZoVRyajo_wpzoNCv_rl4JcusiPPg_36j0QCHXJNGu2-IkRoFH6aEhgvxGAo0BsVi4X3EX_xxclAT5RhiHKXpd4RTmQM8YOm6j0VPMcwxs9G3r7M0x7znFEa6Sah1TIzn4VY2p_v4yTsh5hWQ_h0FVGGlCDTAZnJhjC4u6"/>
+<div class="absolute bottom-4 left-4 right-4 bg-white/90 p-4 backdrop-blur-md">
+<h4 class="font-mono text-xs font-bold text-cyan-600 mb-1">MODULE_B</h4>
+<p class="text-xs text-slate-600 uppercase tracking-tight">Low-latency UDP packet prioritization</p>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- 02_TECHNICAL_ARCHITECTURE -->
+<section class="space-y-12">
+<div class="flex flex-col md:flex-row md:items-end justify-between gap-6">
+<h2 class="font-mono text-2xl font-bold border-l-4 border-cyan-400 pl-4">02_TECHNICAL_ARCHITECTURE</h2>
+<span class="font-mono text-xs text-slate-400 bg-slate-100 px-4 py-2 border border-slate-200">REF_ID: SYNC_LOGIC_V4</span>
+</div>
+<div class="bg-slate-950 p-8 md:p-16 relative overflow-hidden">
+<div class="absolute top-0 right-0 p-4 opacity-20">
+<span class="material-symbols-outlined text-cyan-400 text-9xl">hub</span>
+</div>
+<div class="relative z-10 grid grid-cols-1 md:grid-cols-3 gap-12">
+<div class="space-y-4">
+<div class="w-12 h-12 rounded-full border border-cyan-400 flex items-center justify-center">
+<span class="material-symbols-outlined text-cyan-400">cloud_sync</span>
+</div>
+<h3 class="font-mono text-lg text-white">SYSTEM_SYNC</h3>
+<p class="text-slate-400 text-sm leading-relaxed">Our proprietary sync logic utilizes deterministic lockstep for physics calculations combined with state-interpolation for cosmetic updates.</p>
+</div>
+<div class="space-y-4">
+<div class="w-12 h-12 rounded-full border border-cyan-400 flex items-center justify-center">
+<span class="material-symbols-outlined text-cyan-400">memory</span>
+</div>
+<h3 class="font-mono text-lg text-white">MEMORY_ALLOC</h3>
+<p class="text-slate-400 text-sm leading-relaxed">Custom pooling system for all projectile and VFX entities, reducing GC pressure to near-zero levels during peak gameplay.</p>
+</div>
+<div class="space-y-4">
+<div class="w-12 h-12 rounded-full border border-cyan-400 flex items-center justify-center">
+<span class="material-symbols-outlined text-cyan-400">terminal</span>
+</div>
+<h3 class="font-mono text-lg text-white">THREAD_MGMT</h3>
+<p class="text-slate-400 text-sm leading-relaxed">Asynchronous loading of world chunks using C# Job System and Burst Compiler for maximum throughput.</p>
+</div>
+</div>
+</div>
+</section>
+<!-- 03_PERFORMANCE_BENCHMARKS -->
+<section class="space-y-12">
+<h2 class="font-mono text-2xl font-bold border-l-4 border-cyan-400 pl-4">03_PERFORMANCE_BENCHMARKS</h2>
+<div class="grid grid-cols-1 md:grid-cols-4 gap-1">
+<div class="bg-cyan-500 p-8 flex flex-col justify-between aspect-square md:aspect-auto">
+<span class="font-mono text-xs text-slate-900/60 uppercase">Target_Frame_Rate</span>
+<div class="space-y-2">
+<span class="text-6xl font-black text-slate-950 block">60</span>
+<span class="text-sm font-mono text-slate-950 uppercase tracking-widest">FPS_STABLE</span>
+</div>
+</div>
+<div class="bg-slate-900 p-8 flex flex-col justify-between text-white aspect-square md:aspect-auto">
+<span class="font-mono text-xs text-white/40 uppercase">Memory_Footprint</span>
+<div class="space-y-2">
+<span class="text-6xl font-black text-white block">-40%</span>
+<span class="text-sm font-mono text-cyan-400 uppercase tracking-widest">REDUCTION</span>
+</div>
+</div>
+<div class="bg-slate-100 p-8 flex flex-col justify-between border border-slate-200 aspect-square md:aspect-auto">
+<span class="font-mono text-xs text-slate-400 uppercase">Input_Latency</span>
+<div class="space-y-2">
+<span class="text-6xl font-black text-slate-950 block">8ms</span>
+<span class="text-sm font-mono text-slate-400 uppercase tracking-widest">AVG_RESPONSE</span>
+</div>
+</div>
+<div class="bg-slate-100 p-8 flex flex-col justify-between border border-slate-200 aspect-square md:aspect-auto">
+<span class="font-mono text-xs text-slate-400 uppercase">Asset_Load</span>
+<div class="space-y-2">
+<span class="text-6xl font-black text-slate-950 block">1.2s</span>
+<span class="text-sm font-mono text-slate-400 uppercase tracking-widest">CHUNK_STREAM</span>
+</div>
+</div>
+</div>
+</section>
+<!-- 04_INTERFACE_DESIGN -->
+<section class="space-y-12">
+<div class="flex items-center justify-between">
+<h2 class="font-mono text-2xl font-bold border-l-4 border-cyan-400 pl-4">04_INTERFACE_DESIGN</h2>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-2 gap-12">
+<div class="space-y-6">
+<h3 class="font-mono text-xs font-bold uppercase tracking-[0.2em] text-cyan-600">Shader_Graph_Details</h3>
+<div class="p-1 border border-slate-200 bg-white">
+<img class="w-full aspect-video object-cover" data-alt="close-up of a high-tech node-based visual programming interface with complex connecting lines and data nodes" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAeKsRKn-evCQai-cWGNNwcNvr0hGMfmp65BRnFDUk1pWt3SJdjyqAFlOzaq8hEclEhjV3sVMSd_tLpDsTMXQCQ7qGa-i7RcdBBPAZNoiY60VZ5znD4Poqb3cGYk2OiQ_Zw6waWyr0MQY-ZgtAjiDj4wOK6r80oJgK_lzsVNeo2-Pqs3sFAcOxBrAGb60O2lk5C2uSgkN0qsZwy9FvcObIc-Y-P1wbrMpF5m9vhhhU62v30iu556oImJY5SBLqmSKGhbAn5OVht9lbs"/>
+</div>
+<p class="text-sm text-slate-500 italic">Custom PBR shader implementation with dynamic weather wear-and-tear parameters.</p>
+</div>
+<div class="space-y-6">
+<h3 class="font-mono text-xs font-bold uppercase tracking-[0.2em] text-cyan-600">Wireframe_Architectures</h3>
+<div class="p-1 border border-slate-200 bg-white">
+<img class="w-full aspect-video object-cover" data-alt="white line-art wireframe of a user interface layout on a dark blue background showing technical structure" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAgwFJOxtldzdxq12XuUBWOQZjmAWjziw74UkJpbvwb-ue3vrFfR_WeDNvMxZ0jg33_0JSDt0HWkHsqFh7wojkw0MevfzimLsfLvN9uqZ5rIGFwD0uWNYmHeFlHQ5Tv2xNFYxJsNFPCRnhQpWGWdfFIjeTivgvzuznjMoMkfZ0vK7CxtGw3a0scLctnMsnQGVeyZlXTh_-5cGuE49ArJH8j9NNinfuoteSOLPrZQYpLKQ-vMBEDRiQxVkzjtVcd69-DwITQeHg_qd7x"/>
+</div>
+<p class="text-sm text-slate-500 italic">Minimalist HUD design focusing on data hierarchy and peripheral vision awareness.</p>
+</div>
+</div>
+</section>
+<!-- CTA Section -->
+<section class="py-24 border-t-2 border-slate-900 text-center space-y-8">
+<h2 class="text-4xl md:text-6xl font-black tracking-tight uppercase leading-tight">
+                    NEXT GEN SYSTEMS ARE <br/>
+<span class="text-cyan-500">JUST THE BEGINNING</span>
+</h2>
+<div class="flex flex-col md:flex-row items-center justify-center gap-6">
+<button class="px-12 py-4 bg-slate-900 text-white font-mono text-sm tracking-[0.2rem] hover:bg-cyan-500 hover:text-slate-950 transition-all duration-300">
+                        DOWNLOAD_FULL_WHITEPAPER
+                    </button>
+<button class="px-12 py-4 border-2 border-slate-900 text-slate-900 font-mono text-sm tracking-[0.2rem] hover:bg-slate-900 hover:text-white transition-all duration-300">
+                        VIEW_CODE_REPOSITORY
+                    </button>
+</div>
+</section>
+</div>
+</main>
+<!-- Footer -->
+<footer class="w-full border-t border-white/5 py-10 bg-[#131313] flex flex-col md:flex-row justify-between items-center px-12 max-w-full">
+<div class="text-cyan-400 font-mono text-xs mb-4 md:mb-0">
+            © 2024 SYSTEM_OPERATOR // ALL RIGHTS RESERVED
+        </div>
+<div class="flex space-x-8 mb-4 md:mb-0">
+<a class="font-['Manrope'] text-[10px] uppercase tracking-[0.1rem] text-white/40 hover:text-cyan-400/80 transition-colors" href="#">GitHub</a>
+<a class="font-['Manrope'] text-[10px] uppercase tracking-[0.1rem] text-white/40 hover:text-cyan-400/80 transition-colors" href="#">LinkedIn</a>
+<a class="font-['Manrope'] text-[10px] uppercase tracking-[0.1rem] text-white/40 hover:text-cyan-400/80 transition-colors" href="#">Documentation</a>
+</div>
+<div class="font-['Manrope'] text-[10px] uppercase tracking-[0.1rem] text-white/40">
+            Status: Nominal // Build: 4.0.1-PROD
+        </div>
+</footer>
+</body></html>

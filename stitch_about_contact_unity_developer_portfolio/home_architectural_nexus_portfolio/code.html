@@ -1,0 +1,291 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>UNITY_DEV_PORTFOLIO // JATIN SUYAL</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&amp;family=Manrope:wght@300;400;500;600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            colors: {
+              "tertiary-container": "#feb127",
+              "on-surface": "#e5e2e1",
+              "on-tertiary-container": "#6b4700",
+              "on-tertiary-fixed": "#291800",
+              "on-secondary-fixed": "#001f28",
+              "on-error-container": "#ffdad6",
+              "secondary": "#9ccee2",
+              "surface-dim": "#131313",
+              "inverse-on-surface": "#313030",
+              "primary-fixed-dim": "#4cd6ff",
+              "outline": "#859399",
+              "error": "#ffb4ab",
+              "on-primary-fixed": "#001f28",
+              "surface": "#131313",
+              "tertiary-fixed-dim": "#ffba49",
+              "surface-container-highest": "#353534",
+              "inverse-surface": "#e5e2e1",
+              "on-background": "#e5e2e1",
+              "on-tertiary-fixed-variant": "#624000",
+              "secondary-fixed": "#b8eafe",
+              "tertiary-fixed": "#ffddb1",
+              "surface-bright": "#393939",
+              "on-tertiary": "#442b00",
+              "secondary-container": "#184f60",
+              "surface-container-lowest": "#0e0e0e",
+              "surface-container-high": "#2a2a2a",
+              "secondary-fixed-dim": "#9ccee2",
+              "inverse-primary": "#00677f",
+              "surface-container": "#201f1f",
+              "on-primary": "#003543",
+              "tertiary": "#ffd59c",
+              "primary": "#a4e6ff",
+              "on-secondary": "#003543",
+              "background": "#131313",
+              "on-secondary-container": "#8ec0d3",
+              "on-error": "#690005",
+              "on-primary-container": "#00566a",
+              "surface-container-low": "#1c1b1b",
+              "outline-variant": "#3c494e",
+              "surface-tint": "#4cd6ff",
+              "primary-container": "#00d1ff",
+              "primary-fixed": "#b7eaff",
+              "on-surface-variant": "#bbc9cf",
+              "surface-variant": "#353534",
+              "on-primary-fixed-variant": "#004e60",
+              "error-container": "#93000a",
+              "on-secondary-fixed-variant": "#154d5d"
+            },
+            fontFamily: {
+              "headline": ["Space Grotesk"],
+              "body": ["Manrope"],
+              "label": ["Space Grotesk"]
+            },
+            borderRadius: {"DEFAULT": "0px", "lg": "0px", "xl": "0px", "full": "9999px"},
+          },
+        },
+      }
+    </script>
+<style>
+      body { background-color: #131313; color: #e5e2e1; font-family: 'Manrope', sans-serif; }
+      .glass-blur { backdrop-filter: blur(20px); }
+      .pixel-grid { background-image: radial-gradient(circle, #3c494e 1px, transparent 1px); background-size: 30px 30px; }
+      .material-symbols-outlined { font-variation-settings: 'FILL' 0, 'wght' 300, 'GRAD' 0, 'opsz' 24; }
+    </style>
+</head>
+<body class="overflow-x-hidden selection:bg-primary-container selection:text-on-primary-container">
+<!-- TopNavBar -->
+<nav class="fixed top-0 w-full border-b border-white/10 bg-surface-variant/60 backdrop-blur-xl z-50 flex justify-between items-center px-8 py-4 h-16 shadow-[0_20px_50px_rgba(0,209,255,0.04)]">
+<div class="text-xl font-bold tracking-tighter text-cyan-400 font-['Space_Grotesk']">UNITY_DEV_PORTFOLIO</div>
+<div class="hidden md:flex gap-8 items-center">
+<a class="text-cyan-400 border-b-2 border-cyan-400 pb-1 font-['Space_Grotesk'] uppercase tracking-widest text-sm" href="#">Home</a>
+<a class="text-white/70 hover:text-white transition-colors font-['Space_Grotesk'] uppercase tracking-widest text-sm" href="#">Projects</a>
+<a class="text-white/70 hover:text-white transition-colors font-['Space_Grotesk'] uppercase tracking-widest text-sm" href="#">About</a>
+<a class="text-white/70 hover:text-white transition-colors font-['Space_Grotesk'] uppercase tracking-widest text-sm" href="#">Contact</a>
+</div>
+<button class="bg-gradient-to-r from-primary to-primary-container text-on-primary px-6 py-2 font-['Space_Grotesk'] uppercase tracking-widest text-xs hover:shadow-[0_0_15px_#00D1FF] transition-all active:scale-95">Initiate Connection</button>
+</nav>
+<!-- Hero Section with Master Console HUD -->
+<header class="relative min-h-screen flex items-center justify-center pt-16 pixel-grid overflow-hidden">
+<div class="absolute inset-0 z-0">
+<div class="absolute inset-0 bg-gradient-to-b from-transparent via-background/50 to-background"></div>
+<img class="w-full h-full object-cover opacity-30 grayscale" data-alt="Cinematic high-fidelity 3D futuristic digital city wireframe with neon cyan highlights and volumetric fog lighting" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDDKPFIWVFrzsgZxHxLE-GWshS2TAdJXqrUC8_9A4La65NHN6cIelmlaZ9Yo6JVQD5BDrqCcNaLk-ntDRGmOWy5QnPY_hJAXP7HyZp8U9SSjguRx9oESzOnxuA9Yazco8Qg48z4Kt9cKCpVQg2aeQ7ZJBs4YhX52hfY4u-mJp18Xj2gpoi56-lnP47xAYbJwVFUpZcz0JkiphYY9Z_IYdL0v1U9zeihTXJfGRZTGB9dW7UKENZn0fa9jRRdkV2W1lprf5qhHl58Kusy"/>
+</div>
+<div class="relative z-10 w-full max-w-7xl px-8 grid grid-cols-1 md:grid-cols-12 gap-8 items-end pb-12">
+<!-- Left Meta Stats -->
+<div class="md:col-span-3 space-y-8 hidden md:block">
+<div class="border-l-4 border-primary p-4 bg-surface-container-low/80 glass-blur">
+<p class="text-[10px] uppercase tracking-[0.2rem] text-primary mb-1">Current Coordinates</p>
+<p class="font-mono text-xs text-on-surface-variant">LAT: 28.6139° N<br/>LNG: 77.2090° E</p>
+</div>
+<div class="border-l-4 border-primary p-4 bg-surface-container-low/80 glass-blur">
+<p class="text-[10px] uppercase tracking-[0.2rem] text-primary mb-1">System Health</p>
+<div class="flex items-center gap-2">
+<div class="w-2 h-2 rounded-full bg-primary animate-pulse"></div>
+<p class="font-mono text-xs text-on-surface-variant uppercase">Operational: 99.8%</p>
+</div>
+</div>
+</div>
+<!-- Central Branding -->
+<div class="md:col-span-6 text-center md:text-left">
+<div class="inline-block border border-primary/20 bg-primary/5 px-3 py-1 mb-6">
+<span class="text-[10px] font-['Space_Grotesk'] uppercase tracking-[0.3rem] text-primary">Senior Technical Architect</span>
+</div>
+<h1 class="text-6xl md:text-8xl font-headline font-extrabold tracking-tighter leading-none mb-4">
+                    JATIN<br/><span class="text-transparent bg-clip-text bg-gradient-to-r from-primary to-primary-container">SUYAL</span>
+</h1>
+<p class="text-on-surface-variant max-w-md font-body text-lg mb-8 leading-relaxed">
+                    Lead Unity Developer specializing in high-performance rendering pipelines and cross-platform architecture with 8+ years of industry expertise.
+                </p>
+<div class="flex flex-wrap gap-4 justify-center md:justify-start">
+<button class="bg-gradient-to-r from-primary to-primary-container text-on-primary px-8 py-4 font-['Space_Grotesk'] uppercase tracking-widest text-sm hover:shadow-[0_0_20px_#00D1FF] transition-all">View Dossier</button>
+<button class="border border-outline-variant/30 px-8 py-4 font-['Space_Grotesk'] uppercase tracking-widest text-sm hover:bg-surface-container-highest transition-all">Latest Deploys</button>
+</div>
+</div>
+<!-- Right Key Metrics -->
+<div class="md:col-span-3 grid grid-cols-2 md:grid-cols-1 gap-4">
+<div class="p-6 bg-surface-container-low/40 glass-blur border-t border-primary/10">
+<p class="text-4xl font-headline font-bold text-primary">05+</p>
+<p class="text-[10px] uppercase tracking-widest text-on-surface-variant">Years Professional</p>
+</div>
+<div class="p-6 bg-surface-container-low/40 glass-blur border-t border-primary/10">
+<p class="text-4xl font-headline font-bold text-primary">12</p>
+<p class="text-[10px] uppercase tracking-widest text-on-surface-variant">Projects Shipped</p>
+</div>
+</div>
+</div>
+</header>
+<!-- Technical Core Section -->
+<section class="bg-surface-container-low py-24 px-8 relative overflow-hidden">
+<div class="max-w-7xl mx-auto">
+<div class="flex flex-col md:flex-row justify-between items-baseline mb-16 gap-4">
+<div class="space-y-2">
+<h2 class="text-3xl font-headline font-bold uppercase tracking-tight">Technical Core</h2>
+<div class="h-1 w-24 bg-primary"></div>
+</div>
+<p class="font-mono text-xs text-primary uppercase tracking-[0.2rem]">Stack Integrity: Verified</p>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-3 lg:grid-cols-5 gap-0.5 bg-outline-variant/10 border border-outline-variant/10">
+<!-- Skill Module 1 -->
+<div class="bg-background p-8 group hover:bg-surface-container-highest transition-all duration-500">
+<span class="material-symbols-outlined text-primary text-3xl mb-6">view_in_ar</span>
+<h3 class="font-headline font-bold text-lg mb-2">Unity Engine</h3>
+<p class="text-xs text-on-surface-variant font-body mb-6 leading-relaxed">Advanced architecture, Asset Bundles, Performance Profiling.</p>
+<div class="w-full bg-surface-container-high h-1 overflow-hidden">
+<div class="bg-primary h-full w-[95%]"></div>
+</div>
+</div>
+<!-- Skill Module 2 -->
+<div class="bg-background p-8 group hover:bg-surface-container-highest transition-all duration-500">
+<span class="material-symbols-outlined text-primary text-3xl mb-6">code</span>
+<h3 class="font-headline font-bold text-lg mb-2">C# / .NET</h3>
+<p class="text-xs text-on-surface-variant font-body mb-6 leading-relaxed">Asynchronous programming, Memory Management, Unit Testing.</p>
+<div class="w-full bg-surface-container-high h-1 overflow-hidden">
+<div class="bg-primary h-full w-[92%]"></div>
+</div>
+</div>
+<!-- Skill Module 3 -->
+<div class="bg-background p-8 group hover:bg-surface-container-highest transition-all duration-500">
+<span class="material-symbols-outlined text-primary text-3xl mb-6">draw</span>
+<h3 class="font-headline font-bold text-lg mb-2">Shader Graph</h3>
+<p class="text-xs text-on-surface-variant font-body mb-6 leading-relaxed">Custom HLSL, Procedural Textures, VFX Graph integration.</p>
+<div class="w-full bg-surface-container-high h-1 overflow-hidden">
+<div class="bg-primary h-full w-[88%]"></div>
+</div>
+</div>
+<!-- Skill Module 4 -->
+<div class="bg-background p-8 group hover:bg-surface-container-highest transition-all duration-500">
+<span class="material-symbols-outlined text-primary text-3xl mb-6">memory</span>
+<h3 class="font-headline font-bold text-lg mb-2">DOTS / ECS</h3>
+<p class="text-xs text-on-surface-variant font-body mb-6 leading-relaxed">Massive-scale simulations, Job System, Burst Compiler.</p>
+<div class="w-full bg-surface-container-high h-1 overflow-hidden">
+<div class="bg-primary h-full w-[85%]"></div>
+</div>
+</div>
+<!-- Skill Module 5 -->
+<div class="bg-background p-8 group hover:bg-surface-container-highest transition-all duration-500">
+<span class="material-symbols-outlined text-primary text-3xl mb-6">layers</span>
+<h3 class="font-headline font-bold text-lg mb-2">URP / HDRP</h3>
+<p class="text-xs text-on-surface-variant font-body mb-6 leading-relaxed">Render Features, Lighting Optimization, Post-Processing.</p>
+<div class="w-full bg-surface-container-high h-1 overflow-hidden">
+<div class="bg-primary h-full w-[90%]"></div>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- Selected Deployments (Project Bento) -->
+<section class="py-24 px-8 max-w-7xl mx-auto">
+<div class="mb-16">
+<h2 class="text-3xl font-headline font-bold uppercase tracking-tight mb-4">Selected Deployments</h2>
+<div class="h-1 w-24 bg-primary mb-2"></div>
+<p class="text-on-surface-variant text-sm font-label tracking-widest uppercase">Project Archive // Access Restricted</p>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-12 gap-8">
+<!-- Project 1: Large Feature -->
+<div class="md:col-span-8 bg-surface-container-high group relative overflow-hidden h-[500px]">
+<img class="absolute inset-0 w-full h-full object-cover grayscale group-hover:grayscale-0 transition-all duration-700 group-hover:scale-105" data-alt="Interior of a large-scale construction site in Virtual Reality with precise scaffolding and industrial lighting" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBu4SVYkkyxaSuRjD_-dDIY6ldZfBmXfh9XQpvwMUkZWIpQKHKBB7lckJV0HlEC1HtzZzjeKwNcuerTXCyp1T_LrrPJW5NVH5LVBvDnFc9s1LCQxtwoYASZVFhvFPur-u4W6XdA7S1oV1X3W5NM8hyuwETjkQmf0v3EYk68G9zJEXh8zN1_RCx441lSMnRZ7SG3ZYPKObwsFcVMCKP89KIzGW392IwzK_rhEFp-tpMldX0PcqGrIrSRUpbUC_XAs0MImdAHO9je31x-"/>
+<div class="absolute inset-0 bg-gradient-to-t from-background via-transparent to-transparent"></div>
+<div class="absolute top-0 left-0 p-8">
+<div class="bg-primary px-3 py-1 text-[10px] font-bold text-on-primary-container inline-block uppercase tracking-widest mb-4">Live Deployment</div>
+</div>
+<div class="absolute bottom-0 left-0 p-10 w-full">
+<h3 class="text-4xl font-headline font-extrabold mb-2">Construction VR</h3>
+<p class="text-on-surface-variant max-w-md font-body text-sm mb-6 leading-relaxed">A high-fidelity immersive training simulation for large-scale industrial projects. Features real-time physics and multi-user networking.</p>
+<div class="flex gap-4">
+<span class="text-[10px] font-mono border border-outline-variant px-2 py-1 uppercase">VR / XR</span>
+<span class="text-[10px] font-mono border border-outline-variant px-2 py-1 uppercase">URP Pipeline</span>
+<span class="text-[10px] font-mono border border-outline-variant px-2 py-1 uppercase">Networking</span>
+</div>
+</div>
+</div>
+<!-- Project 2: Vertical Card -->
+<div class="md:col-span-4 bg-surface-container-high group relative overflow-hidden h-[500px]">
+<img class="absolute inset-0 w-full h-full object-cover grayscale group-hover:grayscale-0 transition-all duration-700 group-hover:scale-105" data-alt="Stylized neon cyberpunk game environment with vibrant colors and fast-motion blur effects" src="https://lh3.googleusercontent.com/aida-public/AB6AXuC0yukTRvj-nRGGdcUMHpPL-dn-dq5WnEKpTSwFR95i-vB7NrmY3-Zi7FZurTilURWn2kEGLOvGB9KNskERs_pL3iKkvZLLlxsDjAKc9LX0LHXLTMrvCJOhc9N1l-Gj6UuFIEGV2TR3yx66r3swDU7Y_iMcuFou5VdYSnyTCr2os4UsrIlrLEh-77c4ce_s02Qvif5TDoID8O_OyFvdBS7H8Zt9Wtq0i24MMr7cIlS06-mgiCXgL_6BwG_ekAc4-tVG5HE-0dScY9RP"/>
+<div class="absolute inset-0 bg-gradient-to-t from-background via-background/20 to-transparent"></div>
+<div class="absolute bottom-0 left-0 p-8">
+<h4 class="text-2xl font-headline font-bold mb-2">Project Superfun</h4>
+<p class="text-on-surface-variant font-body text-sm mb-6">Stylized arcade racer utilizing Unity DOTS for maximum throughput.</p>
+<button class="w-full py-3 border border-primary/30 font-['Space_Grotesk'] uppercase tracking-widest text-xs hover:bg-primary hover:text-on-primary transition-all">Analyze Subsystems</button>
+</div>
+</div>
+</div>
+</section>
+<!-- Professional Bio / Lead Architect Dossier -->
+<section class="bg-surface-container-lowest py-24 px-8 border-y border-outline-variant/10">
+<div class="max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-2 gap-16 items-center">
+<div class="space-y-8">
+<div class="inline-block border-l-4 border-primary pl-6">
+<h2 class="text-4xl font-headline font-bold uppercase tracking-tighter">Biometric Profile</h2>
+<p class="text-primary font-mono text-xs uppercase tracking-[0.2rem]">Security Level: Lead Architect</p>
+</div>
+<div class="font-body text-on-surface-variant space-y-6 leading-relaxed">
+<p>I am Jatin Suyal, a technical architect with over eight years of experience building complex digital worlds. My philosophy centers on bridging the gap between artistic vision and engineering constraints.</p>
+<p>Specializing in performance-critical applications, I leverage the latest Unity technology stacks (DOTS, HDRP, XR Interaction Toolkit) to deliver immersive experiences that push hardware boundaries without compromising stability.</p>
+</div>
+<div class="grid grid-cols-2 gap-4">
+<div class="p-4 bg-surface-container border border-outline-variant/10">
+<p class="text-[10px] uppercase tracking-widest text-primary mb-2">Primary Specialization</p>
+<p class="text-sm font-headline font-bold">High-End Rendering</p>
+</div>
+<div class="p-4 bg-surface-container border border-outline-variant/10">
+<p class="text-[10px] uppercase tracking-widest text-primary mb-2">Core Language</p>
+<p class="text-sm font-headline font-bold">C# (Advanced)</p>
+</div>
+</div>
+</div>
+<div class="relative group">
+<div class="absolute -inset-4 border border-primary/20 transition-all duration-500 group-hover:inset-0"></div>
+<img class="w-full aspect-square object-cover grayscale" data-alt="Professional portrait of a male technical architect in a dark studio setting with soft cyan rim lighting" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAsOmH5mPGHcsFEN81V613gRz35h0M2yE3izPRWlQkKNP2s-PlMwKqQPOr0ryzZDhUMQnhzx7C2vbBdBCKOD9n2Bqn49Bws8aueU7NCyMS-g9AnT1LFfGKpatvTQx8kzqzcSvpKvUGqvFj3IfV0Px8YmLjbXX_BInEJUtwt2JlZVhoI5Jw-4KlXI5JnmQP1CT4Piym2NSFjpMxxH25pWi1ZQONf4FkWPDeqQP1cb7jRaBhRVq3oNmBv8wM5dHO7A679VpgHvL8d-GAb"/>
+<!-- HUD Overlays -->
+<div class="absolute top-4 right-4 text-primary font-mono text-[10px] bg-background/80 px-2 py-1 backdrop-blur-sm">
+                    ID_REF: JS-8801
+                </div>
+<div class="absolute bottom-4 left-4 text-primary font-mono text-[10px] bg-background/80 px-2 py-1 backdrop-blur-sm">
+                    SCAN_STATUS: NOMINAL
+                </div>
+</div>
+</div>
+</section>
+<!-- Footer -->
+<footer class="bg-[#131313] w-full border-t border-white/5 py-12 flex flex-col md:flex-row justify-between items-center px-12 max-w-full">
+<div class="flex flex-col gap-2 mb-8 md:mb-0">
+<div class="text-cyan-400 font-mono text-xl tracking-tighter font-bold">JATIN_SUYAL.EXE</div>
+<p class="font-['Manrope'] text-[10px] uppercase tracking-[0.1rem] text-white/40">© 2024 SYSTEM_OPERATOR // ALL RIGHTS RESERVED</p>
+</div>
+<div class="flex gap-12 mb-8 md:mb-0">
+<a class="font-['Manrope'] text-[10px] uppercase tracking-[0.1rem] text-white/40 hover:text-cyan-400/80 transition-colors" href="#">GitHub</a>
+<a class="font-['Manrope'] text-[10px] uppercase tracking-[0.1rem] text-white/40 hover:text-cyan-400/80 transition-colors" href="#">LinkedIn</a>
+<a class="font-['Manrope'] text-[10px] uppercase tracking-[0.1rem] text-white/40 hover:text-cyan-400/80 transition-colors" href="#">Documentation</a>
+</div>
+<div class="text-right">
+<p class="font-['Manrope'] text-[10px] uppercase tracking-[0.1rem] text-cyan-400">Status: Nominal // Build: 4.0.1-PROD</p>
+</div>
+</footer>
+</body></html>

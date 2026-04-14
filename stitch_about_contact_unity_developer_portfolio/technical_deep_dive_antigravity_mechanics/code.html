@@ -1,0 +1,424 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>ANTIGRAVITY_PRJ_V1.0 // TECHNICAL_CASE_STUDY</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&amp;family=Manrope:wght@300;400;500;600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            colors: {
+              "secondary-fixed-dim": "#9ccee2",
+              "surface-container-lowest": "#0e0e0e",
+              "tertiary": "#ffd59c",
+              "outline-variant": "#3c494e",
+              "outline": "#859399",
+              "on-secondary-container": "#8ec0d3",
+              "surface-dim": "#131313",
+              "on-tertiary": "#442b00",
+              "on-surface-variant": "#bbc9cf",
+              "on-primary-fixed": "#001f28",
+              "primary-container": "#00d1ff",
+              "primary-fixed-dim": "#4cd6ff",
+              "on-tertiary-fixed-variant": "#624000",
+              "surface-bright": "#393939",
+              "on-error": "#690005",
+              "inverse-surface": "#e5e2e1",
+              "surface-container-low": "#1c1b1b",
+              "secondary-fixed": "#b8eafe",
+              "on-background": "#e5e2e1",
+              "inverse-on-surface": "#313030",
+              "primary-fixed": "#b7eaff",
+              "surface-container": "#201f1f",
+              "background": "#131313",
+              "tertiary-fixed-dim": "#ffba49",
+              "tertiary-fixed": "#ffddb1",
+              "on-tertiary-fixed": "#291800",
+              "secondary": "#9ccee2",
+              "on-secondary-fixed": "#001f28",
+              "inverse-primary": "#00677f",
+              "surface-container-highest": "#353534",
+              "surface-variant": "#353534",
+              "primary": "#a4e6ff",
+              "on-primary-fixed-variant": "#004e60",
+              "error": "#ffb4ab",
+              "surface": "#131313",
+              "on-tertiary-container": "#6b4700",
+              "on-error-container": "#ffdad6",
+              "on-surface": "#e5e2e1",
+              "error-container": "#93000a",
+              "surface-tint": "#4cd6ff",
+              "tertiary-container": "#feb127",
+              "on-primary-container": "#00566a",
+              "on-primary": "#003543",
+              "secondary-container": "#184f60",
+              "on-secondary": "#003543",
+              "on-secondary-fixed-variant": "#154d5d",
+              "surface-container-high": "#2a2a2a"
+            },
+            fontFamily: {
+              "headline": ["Space Grotesk"],
+              "body": ["Manrope"],
+              "label": ["Space Grotesk"]
+            },
+            borderRadius: {"DEFAULT": "0px", "lg": "0px", "xl": "0px", "full": "9999px"},
+          },
+        },
+      }
+    </script>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        body {
+            background-color: #131313;
+            color: #e5e2e1;
+            font-family: 'Manrope', sans-serif;
+            overflow-x: hidden;
+        }
+        .glass-panel {
+            backdrop-filter: blur(20px);
+            background: rgba(53, 53, 52, 0.6);
+        }
+        .scanline {
+            background: linear-gradient(to bottom, transparent 50%, rgba(0, 209, 255, 0.05) 50%);
+            background-size: 100% 4px;
+        }
+    </style>
+</head>
+<body class="selection:bg-primary-container/30">
+<!-- TopAppBar -->
+<header class="fixed top-0 w-full z-50 rounded-none border-l-4 border-cyan-400 bg-[#1c1b1b]/60 backdrop-blur-xl flex justify-between items-center px-6 py-3 w-full shadow-[0_20px_50px_rgba(0,209,255,0.04)]">
+<div class="text-xl font-bold tracking-tighter text-cyan-400 drop-shadow-[0_0_10px_rgba(0,209,255,0.3)] font-['Space_Grotesk']">
+            ANTIGRAVITY_PRJ_V1.0
+        </div>
+<nav class="hidden md:flex gap-8 items-center">
+<a class="font-['Space_Grotesk'] uppercase tracking-[0.1rem] text-sm text-cyan-400 border-b border-cyan-400 pb-1" href="#">CORE_PHYSICS</a>
+<a class="font-['Space_Grotesk'] uppercase tracking-[0.1rem] text-sm text-slate-500 hover:text-cyan-200 transition-colors" href="#">LOGIC_MATRIX</a>
+<a class="font-['Space_Grotesk'] uppercase tracking-[0.1rem] text-sm text-slate-500 hover:text-cyan-200 transition-colors" href="#">BENCHMARKS</a>
+<a class="font-['Space_Grotesk'] uppercase tracking-[0.1rem] text-sm text-slate-500 hover:text-cyan-200 transition-colors" href="#">SYSTEM_LOGS</a>
+</nav>
+<div class="flex items-center gap-4">
+<button class="bg-gradient-to-r from-primary to-primary-container text-on-primary-container px-4 py-1.5 font-['Space_Grotesk'] uppercase text-xs font-bold tracking-widest hover:shadow-[0_0_15px_#00D1FF] transition-all active:scale-95">
+                EXECUTE_DEMO
+            </button>
+</div>
+</header>
+<!-- SideNavBar -->
+<aside class="hidden lg:flex fixed left-0 top-0 h-full w-72 border-r border-cyan-400/10 rounded-none bg-[#131313] flex-col py-8 z-40 pt-20">
+<div class="px-6 mb-8">
+<div class="text-cyan-400 font-black tracking-widest uppercase text-xs font-['Space_Grotesk']">MASTER_CONSOLE</div>
+<div class="text-slate-600 text-[10px] uppercase font-['Space_Grotesk'] tracking-widest">OPERATOR: ARCHITECT</div>
+</div>
+<nav class="flex-1">
+<div class="flex items-center px-6 py-4 gap-4 bg-cyan-400/5 text-cyan-400 border-r-2 border-cyan-400 font-['Space_Grotesk'] font-medium uppercase text-xs">
+<span class="material-symbols-outlined text-lg" data-icon="hub">hub</span>
+<span>NEURAL_LINK</span>
+</div>
+<div class="flex items-center px-6 py-4 gap-4 text-slate-600 hover:text-cyan-300 hover:bg-white/5 transition-all font-['Space_Grotesk'] font-medium uppercase text-xs cursor-pointer">
+<span class="material-symbols-outlined text-lg" data-icon="settings_input_component">settings_input_component</span>
+<span>GRAVITY_FIELD</span>
+</div>
+<div class="flex items-center px-6 py-4 gap-4 text-slate-600 hover:text-cyan-300 hover:bg-white/5 transition-all font-['Space_Grotesk'] font-medium uppercase text-xs cursor-pointer">
+<span class="material-symbols-outlined text-lg" data-icon="grid_view">grid_view</span>
+<span>COLLISION_LOG</span>
+</div>
+<div class="flex items-center px-6 py-4 gap-4 text-slate-600 hover:text-cyan-300 hover:bg-white/5 transition-all font-['Space_Grotesk'] font-medium uppercase text-xs cursor-pointer">
+<span class="material-symbols-outlined text-lg" data-icon="insights">insights</span>
+<span>PERF_METRICS</span>
+</div>
+</nav>
+<div class="px-6 space-y-4">
+<button class="w-full bg-surface-container-high py-3 text-cyan-400 font-bold uppercase text-[10px] tracking-widest border border-cyan-400/20 hover:border-cyan-400 transition-colors">
+                INITIALIZE_SYSTEM
+            </button>
+<div class="flex flex-col gap-2 pt-4 border-t border-cyan-400/10">
+<div class="flex items-center gap-3 text-slate-600 text-[10px] uppercase font-['Space_Grotesk'] hover:text-cyan-400 cursor-pointer">
+<span class="material-symbols-outlined text-sm" data-icon="settings">settings</span>
+                    SETTINGS
+                </div>
+<div class="flex items-center gap-3 text-slate-600 text-[10px] uppercase font-['Space_Grotesk'] hover:text-cyan-400 cursor-pointer">
+<span class="material-symbols-outlined text-sm" data-icon="power_settings_new">power_settings_new</span>
+                    LOGOUT
+                </div>
+</div>
+</div>
+</aside>
+<!-- Main Content Canvas -->
+<main class="lg:ml-72 pt-16 pb-12">
+<!-- Hero Section -->
+<section class="relative h-[819px] flex items-center px-10 overflow-hidden">
+<div class="absolute inset-0 z-0">
+<img alt="Cinematic deep space nebula with glowing gravity anomalies and ethereal light structures" class="w-full h-full object-cover opacity-40 mix-blend-luminosity" data-alt="Cinematic deep space nebula with glowing gravity anomalies, swirling star dust, and ethereal light structures in a dark cosmic void" src="https://lh3.googleusercontent.com/aida-public/AB6AXuD73-u6KVqScteX1srWCac3qsofLcpCwcI0LCcnFsJPIEQ7COZPjMqagi3JzZS7UQhyjDJtwUC6JPoBTj-isF2B4SEUxR6BeDcFlPkzwpOwe1mBQwv4cVfc1JLsPWyTwI9nDEwuOHgk1BphEdcGNCk-voBtFWWHV7vOddOYkIuFAv_QOmKEeJpRhGPmWS0pv65ZXtvK0P_UeWFG994_m9jhhOCpmzEgk3mPl3NZbT7AnA8vJVIN9fLPIss0F154FyXMyvubGEWJNdwn"/>
+<div class="absolute inset-0 bg-gradient-to-r from-background via-background/60 to-transparent"></div>
+<div class="absolute inset-0 scanline opacity-20"></div>
+</div>
+<div class="relative z-10 max-w-4xl">
+<div class="flex items-center gap-4 mb-4">
+<span class="h-px w-12 bg-cyan-400"></span>
+<span class="text-cyan-400 font-['Space_Grotesk'] text-sm tracking-[0.3em] uppercase">Architecture Phase 01</span>
+</div>
+<h1 class="text-7xl md:text-9xl font-headline font-bold text-on-surface tracking-tighter leading-none mb-6">
+                    PROJECT: <span class="text-transparent bg-clip-text bg-gradient-to-br from-primary to-primary-container">ANTIGRAVITY</span>
+</h1>
+<p class="text-xl md:text-2xl text-on-surface-variant font-light max-w-2xl font-body leading-relaxed">
+                    Physics-Based Orbital Mechanics &amp; Gravity Manipulation System for High-Fidelity Simulation Environments.
+                </p>
+<div class="mt-12 flex gap-6">
+<div class="px-6 py-4 bg-surface-container-low border-l-4 border-cyan-400">
+<div class="text-[10px] text-cyan-400/60 uppercase tracking-widest font-['Space_Grotesk'] mb-1">Status</div>
+<div class="text-sm font-bold uppercase tracking-tighter text-on-surface">NOMINAL_DEPLOYMENT</div>
+</div>
+<div class="px-6 py-4 bg-surface-container-low border-l-4 border-slate-600">
+<div class="text-[10px] text-slate-600 uppercase tracking-widest font-['Space_Grotesk'] mb-1">Version</div>
+<div class="text-sm font-bold uppercase tracking-tighter text-on-surface">B_2.0.4_STABLE</div>
+</div>
+</div>
+</div>
+<!-- Decorative HUD elements -->
+<div class="absolute right-10 bottom-20 hidden md:block">
+<div class="w-48 h-48 border border-cyan-400/20 rounded-full flex items-center justify-center p-8 animate-pulse">
+<div class="w-full h-full border border-cyan-400/40 rounded-full flex items-center justify-center">
+<div class="w-4 h-4 bg-cyan-400"></div>
+</div>
+</div>
+<div class="text-[10px] text-cyan-400/40 font-mono mt-4 text-center tracking-widest">ORIENTATION_LOCK: 88%</div>
+</div>
+</section>
+<!-- 01_CORE_PHYSICS -->
+<section class="px-10 py-24 grid grid-cols-1 lg:grid-cols-12 gap-10 bg-surface-container-low">
+<div class="lg:col-span-5 space-y-8">
+<div class="inline-block border-l-4 border-cyan-400 pl-4">
+<h2 class="text-4xl font-headline font-bold text-on-surface tracking-tight uppercase">01_CORE_PHYSICS</h2>
+<p class="text-cyan-400 text-xs tracking-widest uppercase mt-2">Gravity-Inversion Vectors</p>
+</div>
+<p class="text-on-surface-variant leading-relaxed font-body text-lg">
+                    The core mechanic operates on a non-Euclidean vector field that dynamically re-calculates the local attraction coefficient. By shifting the mass-influence matrix, we achieve stable levitation without breaking momentum continuity.
+                </p>
+<div class="space-y-4">
+<div class="flex items-start gap-4 group">
+<span class="text-cyan-400 font-bold font-['Space_Grotesk']">/01</span>
+<div>
+<h4 class="text-on-surface font-bold uppercase text-sm tracking-widest">Constant Force Bias</h4>
+<p class="text-on-surface-variant text-sm mt-1">Application of anti-directional G-force at frame start.</p>
+</div>
+</div>
+<div class="flex items-start gap-4 group">
+<span class="text-cyan-400 font-bold font-['Space_Grotesk']">/02</span>
+<div>
+<h4 class="text-on-surface font-bold uppercase text-sm tracking-widest">Momentum Dampening</h4>
+<p class="text-on-surface-variant text-sm mt-1">Algorithmic correction to prevent orbital drift during inversion.</p>
+</div>
+</div>
+</div>
+</div>
+<div class="lg:col-span-7">
+<div class="bg-surface-container-lowest p-6 border border-outline-variant/30 relative shadow-2xl">
+<div class="absolute top-0 left-0 w-2 h-2 bg-cyan-400"></div>
+<div class="flex justify-between items-center mb-4 border-b border-outline-variant/20 pb-4">
+<div class="flex gap-2">
+<div class="w-3 h-3 rounded-full bg-error/40"></div>
+<div class="w-3 h-3 rounded-full bg-tertiary/40"></div>
+<div class="w-3 h-3 rounded-full bg-primary/40"></div>
+</div>
+<div class="text-[10px] text-slate-500 font-mono tracking-widest">FILE: CORE_GRAVITY_CONTROLLER.CS</div>
+</div>
+<pre class="font-mono text-sm leading-relaxed overflow-x-auto text-on-surface/80"><span class="text-cyan-400">public class</span> <span class="text-primary">AntigravityController</span> : <span class="text-slate-400">MonoBehaviour</span>
+{
+    <span class="text-slate-500">// Initialize Vector Inversion</span>
+    <span class="text-cyan-400">void</span> <span class="text-primary">ApplyGravityInversion</span>(<span class="text-slate-400">Vector3</span> origin)
+    {
+        <span class="text-cyan-400">var</span> force = <span class="text-slate-400">Physics</span>.gravity * <span class="text-slate-400">-1.0f</span>;
+        <span class="text-cyan-400">var</span> dampening = <span class="text-slate-400">Mathf</span>.<span class="text-primary">Clamp</span>(<span class="text-slate-400">currentVelocity</span>, <span class="text-slate-400">0</span>, <span class="text-slate-400">limit</span>);
+        
+        <span class="text-slate-400">rigidBody</span>.<span class="text-primary">AddForce</span>(force * bias, <span class="text-slate-400">ForceMode.Acceleration</span>);
+        <span class="text-slate-400">Debug</span>.<span class="text-primary">Log</span>(<span class="text-tertiary">"FIELD_ACTIVE_AT: "</span> + origin);
+    }
+}</pre>
+<div class="mt-4 flex justify-between items-center text-[10px] text-cyan-400/40 uppercase tracking-[0.2em]">
+<span>LN: 24 | COL: 12</span>
+<span>UTF-8</span>
+</div>
+</div>
+</div>
+</section>
+<!-- 02_SYSTEM_ARCHITECTURE (Node Graph Style) -->
+<section class="px-10 py-24 bg-surface">
+<div class="text-center mb-16">
+<h2 class="text-4xl font-headline font-bold text-on-surface tracking-tight uppercase mb-2">02_SYSTEM_ARCHITECTURE</h2>
+<div class="w-24 h-1 bg-cyan-400 mx-auto"></div>
+</div>
+<div class="relative max-w-6xl mx-auto h-[500px] flex items-center justify-center">
+<!-- SVG Connections Placeholder Effect -->
+<svg class="absolute inset-0 w-full h-full pointer-events-none opacity-20">
+<line stroke="#00D1FF" stroke-width="1" x1="20%" x2="50%" y1="50%" y2="50%"></line>
+<line stroke="#00D1FF" stroke-width="1" x1="50%" x2="80%" y1="50%" y2="50%"></line>
+<line stroke="#00D1FF" stroke-width="1" x1="50%" x2="50%" y1="50%" y2="20%"></line>
+<line stroke="#00D1FF" stroke-width="1" x1="50%" x2="50%" y1="50%" y2="80%"></line>
+</svg>
+<!-- Nodes -->
+<div class="absolute left-[10%] top-[40%] bg-surface-container-high border border-cyan-400/30 p-6 w-56 text-center z-10">
+<div class="text-cyan-400 text-[10px] tracking-widest uppercase mb-2">Input Module</div>
+<div class="text-on-surface font-bold font-['Space_Grotesk'] text-sm">USER_COMMANDS</div>
+</div>
+<div class="absolute right-[10%] top-[40%] bg-surface-container-high border border-cyan-400/30 p-6 w-56 text-center z-10">
+<div class="text-cyan-400 text-[10px] tracking-widest uppercase mb-2">Output Module</div>
+<div class="text-on-surface font-bold font-['Space_Grotesk'] text-sm">PHYSICS_RENDERER</div>
+</div>
+<div class="bg-primary-container/10 border-2 border-cyan-400 p-10 w-72 text-center relative z-20 shadow-[0_0_50px_rgba(0,209,255,0.2)]">
+<div class="text-cyan-400 text-xs tracking-widest uppercase mb-3">Core Hub</div>
+<div class="text-on-surface font-black font-['Space_Grotesk'] text-xl tracking-tighter">ANTIGRAVITY_FIELD</div>
+<div class="mt-4 flex justify-center gap-2">
+<span class="w-1.5 h-1.5 bg-cyan-400 animate-ping"></span>
+<span class="text-[9px] text-cyan-400 font-mono">LIVE_PROCESS</span>
+</div>
+</div>
+<div class="absolute left-[40%] top-[10%] bg-surface-container-high border border-cyan-400/30 p-6 w-56 text-center z-10">
+<div class="text-cyan-400 text-[10px] tracking-widest uppercase mb-2">Sub-System</div>
+<div class="text-on-surface font-bold font-['Space_Grotesk'] text-sm">COLLISION_MATRIX</div>
+</div>
+<div class="absolute left-[40%] bottom-[10%] bg-surface-container-high border border-cyan-400/30 p-6 w-56 text-center z-10">
+<div class="text-cyan-400 text-[10px] tracking-widest uppercase mb-2">Engine Interface</div>
+<div class="text-on-surface font-bold font-['Space_Grotesk'] text-sm">C#_PHYSICS_BRIDGE</div>
+</div>
+</div>
+</section>
+<!-- 03_PERFORMANCE_METRICS -->
+<section class="px-10 py-24 bg-surface-container-low border-t border-cyan-400/10">
+<div class="flex flex-col md:flex-row justify-between items-end mb-16 gap-6">
+<div>
+<h2 class="text-4xl font-headline font-bold text-on-surface tracking-tight uppercase">03_PERFORMANCE_METRICS</h2>
+<p class="text-slate-500 font-body mt-2">Real-time computational footprint analysis.</p>
+</div>
+<div class="flex gap-4">
+<div class="flex items-center gap-2">
+<span class="w-3 h-3 bg-cyan-400"></span>
+<span class="text-[10px] text-on-surface uppercase tracking-widest">Active System</span>
+</div>
+<div class="flex items-center gap-2">
+<span class="w-3 h-3 bg-slate-600"></span>
+<span class="text-[10px] text-on-surface uppercase tracking-widest">Benchmark Baseline</span>
+</div>
+</div>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-2 gap-12">
+<div class="bg-surface p-8 border border-outline-variant/10 relative">
+<div class="absolute top-4 right-8 text-cyan-400 font-mono text-2xl font-bold">0.42ms</div>
+<h3 class="text-on-surface font-bold uppercase tracking-widest text-sm mb-8">Computational Overhead</h3>
+<div class="space-y-6">
+<div class="relative h-2 bg-slate-800">
+<div class="absolute inset-y-0 left-0 bg-cyan-400 w-[15%]" style="box-shadow: 0 0 10px #00d1ff;"></div>
+<div class="absolute -top-6 left-[15%] text-[10px] text-cyan-400 font-mono uppercase">Current_Load</div>
+</div>
+<div class="grid grid-cols-4 gap-2">
+<div class="h-12 bg-cyan-400/10 border-b-2 border-cyan-400/40"></div>
+<div class="h-16 bg-cyan-400/20 border-b-2 border-cyan-400/60"></div>
+<div class="h-10 bg-cyan-400/10 border-b-2 border-cyan-400/40"></div>
+<div class="h-14 bg-cyan-400/15 border-b-2 border-cyan-400/50"></div>
+</div>
+<p class="text-[10px] text-slate-500 uppercase tracking-widest">Average frame time allocation per field node.</p>
+</div>
+</div>
+<div class="bg-surface p-8 border border-outline-variant/10 relative">
+<div class="absolute top-4 right-8 text-primary font-mono text-2xl font-bold">99.8%</div>
+<h3 class="text-on-surface font-bold uppercase tracking-widest text-sm mb-8">Physics Accuracy</h3>
+<div class="flex items-center justify-center py-4">
+<div class="relative w-32 h-32">
+<svg class="w-full h-full -rotate-90" viewbox="0 0 36 36">
+<path d="M18 2.0845 a 15.9155 15.9155 0 0 1 0 31.831 a 15.9155 15.9155 0 0 1 0 -31.831" fill="none" stroke="#2a2a2a" stroke-width="2"></path>
+<path d="M18 2.0845 a 15.9155 15.9155 0 0 1 0 31.831 a 15.9155 15.9155 0 0 1 0 -31.831" fill="none" stroke="#00D1FF" stroke-dasharray="99, 100" stroke-width="2"></path>
+</svg>
+<div class="absolute inset-0 flex items-center justify-center flex-col">
+<span class="material-symbols-outlined text-cyan-400" data-icon="check_circle">check_circle</span>
+</div>
+</div>
+</div>
+<p class="text-[10px] text-slate-500 uppercase tracking-widest text-center mt-4">Verified against IEEE-754 floating point standards.</p>
+</div>
+</div>
+</section>
+<!-- 04_INTERFACE_OVERLAY -->
+<section class="px-10 py-24 bg-surface">
+<div class="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
+<div class="order-2 lg:order-1">
+<div class="relative aspect-video bg-surface-container-lowest border border-cyan-400/20 p-2 shadow-2xl">
+<div class="absolute inset-0 z-0">
+<img alt="High-tech fighter cockpit dashboard view showing abstract holographic displays and grid lines" class="w-full h-full object-cover opacity-50" data-alt="Digital high-tech cockpit interface with glowing holographic grid lines, orbital tracking metrics, and cyan telemetry readouts over a blurred planet view" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCtJ7Ccq_SaPl2iKxazeV7lqe5urKbMERpTFi3udFtGuMq5wZ5SbYHg6igSGtjtEKK51j3iODhwU5abcqEUZopuoTiEbX6ZZhM0ktjSLeGhYT-VnIq0YQg-8WyQTXuzx1wQXHfP9VAr-uRN9ff530z4nGRdl3-rJPaQI1mYP4qYNYnctW4rtDr-9MWhMxiRPrhbH6WHvsrC4JNyRc7UvHt95XsuI9sF9ZluxV2ss0-NECCwlOtkbhRqEPJ6I1GqTtD2oAXx9h3GUZs3"/>
+</div>
+<div class="relative z-10 w-full h-full flex flex-col justify-between border border-cyan-400/10 p-6">
+<!-- HUD OVERLAY -->
+<div class="flex justify-between items-start">
+<div class="space-y-1">
+<div class="text-cyan-400 text-[10px] font-mono font-bold">ALT: 42,000M</div>
+<div class="text-cyan-400 text-[10px] font-mono font-bold">SPD: MACH 4.2</div>
+</div>
+<div class="w-16 h-16 border-2 border-cyan-400/40 relative flex items-center justify-center">
+<div class="w-full h-px bg-cyan-400/40 absolute"></div>
+<div class="h-full w-px bg-cyan-400/40 absolute"></div>
+<div class="text-[8px] text-cyan-400 font-bold">LOCK</div>
+</div>
+</div>
+<div class="flex flex-col items-center">
+<div class="w-48 h-1 bg-cyan-400/20 relative">
+<div class="absolute inset-y-0 left-1/4 w-1/2 bg-cyan-400 shadow-[0_0_10px_#00D1FF]"></div>
+</div>
+<div class="text-[9px] text-cyan-400 mt-2 font-mono tracking-widest uppercase">GRAVITY_WELL_INDICATOR</div>
+</div>
+<div class="flex justify-between items-end">
+<div class="flex gap-1">
+<div class="w-1 h-4 bg-cyan-400"></div>
+<div class="w-1 h-6 bg-cyan-400"></div>
+<div class="w-1 h-3 bg-cyan-400"></div>
+</div>
+<div class="text-right">
+<div class="text-[10px] text-cyan-400 uppercase tracking-widest">Vector_Stability</div>
+<div class="text-xl font-headline font-bold text-on-surface">NOMINAL</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="order-1 lg:order-2 space-y-8">
+<div class="inline-block border-l-4 border-cyan-400 pl-4">
+<h2 class="text-4xl font-headline font-bold text-on-surface tracking-tight uppercase">04_HUD_INTERFACE</h2>
+<p class="text-cyan-400 text-xs tracking-widest uppercase mt-2">Tactical Data Visualization</p>
+</div>
+<p class="text-on-surface-variant leading-relaxed font-body text-lg">
+                        The HUD provides instantaneous feedback on local gravitational anomalies. Operators can monitor vector divergence and field intensity through integrated retinal projections.
+                    </p>
+<ul class="space-y-4 text-on-surface-variant">
+<li class="flex items-center gap-3">
+<span class="material-symbols-outlined text-cyan-400 text-lg" data-icon="adjust">adjust</span>
+<span class="text-sm font-bold uppercase tracking-widest font-['Space_Grotesk'] text-on-surface">Dynamic Gravity Wells</span>
+</li>
+<li class="flex items-center gap-3">
+<span class="material-symbols-outlined text-cyan-400 text-lg" data-icon="timeline">timeline</span>
+<span class="text-sm font-bold uppercase tracking-widest font-['Space_Grotesk'] text-on-surface">Orbital Trajectory Overlay</span>
+</li>
+<li class="flex items-center gap-3">
+<span class="material-symbols-outlined text-cyan-400 text-lg" data-icon="sensors">sensors</span>
+<span class="text-sm font-bold uppercase tracking-widest font-['Space_Grotesk'] text-on-surface">Mass Displacement Mapping</span>
+</li>
+</ul>
+</div>
+</div>
+</section>
+</main>
+<!-- Footer -->
+<footer class="fixed bottom-0 w-full bg-[#353534]/80 backdrop-blur-lg border-t border-cyan-400/20 flex justify-between items-center px-10 py-2 w-full z-50">
+<div class="font-mono text-[10px] tracking-[0.2em] uppercase text-cyan-400">
+            SYSTEM STATUS: NOMINAL // BUILD: 2.0.4 // COORDINATES: 40.7128 N // 74.0060 W
+        </div>
+<div class="flex gap-8 items-center">
+<a class="font-mono text-[10px] tracking-[0.2em] uppercase text-slate-500 hover:text-cyan-400 underline underline-offset-4 opacity-80 hover:opacity-100 transition-opacity" href="#">DOCUMENTATION</a>
+<a class="font-mono text-[10px] tracking-[0.2em] uppercase text-slate-500 hover:text-cyan-400 underline underline-offset-4 opacity-80 hover:opacity-100 transition-opacity" href="#">RESTRICTED_ACCESS</a>
+<a class="font-mono text-[10px] tracking-[0.2em] uppercase text-slate-500 hover:text-cyan-400 underline underline-offset-4 opacity-80 hover:opacity-100 transition-opacity text-cyan-400 font-bold" href="#">API_v1</a>
+</div>
+</footer>
+</body></html>

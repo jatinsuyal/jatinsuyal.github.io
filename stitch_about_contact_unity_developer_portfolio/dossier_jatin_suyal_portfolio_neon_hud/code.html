@@ -1,0 +1,363 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>DOSSIER // JATIN SUYAL</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&amp;family=Manrope:wght@300;400;500;600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            colors: {
+              "error-container": "#93000a",
+              "surface-container-high": "#2a2a2c",
+              "on-surface-variant": "#bac9cc",
+              "on-tertiary": "#00363d",
+              "on-error": "#690005",
+              "tertiary-fixed-dim": "#00daf3",
+              "on-secondary": "#283500",
+              "on-secondary-container": "#556d00",
+              "surface-container-low": "#1c1b1d",
+              "surface-container": "#201f22",
+              "surface-variant": "#353437",
+              "on-background": "#e5e1e4",
+              "background": "#131315",
+              "inverse-on-surface": "#313032",
+              "tertiary-fixed": "#9cf0ff",
+              "inverse-primary": "#006875",
+              "secondary-fixed": "#c3f400",
+              "surface": "#131315",
+              "error": "#ffb4ab",
+              "on-tertiary-container": "#00626e",
+              "outline-variant": "#3b494c",
+              "surface-container-highest": "#353437",
+              "primary-container": "#00e5ff",
+              "primary": "#c3f5ff",
+              "inverse-surface": "#e5e1e4",
+              "primary-fixed-dim": "#00daf3",
+              "tertiary": "#c3f5ff",
+              "secondary-fixed-dim": "#abd600",
+              "on-primary-fixed": "#001f24",
+              "on-surface": "#e5e1e4",
+              "on-error-container": "#ffdad6",
+              "surface-bright": "#39393b",
+              "on-primary-fixed-variant": "#004f58",
+              "secondary-container": "#c3f400",
+              "surface-dim": "#131315",
+              "on-secondary-fixed-variant": "#3c4d00",
+              "outline": "#849396",
+              "secondary": "#ffffff",
+              "surface-tint": "#00daf3",
+              "on-tertiary-fixed": "#001f24",
+              "on-primary": "#00363d",
+              "on-secondary-fixed": "#161e00",
+              "primary-fixed": "#9cf0ff",
+              "on-tertiary-fixed-variant": "#004f58",
+              "tertiary-container": "#00e5ff",
+              "on-primary-container": "#00626e",
+              "surface-container-lowest": "#0e0e10"
+            },
+            fontFamily: {
+              "headline": ["Space Grotesk"],
+              "body": ["Manrope"],
+              "label": ["Space Grotesk"]
+            },
+            borderRadius: {"DEFAULT": "0px", "lg": "0px", "xl": "0px", "full": "9999px"},
+          },
+        },
+      }
+    </script>
+<style>
+        body {
+            background-color: #131315;
+            background-image: 
+                linear-gradient(rgba(0, 229, 255, 0.03) 1px, transparent 1px),
+                linear-gradient(90deg, rgba(0, 229, 255, 0.03) 1px, transparent 1px);
+            background-size: 24px 24px;
+        }
+        .scanline {
+            width: 100%;
+            height: 100px;
+            z-index: 100;
+            background: linear-gradient(0deg, rgba(0, 0, 0, 0) 0%, rgba(0, 229, 255, 0.02) 50%, rgba(0, 0, 0, 0) 100%);
+            position: fixed;
+            pointer-events: none;
+            left: 0;
+            top: -100px;
+        }
+        .hud-corner {
+            position: absolute;
+            width: 10px;
+            height: 10px;
+            border-color: #00E5FF;
+            opacity: 0.4;
+        }
+        .clip-path-mil {
+            clip-path: polygon(0% 0%, 92% 0%, 100% 15%, 100% 100%, 0% 100%);
+        }
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+            display: inline-block;
+            vertical-align: middle;
+        }
+    </style>
+</head>
+<body class="text-on-surface font-body selection:bg-primary-container selection:text-on-primary">
+<!-- Scanline Simulation -->
+<div class="scanline"></div>
+<!-- Header / TopNavBar -->
+<header class="fixed top-0 left-0 w-full z-50 flex justify-between items-center px-6 py-3 bg-[#131315]/60 backdrop-blur-xl border-b border-[#00E5FF]/10 shadow-[0_0_15px_rgba(0,229,255,0.1)]">
+<div class="text-[#00E5FF] font-black tracking-tighter text-xl font-headline">SYSTEM_CORE_v5</div>
+<nav class="hidden md:flex gap-8">
+<a class="font-headline tracking-[0.1em] uppercase text-xs font-bold text-slate-500 hover:text-[#00E5FF]/80 hover:bg-[#00E5FF]/5 transition-all duration-200" href="#">HOME</a>
+<a class="font-headline tracking-[0.1em] uppercase text-xs font-bold text-[#00E5FF] border-b-2 border-[#00E5FF] pb-1" href="#">DOSSIER</a>
+<a class="font-headline tracking-[0.1em] uppercase text-xs font-bold text-slate-500 hover:text-[#00E5FF]/80 hover:bg-[#00E5FF]/5 transition-all duration-200" href="#">ARCHIVE</a>
+<a class="font-headline tracking-[0.1em] uppercase text-xs font-bold text-slate-500 hover:text-[#00E5FF]/80 hover:bg-[#00E5FF]/5 transition-all duration-200" href="#">COMMS</a>
+</nav>
+<button class="clip-path-mil bg-primary-container text-on-primary font-headline tracking-widest uppercase text-[10px] font-bold px-4 py-2 active:scale-95 transition-transform duration-100">
+            INITIATE_UPLINK
+        </button>
+</header>
+<main class="pt-24 pb-20 px-6 max-w-7xl mx-auto">
+<!-- Hero Dossier Header -->
+<section class="grid grid-cols-1 md:grid-cols-12 gap-6 mb-12">
+<!-- Biometric Profile Card -->
+<div class="md:col-span-4 bg-surface-container-low border-l-4 border-primary-container p-6 relative overflow-hidden group">
+<div class="absolute top-2 right-2 flex gap-1">
+<span class="w-1.5 h-1.5 bg-secondary-container animate-pulse"></span>
+<span class="w-1.5 h-1.5 bg-secondary-container/40"></span>
+</div>
+<div class="relative w-full aspect-square mb-6 bg-surface-container-lowest border border-outline-variant/30 overflow-hidden">
+<div class="absolute inset-0 bg-gradient-to-t from-primary-container/20 to-transparent"></div>
+<img class="w-full h-full object-cover grayscale brightness-110 contrast-125 opacity-80 mix-blend-screen" data-alt="Futuristic digital portrait of a developer with blue biometric scanning lines and high-tech interface overlays in a dark environment" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAElZtIwFK5f-oS-CECHJq9OlTK_-L_sTttuBDz9xHf5P8Q0aRqC-Jv9rPsL7Up0YQfvefPA4TSuLg_E_7hBWtCisl3_WkMOy9pUTMK6dvTGCAM9Vb4fxwNEAT5N44VPpMMRURHTWMx7rZb1SjgNXIds90xW4Kqw9V1Hl7E6mKsZzB99ifkAJkH6qUC_4mWA1o23bpSa29Wu2sN0apomW2cS3EeZeaMH52JtlsyEbl_Lkhc6mEq9-HIpgyjv4QyOdwHng2YRiiY3fq7"/>
+<div class="absolute top-0 left-0 w-full h-full border-[10px] border-surface-container-low opacity-100 pointer-events-none"></div>
+<div class="absolute top-4 left-4 font-label text-[10px] text-primary-container tracking-tighter bg-surface/80 px-2 py-0.5">SUBJECT: SUYAL_J</div>
+</div>
+<div class="space-y-4">
+<div>
+<p class="font-label text-[10px] text-outline tracking-widest uppercase">Designation</p>
+<h1 class="font-headline text-2xl font-bold text-primary-container leading-none">JATIN SUYAL</h1>
+</div>
+<div>
+<p class="font-label text-[10px] text-outline tracking-widest uppercase">System Role</p>
+<p class="font-headline text-sm font-medium">Senior Unity Developer // VR Specialist</p>
+</div>
+<div class="pt-4 border-t border-outline-variant/20 grid grid-cols-2 gap-4">
+<div>
+<p class="font-label text-[10px] text-outline tracking-widest uppercase">Status</p>
+<p class="font-headline text-xs text-secondary-container">ACTIVE_OPERATIONAL</p>
+</div>
+<div>
+<p class="font-label text-[10px] text-outline tracking-widest uppercase">Location</p>
+<p class="font-headline text-xs">REDACTED_NODE</p>
+</div>
+</div>
+</div>
+</div>
+<!-- Narrative Bio & Stats -->
+<div class="md:col-span-8 flex flex-col gap-6">
+<!-- Stat Banner -->
+<div class="bg-surface-container-highest border border-outline-variant/10 p-8 flex flex-col md:flex-row justify-between items-center relative overflow-hidden">
+<div class="absolute top-0 left-0 w-1 h-full bg-secondary-container"></div>
+<div>
+<h2 class="font-headline text-4xl md:text-6xl font-black text-secondary-container tracking-tighter">140,000+</h2>
+<p class="font-label text-xs tracking-[0.2em] uppercase text-outline">WORKERS TRAINED IN IMMERSIVE ENVIRONMENTS</p>
+</div>
+<div class="mt-4 md:mt-0 text-right">
+<div class="flex items-center gap-2 justify-end mb-1">
+<span class="w-8 h-1 bg-primary-container"></span>
+<span class="font-label text-[10px] text-primary-container">SYSTEM_IMPACT</span>
+</div>
+<p class="font-body text-sm text-slate-400 max-w-xs">Leveraging XR technologies to scale high-fidelity enterprise education across global industrial nodes.</p>
+</div>
+</div>
+<!-- Main Narrative -->
+<div class="bg-surface-container-low p-8 flex-1 border border-outline-variant/10 relative">
+<div class="absolute top-0 right-0 p-4 opacity-5">
+<span class="material-symbols-outlined text-9xl">terminal</span>
+</div>
+<p class="font-label text-[10px] text-primary-container tracking-[0.3em] uppercase mb-4">Core_Objective // Bio</p>
+<h3 class="font-headline text-2xl font-bold mb-6 tracking-tight">Architecting Digital Systems</h3>
+<div class="space-y-4 font-body text-slate-300 leading-relaxed text-sm max-w-2xl">
+<p>With over 4+ years of specialized experience in the Unity ecosystem, I bridge the gap between abstract computational models and tactile virtual realities. My practice focuses on building scalable, performant architectures for VR, AR, and WebGL platforms.</p>
+<p>I specialize in the deployment of high-stakes simulation environments and collaborative tools, utilizing advanced network solutions like Photon and Firebase to ensure real-time synchronization across distributed teams. My work at the intersection of AI and spatial computing pushes the boundaries of how humans interact with machine intelligence.</p>
+</div>
+<div class="mt-8 flex gap-4">
+<div class="flex flex-col">
+<span class="text-xs font-label text-outline mb-1">RUNTIME_STABILITY</span>
+<div class="flex gap-1">
+<div class="w-4 h-1.5 bg-primary-container"></div>
+<div class="w-4 h-1.5 bg-primary-container"></div>
+<div class="w-4 h-1.5 bg-primary-container"></div>
+<div class="w-4 h-1.5 bg-primary-container"></div>
+<div class="w-4 h-1.5 bg-primary-container/20"></div>
+</div>
+</div>
+<div class="flex flex-col">
+<span class="text-xs font-label text-outline mb-1">DATA_INTEGRITY</span>
+<div class="flex gap-1">
+<div class="w-4 h-1.5 bg-secondary-container"></div>
+<div class="w-4 h-1.5 bg-secondary-container"></div>
+<div class="w-4 h-1.5 bg-secondary-container"></div>
+<div class="w-4 h-1.5 bg-secondary-container"></div>
+<div class="w-4 h-1.5 bg-secondary-container"></div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- Skills Matrix Section -->
+<section>
+<div class="flex items-center gap-4 mb-8">
+<span class="font-label text-[10px] text-primary-container tracking-widest uppercase">Capabilities_Matrix</span>
+<div class="h-px flex-1 bg-outline-variant/20"></div>
+<span class="text-[10px] font-label text-outline">v2.0.4.R</span>
+</div>
+<div class="grid grid-cols-2 md:grid-cols-4 gap-0.5 bg-outline-variant/10 p-0.5">
+<!-- Skill Node 1 -->
+<div class="bg-surface-container-low p-6 flex flex-col gap-4 group hover:bg-surface-container-high transition-colors">
+<div class="flex justify-between items-start">
+<span class="material-symbols-outlined text-primary-container">view_in_ar</span>
+<span class="text-[10px] font-label text-outline">001</span>
+</div>
+<div>
+<h4 class="font-headline font-bold text-sm tracking-widest mb-1">UNITY / C#</h4>
+<p class="text-[10px] text-slate-400 font-body">Engine architecture, DOTS, and shader optimization for high-fidelity output.</p>
+</div>
+<div class="w-full h-1 bg-surface-container-lowest">
+<div class="w-[95%] h-full bg-primary-container shadow-[0_0_8px_rgba(0,229,255,0.5)]"></div>
+</div>
+</div>
+<!-- Skill Node 2 -->
+<div class="bg-surface-container-low p-6 flex flex-col gap-4 group hover:bg-surface-container-high transition-colors">
+<div class="flex justify-between items-start">
+<span class="material-symbols-outlined text-secondary-container">headset</span>
+<span class="text-[10px] font-label text-outline">002</span>
+</div>
+<div>
+<h4 class="font-headline font-bold text-sm tracking-widest mb-1">OCULUS QUEST 3</h4>
+<p class="text-[10px] text-slate-400 font-body">Native XR development, hand-tracking, and pass-through mixed reality.</p>
+</div>
+<div class="w-full h-1 bg-surface-container-lowest">
+<div class="w-[90%] h-full bg-secondary-container shadow-[0_0_8px_rgba(204,255,0,0.5)]"></div>
+</div>
+</div>
+<!-- Skill Node 3 -->
+<div class="bg-surface-container-low p-6 flex flex-col gap-4 group hover:bg-surface-container-high transition-colors">
+<div class="flex justify-between items-start">
+<span class="material-symbols-outlined text-primary-container">language</span>
+<span class="text-[10px] font-label text-outline">003</span>
+</div>
+<div>
+<h4 class="font-headline font-bold text-sm tracking-widest mb-1">WEBGL</h4>
+<p class="text-[10px] text-slate-400 font-body">Browser-based high-performance 3D rendering and Three.js integration.</p>
+</div>
+<div class="w-full h-1 bg-surface-container-lowest">
+<div class="w-[85%] h-full bg-primary-container/80"></div>
+</div>
+</div>
+<!-- Skill Node 4 -->
+<div class="bg-surface-container-low p-6 flex flex-col gap-4 group hover:bg-surface-container-high transition-colors">
+<div class="flex justify-between items-start">
+<span class="material-symbols-outlined text-primary-container">javascript</span>
+<span class="text-[10px] font-label text-outline">004</span>
+</div>
+<div>
+<h4 class="font-headline font-bold text-sm tracking-widest mb-1">NODE.JS</h4>
+<p class="text-[10px] text-slate-400 font-body">Backend orchestration and microservices for scalable data management.</p>
+</div>
+<div class="w-full h-1 bg-surface-container-lowest">
+<div class="w-[88%] h-full bg-primary-container/80"></div>
+</div>
+</div>
+<!-- Skill Node 5 -->
+<div class="bg-surface-container-low p-6 flex flex-col gap-4 group hover:bg-surface-container-high transition-colors">
+<div class="flex justify-between items-start">
+<span class="material-symbols-outlined text-secondary-container">psychology</span>
+<span class="text-[10px] font-label text-outline">005</span>
+</div>
+<div>
+<h4 class="font-headline font-bold text-sm tracking-widest mb-1">AI / MINIMAX</h4>
+<p class="text-[10px] text-slate-400 font-body">Neural logic implementation and behavioral AI for NPC simulation.</p>
+</div>
+<div class="w-full h-1 bg-surface-container-lowest">
+<div class="w-[82%] h-full bg-secondary-container/80"></div>
+</div>
+</div>
+<!-- Skill Node 6 -->
+<div class="bg-surface-container-low p-6 flex flex-col gap-4 group hover:bg-surface-container-high transition-colors">
+<div class="flex justify-between items-start">
+<span class="material-symbols-outlined text-primary-container">hub</span>
+<span class="text-[10px] font-label text-outline">006</span>
+</div>
+<div>
+<h4 class="font-headline font-bold text-sm tracking-widest mb-1">PHOTON</h4>
+<p class="text-[10px] text-slate-400 font-body">Real-time multiplayer infrastructure and low-latency networking.</p>
+</div>
+<div class="w-full h-1 bg-surface-container-lowest">
+<div class="w-[92%] h-full bg-primary-container/80"></div>
+</div>
+</div>
+<!-- Skill Node 7 -->
+<div class="bg-surface-container-low p-6 flex flex-col gap-4 group hover:bg-surface-container-high transition-colors">
+<div class="flex justify-between items-start">
+<span class="material-symbols-outlined text-primary-container">database</span>
+<span class="text-[10px] font-label text-outline">007</span>
+</div>
+<div>
+<h4 class="font-headline font-bold text-sm tracking-widest mb-1">FIREBASE</h4>
+<p class="text-[10px] text-slate-400 font-body">Cloud integration, authentication, and real-time database syncing.</p>
+</div>
+<div class="w-full h-1 bg-surface-container-lowest">
+<div class="w-[89%] h-full bg-primary-container/80"></div>
+</div>
+</div>
+<!-- Skill Node 8 -->
+<div class="bg-surface-container-low p-6 flex flex-col gap-4 group hover:bg-surface-container-high transition-colors">
+<div class="flex justify-between items-start">
+<span class="material-symbols-outlined text-outline">more_horiz</span>
+<span class="text-[10px] font-label text-outline">008</span>
+</div>
+<div>
+<h4 class="font-headline font-bold text-sm tracking-widest mb-1">CORE_ENGINE</h4>
+<p class="text-[10px] text-slate-400 font-body">Continuous research into emerging spatial technologies and UI/UX.</p>
+</div>
+<div class="w-full h-1 bg-surface-container-lowest">
+<div class="w-[100%] h-full bg-outline-variant/30"></div>
+</div>
+</div>
+</div>
+</section>
+<!-- Telemetry HUD Element (Bottom Left Overlay) -->
+<div class="fixed bottom-20 left-6 z-40 hidden lg:block max-w-[200px]">
+<div class="flex items-center gap-2 mb-1">
+<span class="w-2 h-2 rounded-full bg-secondary-container animate-pulse"></span>
+<span class="font-label text-[10px] text-secondary-container tracking-tighter">EVENT_LOG_STREAM</span>
+</div>
+<div class="bg-surface-container-lowest/80 border-l border-secondary-container/30 p-2 font-label text-[8px] text-slate-500 leading-tight">
+<p>&gt; BOOT_SEQ... OK</p>
+<p>&gt; LOAD_DOSSIER_ASSETS... 100%</p>
+<p>&gt; BIOMETRIC_SYNC... ESTABLISHED</p>
+<p>&gt; ENCRYPTED_TUNNEL... ACTIVE</p>
+</div>
+</div>
+</main>
+<!-- Footer -->
+<footer class="w-full px-6 py-4 flex justify-between items-center border-l-4 border-[#CCFF00] bg-[#131315]">
+<div class="flex items-center gap-4">
+<span class="font-headline text-[10px] tracking-widest uppercase text-[#CCFF00] font-bold">© 2026 JATIN SUYAL</span>
+<div class="hidden sm:block h-px w-12 bg-outline-variant/20"></div>
+<span class="hidden sm:inline font-headline text-[10px] tracking-widest uppercase text-slate-600">SYSTEM_REVISION_V5.0</span>
+</div>
+<div class="flex gap-6">
+<a class="font-headline text-[10px] tracking-widest uppercase text-slate-600 hover:text-[#CCFF00] hover:glow-sm transition-all" href="#">GITHUB</a>
+<a class="font-headline text-[10px] tracking-widest uppercase text-slate-600 hover:text-[#CCFF00] hover:glow-sm transition-all" href="#">LINKEDIN</a>
+</div>
+</footer>
+</body></html>

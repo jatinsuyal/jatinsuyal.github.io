@@ -1,0 +1,303 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>JATIN SUYAL | UNITY_ENGINE_CORE</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700;900&amp;family=Manrope:wght@300;400;500;600;700;800&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        "error-container": "#93000a",
+                        "surface-container-high": "#2a2a2c",
+                        "on-surface-variant": "#bac9cc",
+                        "on-tertiary": "#00363d",
+                        "on-error": "#690005",
+                        "tertiary-fixed-dim": "#00daf3",
+                        "on-secondary": "#283500",
+                        "on-secondary-container": "#556d00",
+                        "surface-container-low": "#1c1b1d",
+                        "surface-container": "#201f22",
+                        "surface-variant": "#353437",
+                        "on-background": "#e5e1e4",
+                        "background": "#131315",
+                        "inverse-on-surface": "#313032",
+                        "tertiary-fixed": "#9cf0ff",
+                        "inverse-primary": "#006875",
+                        "secondary-fixed": "#c3f400",
+                        "surface": "#131315",
+                        "error": "#ffb4ab",
+                        "on-tertiary-container": "#00626e",
+                        "outline-variant": "#3b494c",
+                        "surface-container-highest": "#353437",
+                        "primary-container": "#00e5ff",
+                        "primary": "#c3f5ff",
+                        "inverse-surface": "#e5e1e4",
+                        "primary-fixed-dim": "#00daf3",
+                        "tertiary": "#c3f5ff",
+                        "secondary-fixed-dim": "#abd600",
+                        "on-primary-fixed": "#001f24",
+                        "on-surface": "#e5e1e4",
+                        "on-error-container": "#ffdad6",
+                        "surface-bright": "#39393b",
+                        "on-primary-fixed-variant": "#004f58",
+                        "secondary-container": "#c3f400",
+                        "surface-dim": "#131315",
+                        "on-secondary-fixed-variant": "#3c4d00",
+                        "outline": "#849396",
+                        "secondary": "#ffffff",
+                        "surface-tint": "#00daf3",
+                        "on-tertiary-fixed": "#001f24",
+                        "on-primary": "#00363d",
+                        "on-secondary-fixed": "#161e00",
+                        "primary-fixed": "#9cf0ff",
+                        "on-tertiary-fixed-variant": "#004f58",
+                        "tertiary-container": "#00e5ff",
+                        "on-primary-container": "#00626e",
+                        "surface-container-lowest": "#0e0e10"
+                    },
+                    fontFamily: {
+                        "headline": ["Space Grotesk"],
+                        "body": ["Manrope"],
+                        "label": ["Space Grotesk"]
+                    },
+                    borderRadius: {"DEFAULT": "0px", "lg": "0px", "xl": "0px", "full": "9999px"},
+                },
+            },
+        }
+    </script>
+<style>
+        .scanline {
+            width: 100%;
+            height: 100px;
+            z-index: 10;
+            background: linear-gradient(0deg, rgba(0, 0, 0, 0) 0%, rgba(0, 229, 255, 0.02) 50%, rgba(0, 0, 0, 0) 100%);
+            opacity: 0.1;
+            position: absolute;
+            bottom: 100%;
+            pointer-events: none;
+        }
+        .grid-overlay {
+            background-image: radial-gradient(circle, #00e5ff11 1px, transparent 1px);
+            background-size: 24px 24px;
+        }
+        .corner-accent {
+            width: 8px;
+            height: 8px;
+            border-style: solid;
+            position: absolute;
+        }
+        .corner-tl { top: -2px; left: -2px; border-width: 2px 0 0 2px; }
+        .corner-tr { top: -2px; right: -2px; border-width: 2px 2px 0 0; }
+        .corner-bl { bottom: -2px; left: -2px; border-width: 0 0 2px 2px; }
+        .corner-br { bottom: -2px; right: -2px; border-width: 0 2px 2px 0; }
+        
+        .mil-spec-clip {
+            clip-path: polygon(0 0, calc(100% - 12px) 0, 100% 12px, 100% 100%, 0 100%);
+        }
+        .hud-blur {
+            backdrop-filter: blur(12px);
+            background: rgba(19, 19, 21, 0.6);
+        }
+    </style>
+</head>
+<body class="bg-background text-on-background font-body selection:bg-primary-container selection:text-on-primary-container overflow-x-hidden">
+<!-- Top Navigation Bar -->
+<header class="fixed top-0 left-0 w-full z-50 flex justify-between items-center px-6 py-3 bg-[#131315]/60 backdrop-blur-xl border-b border-[#00E5FF]/10 shadow-[0_0_15px_rgba(0,229,255,0.1)]">
+<div class="text-[#00E5FF] font-black tracking-tighter text-xl font-headline">SYSTEM_CORE_v5</div>
+<nav class="hidden md:flex items-center gap-8">
+<a class="font-['Space_Grotesk'] tracking-[0.1em] uppercase text-xs font-bold text-[#00E5FF] border-b-2 border-[#00E5FF] pb-1 transition-all duration-200" href="#">HOME</a>
+<a class="font-['Space_Grotesk'] tracking-[0.1em] uppercase text-xs font-bold text-slate-500 hover:text-[#00E5FF]/80 transition-all duration-200" href="#">DOSSIER</a>
+<a class="font-['Space_Grotesk'] tracking-[0.1em] uppercase text-xs font-bold text-slate-500 hover:text-[#00E5FF]/80 transition-all duration-200" href="#">ARCHIVE</a>
+<a class="font-['Space_Grotesk'] tracking-[0.1em] uppercase text-xs font-bold text-slate-500 hover:text-[#00E5FF]/80 transition-all duration-200" href="#">COMMS</a>
+</nav>
+<button class="mil-spec-clip bg-primary-container text-on-primary px-6 py-2 font-headline font-bold text-xs tracking-widest active:scale-95 transition-all duration-100">
+            INITIATE_UPLINK
+        </button>
+</header>
+<!-- Main Content Canvas -->
+<main class="relative min-h-screen pt-20 pb-16 overflow-hidden">
+<!-- Persistent Grid & Texture Overlay -->
+<div class="fixed inset-0 grid-overlay pointer-events-none z-0"></div>
+<div class="scanline animate-pulse"></div>
+<!-- HERO SECTION -->
+<section class="relative min-h-[921px] flex flex-col items-center justify-center px-6 text-center z-10">
+<!-- Background Image Panels -->
+<div class="absolute inset-0 z-0 opacity-20 flex gap-4 pointer-events-none">
+<div class="w-1/2 h-full bg-cover bg-center" data-alt="Futuristic digital construction environment in a virtual reality space with floating structural elements and neon blue architectural lines" style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuDKiSTXki9Stk1Zr7_Gg5wxJYP6G-dfNUtvEgycg2640sTI3W4Vjb0bGqZjjJGXEkpfy2Uhf3XqkHBqgckjXYVhFf8Mq3j38k58KVm3aqN15CCozOjwKwLKA4NOE9nQjmIq2rHYnbGkP_RLJSCIw5NxqbGxTWLMHZRzjGdQ4WwtSoHHYA6B6TB2ikFGJJXn2F4xdwm7SlbNGq8VuLBvDml4jhCmqSATQZZzRCLHID8htdhFvDNRUAKTVHwAaH2BDa5CCsDG4MDibSyl')"></div>
+<div class="w-1/2 h-full bg-cover bg-center" data-alt="Sci-fi game environment interface with vibrant energy particles, high-tech control panels, and neon lime green visual effects" style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuDaNOOMl5ABctWm3CMDrfevoEub2gEqSGqYCWRGxWKfDf7InHnVau9CCoqONMtokyNc5kB9FM59_kCEfGChVfGRuVYEDKFTYe4-pUIlnoREA4tcsIpdawVDy8qmRRkC56VsYlUcnEsHDWdsRggAoy3yMLd6s0VAAu9bSRvkg2RSLuTgslHwd1hTDB4Hr4phcPh23WAxxVOcYMnKnt32DCvFkCNUwG6uHTbpn7bbpV9uJq4vO9h8TV93ebkTmRiOdU8R2g1rre3LmipY')"></div>
+</div>
+<!-- Content -->
+<div class="relative max-w-5xl mx-auto">
+<div class="inline-block border-l-2 border-secondary-container pl-4 mb-6 text-left">
+<span class="font-label text-xs tracking-[0.2em] text-secondary-container block mb-1">SYSTEM_AUTH // J_SUYAL</span>
+<h2 class="font-headline font-black text-6xl md:text-9xl tracking-tighter text-secondary drop-shadow-[0_0_20px_rgba(255,255,255,0.2)]">
+                        JATIN SUYAL
+                    </h2>
+</div>
+<div class="bg-surface-container-low/40 hud-blur p-1 mb-8 relative border border-white/5">
+<div class="p-6 md:p-10">
+<p class="font-headline text-lg md:text-2xl text-primary-container tracking-widest mb-4 uppercase">
+                            SEASONED UNITY GAME DEVELOPER (4+ YRS)
+                        </p>
+<p class="font-body text-on-surface-variant text-base md:text-lg max-w-2xl mx-auto leading-relaxed">
+                            Crafting Immersive Realities &amp; High-Performance Games. Architecting complex systems within the Unity ecosystem for mobile, PC, and XR platforms.
+                        </p>
+</div>
+<!-- HUD Corner Accents -->
+<div class="corner-accent corner-tl border-primary-container"></div>
+<div class="corner-accent corner-tr border-primary-container"></div>
+<div class="corner-accent corner-bl border-primary-container"></div>
+<div class="corner-accent corner-br border-primary-container"></div>
+</div>
+<div class="flex flex-col md:flex-row gap-4 justify-center items-center">
+<button class="mil-spec-clip w-full md:w-auto bg-primary-container text-on-primary px-10 py-4 font-headline font-black tracking-widest hover:brightness-110 hover:shadow-[0_0_25px_rgba(0,229,255,0.4)] transition-all">
+                        VIEW PROJECT ARCHIVE
+                    </button>
+<button class="mil-spec-clip w-full md:w-auto border border-outline px-10 py-4 font-headline font-bold text-primary tracking-widest hover:bg-primary/10 transition-all">
+                        ACCESS DOSSIER
+                    </button>
+</div>
+</div>
+</section>
+<!-- TELEMETRY & STATUS SECTION (Bento Style) -->
+<section class="relative z-10 px-6 py-12 max-w-7xl mx-auto">
+<div class="grid grid-cols-1 md:grid-cols-12 gap-6">
+<!-- Skill Mastery Stats -->
+<div class="md:col-span-8 bg-surface-container-low border border-outline-variant/30 p-8 relative">
+<div class="flex items-center gap-2 mb-8">
+<span class="material-symbols-outlined text-secondary-container">bar_chart</span>
+<h3 class="font-headline font-bold text-xs tracking-[0.2em] uppercase">Core_Competency_Telemetry</h3>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-2 gap-x-12 gap-y-8">
+<!-- Stat Item -->
+<div>
+<div class="flex justify-between font-label text-[10px] tracking-widest mb-2">
+<span>UNITY_ENGINE</span>
+<span class="text-primary-container">98%</span>
+</div>
+<div class="h-1.5 bg-surface-variant w-full overflow-hidden">
+<div class="h-full bg-primary-container shadow-[0_0_10px_rgba(0,229,255,0.5)] w-[98%]"></div>
+</div>
+</div>
+<!-- Stat Item -->
+<div>
+<div class="flex justify-between font-label text-[10px] tracking-widest mb-2">
+<span>C#_PROGRAMMING</span>
+<span class="text-primary-container">95%</span>
+</div>
+<div class="h-1.5 bg-surface-variant w-full overflow-hidden">
+<div class="h-full bg-primary-container shadow-[0_0_10px_rgba(0,229,255,0.5)] w-[95%]"></div>
+</div>
+</div>
+<!-- Stat Item -->
+<div>
+<div class="flex justify-between font-label text-[10px] tracking-widest mb-2">
+<span>VR/AR_ARCHITECTURE</span>
+<span class="text-primary-container">92%</span>
+</div>
+<div class="h-1.5 bg-surface-variant w-full overflow-hidden">
+<div class="h-full bg-primary-container shadow-[0_0_10px_rgba(0,229,255,0.5)] w-[92%]"></div>
+</div>
+</div>
+<!-- Stat Item -->
+<div>
+<div class="flex justify-between font-label text-[10px] tracking-widest mb-2">
+<span>WEBGL_DEPLOYMENT</span>
+<span class="text-primary-container">89%</span>
+</div>
+<div class="h-1.5 bg-surface-variant w-full overflow-hidden">
+<div class="h-full bg-primary-container shadow-[0_0_10px_rgba(0,229,255,0.5)] w-[89%]"></div>
+</div>
+</div>
+</div>
+</div>
+<!-- System Logs (Telemetry Component) -->
+<div class="md:col-span-4 bg-surface-container-lowest border border-outline-variant/30 p-6 font-mono text-[10px] leading-tight text-primary/60 flex flex-col gap-2 overflow-hidden">
+<div class="text-secondary-container font-bold mb-2">SYSTEM_LOGS // STABLE</div>
+<div class="border-l border-primary/20 pl-2">
+<p class="animate-pulse">&gt; INITIALIZING KERNEL...</p>
+<p>&gt; LOADING ASSETS/MODELS/V5...</p>
+<p class="text-primary-container">&gt; SHADERS_OPTIMIZED [SUCCESS]</p>
+<p>&gt; CONNECTING_TO_UPLINK...</p>
+<p>&gt; READY_FOR_INTERACTION</p>
+<p>&gt; TRACING_LATENCY: 12ms</p>
+<p class="text-error-container">&gt; ERROR: NULL_PTR_SUPPRESSED</p>
+<p>&gt; CACHE_FLUSHED</p>
+<p class="animate-pulse">&gt; WAITING_FOR_INPUT...</p>
+</div>
+</div>
+</div>
+</section>
+<!-- Project Highlights Asymmetric Layout -->
+<section class="relative z-10 px-6 py-20">
+<div class="max-w-7xl mx-auto flex flex-col gap-32">
+<!-- Project 01 -->
+<div class="flex flex-col md:flex-row gap-12 items-center">
+<div class="w-full md:w-3/5 group relative overflow-hidden">
+<div class="absolute inset-0 bg-primary-container/10 group-hover:bg-transparent transition-all z-10 pointer-events-none"></div>
+<img class="w-full aspect-video object-cover grayscale group-hover:grayscale-0 transition-all duration-700" data-alt="Technical visualization of a Unity-built VR simulation showing wireframe buildings and interactive architectural data modules in a void environment" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBy7oLfjmiUA4Co0yFkb9dPGKJxGegcHjhCe0zDNJMGR5CCUWQXlW7WFH-LMTa5oI3lKsuVbNUKS7xMonSUf1QDm52H49LmeoGixCyGMKuJIxzBdaRBBh_xG1sknzJ_ZyohSvFiGCJE36fxaVKdHkyigxsdR6-JkZ5u-J8xS6QpzFU6bji89pkOkVCW_fqbx-7-C1oy-cD_GuhOby9ABBZv1AXTeUWh5utpIgdrrQWdbyKYTKDB0Y73x3zHPBOAMx04MxhrLbdL-oVz"/>
+<div class="absolute top-0 left-0 p-4 z-20">
+<span class="bg-primary-container text-on-primary text-[10px] font-bold px-3 py-1 font-label uppercase">Module_01</span>
+</div>
+</div>
+<div class="w-full md:w-2/5">
+<div class="mb-4 text-secondary-container font-label text-xs tracking-widest">PROJECT_CAT: CONSTRUCTION_SIM</div>
+<h4 class="font-headline font-black text-4xl text-secondary mb-6 leading-tight">VIRTUAL_REALITY ARCHITECT</h4>
+<p class="text-on-surface-variant font-body leading-relaxed mb-8">
+                            High-fidelity training simulation for industrial engineers. Features deterministic physics and custom shader pipelines for real-time stress visualization.
+                        </p>
+<button class="group flex items-center gap-4 text-primary font-headline text-xs font-bold tracking-widest hover:text-secondary-container transition-colors">
+                            DECRYPT_DATA_SET 
+                            <span class="material-symbols-outlined text-sm group-hover:translate-x-2 transition-transform">arrow_forward_ios</span>
+</button>
+</div>
+</div>
+<!-- Project 02 -->
+<div class="flex flex-col md:flex-row-reverse gap-12 items-center">
+<div class="w-full md:w-3/5 group relative overflow-hidden">
+<div class="absolute inset-0 bg-secondary-container/10 group-hover:bg-transparent transition-all z-10 pointer-events-none"></div>
+<img class="w-full aspect-video object-cover grayscale group-hover:grayscale-0 transition-all duration-700" data-alt="Intense sci-fi game screenshot from Project Superfun with neon green lasers, cybernetic environments, and dynamic particle effects" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAD_oby9ofPpnOZP6EVwF-L-VxKGrfN3_2VjZcTWf0MLox76Jti5J9wVM1-7K-WNiKNCFYuzSh1vd_XGqXkaWIUSbHbec4Q1UUI9k0SF8YUnnI5hV8zS2cnSrW1qhY1UiZBQsf953hnEmiwdndhucDzvamm3UIFK2CmclmhE4H2x1QGEorPYKAdMfLcDxtHAzbHFMoxVJ3d3BQ6RkOH4geVuHp_qPKOGOzO1sk5klnDzRQqA3IP6aNs-KAYxM5oOBBDs6o8ZVGaa8MV"/>
+<div class="absolute top-0 right-0 p-4 z-20 text-right">
+<span class="bg-secondary-container text-on-secondary text-[10px] font-bold px-3 py-1 font-label uppercase">Module_02</span>
+</div>
+</div>
+<div class="w-full md:w-2/5 text-right">
+<div class="mb-4 text-primary-container font-label text-xs tracking-widest">PROJECT_CAT: ARCADE_SHOOTER</div>
+<h4 class="font-headline font-black text-4xl text-secondary mb-6 leading-tight">SUPERFUN_CORE</h4>
+<p class="text-on-surface-variant font-body leading-relaxed mb-8">
+                            A high-octane arcade experience optimized for WebGL. Leveraging custom object pooling and high-performance ECS for massive particle counts.
+                        </p>
+<div class="flex justify-end">
+<button class="group flex items-center gap-4 text-secondary-container font-headline text-xs font-bold tracking-widest hover:text-primary transition-colors">
+<span class="material-symbols-outlined text-sm group-hover:-translate-x-2 transition-transform">arrow_back_ios</span>
+                                ANALYZE_LOGS 
+                            </button>
+</div>
+</div>
+</div>
+</div>
+</section>
+</main>
+<!-- Footer Component -->
+<footer class="w-full px-6 py-4 flex justify-between items-center border-l-4 border-[#CCFF00] bg-[#131315]">
+<div class="flex items-center gap-6">
+<span class="text-[#CCFF00] font-bold font-headline text-[10px] tracking-widest uppercase">© 2026 JATIN SUYAL</span>
+<div class="h-4 w-px bg-slate-800"></div>
+<div class="flex gap-4">
+<a class="font-['Space_Grotesk'] text-[10px] tracking-widest uppercase text-slate-600 hover:text-[#CCFF00] transition-colors" href="#">GITHUB</a>
+<a class="font-['Space_Grotesk'] text-[10px] tracking-widest uppercase text-slate-600 hover:text-[#CCFF00] transition-colors" href="#">LINKEDIN</a>
+</div>
+</div>
+<div class="hidden md:flex gap-4 items-center">
+<span class="material-symbols-outlined text-sm text-[#CCFF00]">terminal</span>
+<span class="font-['Space_Grotesk'] text-[10px] tracking-widest uppercase text-slate-600">STABLE_CONNECTION // 127.0.0.1</span>
+</div>
+</footer>
+</body></html>

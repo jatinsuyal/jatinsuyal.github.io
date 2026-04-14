@@ -1,0 +1,303 @@
+<!DOCTYPE html>
+<html class="dark" lang="en">
+<head>
+    <meta charset="utf-8"/>
+    <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+    <title>JATIN SUYAL | UNITY_ENGINE_CORE</title>
+    <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700;900&amp;family=Manrope:wght@300;400;500;600;700;800&amp;display=swap" rel="stylesheet"/>
+    <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+    <script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        "error-container": "#93000a",
+                        "surface-container-high": "#2a2a2c",
+                        "on-surface-variant": "#bac9cc",
+                        "on-tertiary": "#00363d",
+                        "on-error": "#690005",
+                        "tertiary-fixed-dim": "#00daf3",
+                        "on-secondary": "#283500",
+                        "on-secondary-container": "#556d00",
+                        "surface-container-low": "#1c1b1d",
+                        "surface-container": "#201f22",
+                        "surface-variant": "#353437",
+                        "on-background": "#e5e1e4",
+                        "background": "#131315",
+                        "inverse-on-surface": "#313032",
+                        "tertiary-fixed": "#9cf0ff",
+                        "inverse-primary": "#006875",
+                        "secondary-fixed": "#c3f400",
+                        "surface": "#131315",
+                        "error": "#ffb4ab",
+                        "on-tertiary-container": "#00626e",
+                        "outline-variant": "#3b494c",
+                        "surface-container-highest": "#353437",
+                        "primary-container": "#00e5ff",
+                        "primary": "#c3f5ff",
+                        "inverse-surface": "#e5e1e4",
+                        "primary-fixed-dim": "#00daf3",
+                        "tertiary": "#c3f5ff",
+                        "secondary-fixed-dim": "#abd600",
+                        "on-primary-fixed": "#001f24",
+                        "on-surface": "#e5e1e4",
+                        "on-error-container": "#ffdad6",
+                        "surface-bright": "#39393b",
+                        "on-primary-fixed-variant": "#004f58",
+                        "secondary-container": "#c3f400",
+                        "surface-dim": "#131315",
+                        "on-secondary-fixed-variant": "#3c4d00",
+                        "outline": "#849396",
+                        "secondary": "#ffffff",
+                        "surface-tint": "#00daf3",
+                        "on-tertiary-fixed": "#001f24",
+                        "on-primary": "#00363d",
+                        "on-secondary-fixed": "#161e00",
+                        "primary-fixed": "#9cf0ff",
+                        "on-tertiary-fixed-variant": "#004f58",
+                        "tertiary-container": "#00e5ff",
+                        "on-primary-container": "#00626e",
+                        "surface-container-lowest": "#0e0e10"
+                    },
+                    fontFamily: {
+                        "headline": ["Space Grotesk"],
+                        "body": ["Manrope"],
+                        "label": ["Space Grotesk"]
+                    },
+                    borderRadius: {"DEFAULT": "0px", "lg": "0px", "xl": "0px", "full": "9999px"},
+                },
+            },
+        }
+    </script>
+    <style>
+        .scanline {
+            width: 100%;
+            height: 100px;
+            z-index: 10;
+            background: linear-gradient(0deg, rgba(0, 0, 0, 0) 0%, rgba(0, 229, 255, 0.02) 50%, rgba(0, 0, 0, 0) 100%);
+            opacity: 0.1;
+            position: absolute;
+            bottom: 100%;
+            pointer-events: none;
+        }
+        .grid-overlay {
+            background-image: radial-gradient(circle, #00e5ff11 1px, transparent 1px);
+            background-size: 24px 24px;
+        }
+        .corner-accent {
+            width: 8px;
+            height: 8px;
+            border-style: solid;
+            position: absolute;
+        }
+        .corner-tl { top: -2px; left: -2px; border-width: 2px 0 0 2px; }
+        .corner-tr { top: -2px; right: -2px; border-width: 2px 2px 0 0; }
+        .corner-bl { bottom: -2px; left: -2px; border-width: 0 0 2px 2px; }
+        .corner-br { bottom: -2px; right: -2px; border-width: 0 2px 2px 0; }
+        
+        .mil-spec-clip {
+            clip-path: polygon(0 0, calc(100% - 12px) 0, 100% 12px, 100% 100%, 0 100%);
+        }
+        .hud-blur {
+            backdrop-filter: blur(12px);
+            background: rgba(19, 19, 21, 0.6);
+        }
+    </style>
+</head>
+<body class="bg-background text-on-background font-body selection:bg-primary-container selection:text-on-primary-container overflow-x-hidden">
+<!-- Top Navigation Bar -->
+<header class="fixed top-0 left-0 w-full z-50 flex justify-between items-center px-6 py-3 bg-[#131315]/60 backdrop-blur-xl border-b border-[#00E5FF]/10 shadow-[0_0_15px_rgba(0,229,255,0.1)]">
+    <div class="text-[#00E5FF] font-black tracking-tighter text-xl font-headline">SYSTEM_CORE_v5</div>
+    <nav class="hidden md:flex items-center gap-8">
+        <a class="font-['Space_Grotesk'] tracking-[0.1em] uppercase text-xs font-bold text-[#00E5FF] border-b-2 border-[#00E5FF] pb-1 transition-all duration-200" href="index.html">HOME</a>
+        <a class="font-['Space_Grotesk'] tracking-[0.1em] uppercase text-xs font-bold text-slate-500 hover:text-[#00E5FF]/80 transition-all duration-200" href="about.html">DOSSIER</a>
+        <a class="font-['Space_Grotesk'] tracking-[0.1em] uppercase text-xs font-bold text-slate-500 hover:text-[#00E5FF]/80 transition-all duration-200" href="projects.html">ARCHIVE</a>
+        <a class="font-['Space_Grotesk'] tracking-[0.1em] uppercase text-xs font-bold text-slate-500 hover:text-[#00E5FF]/80 transition-all duration-200" href="contact.html">COMMS</a>
+    </nav>
+    <a href="contact.html" class="mil-spec-clip bg-primary-container text-on-primary px-6 py-2 font-headline font-bold text-xs tracking-widest active:scale-95 transition-all duration-100 flex items-center">
+        INITIATE_UPLINK
+    </a>
+</header>
+<!-- Main Content Canvas -->
+<main class="relative min-h-screen pt-20 pb-16 overflow-hidden">
+<!-- Persistent Grid & Texture Overlay -->
+<div class="fixed inset-0 grid-overlay pointer-events-none z-0"></div>
+<div class="scanline animate-pulse"></div>
+<!-- HERO SECTION -->
+<section class="relative min-h-[921px] flex flex-col items-center justify-end pb-40 px-6 text-center z-10">
+<!-- Background Image Panels -->
+<div class="absolute inset-0 z-0 pointer-events-none">
+            <img src="vr_headset_ultra_hd_hero_1775034271800.png" class="w-full h-full object-cover" alt="VR Headset Showcase Ultra HD"/>
+            <div class="absolute inset-0 bg-transparent"></div>
+            <div class="absolute inset-0 bg-gradient-to-t from-background via-background/40 to-transparent"></div>
+        </div>
+<!-- Content -->
+<div class="relative max-w-5xl mx-auto">
+<div class="inline-block border-l-2 border-secondary-container pl-4 mb-6 text-left">
+<span class="font-label text-xs tracking-[0.2em] text-secondary-container block mb-1">SYSTEM_AUTH // J_SUYAL</span>
+<h2 class="font-headline font-black text-6xl md:text-9xl tracking-tighter text-secondary drop-shadow-[0_0_20px_rgba(255,255,255,0.2)]">
+                        JATIN SUYAL
+                    </h2>
+</div>
+<div class="bg-surface-container-low/40 hud-blur p-1 mb-8 relative border border-white/5">
+<div class="p-6 md:p-10">
+<p class="font-headline text-lg md:text-2xl text-primary-container tracking-widest mb-4 uppercase">
+                            Experienced Unity Game Developer (4+ Years)
+                        </p>
+                        <p class="font-body text-on-surface-variant text-base md:text-lg max-w-2xl mx-auto leading-relaxed">
+                            Based in Delhi, I specialize in crafting immersive gaming experiences, pushing the boundaries of creativity and innovation in the Unity ecosystem.
+                        </p>
+</div>
+<!-- HUD Corner Accents -->
+<div class="corner-accent corner-tl border-primary-container"></div>
+<div class="corner-accent corner-tr border-primary-container"></div>
+<div class="corner-accent corner-bl border-primary-container"></div>
+<div class="corner-accent corner-br border-primary-container"></div>
+</div>
+<div class="flex flex-col md:flex-row gap-4 justify-center items-center">
+<button onclick="window.location.href='projects.html'" class="mil-spec-clip bg-primary-container text-on-primary font-headline tracking-widest uppercase text-xs font-bold px-8 py-4 hover:brightness-110 active:scale-95 transition-all">
+                ACCESS_ARCHIVE
+            </button>
+            <button onclick="window.location.href='about.html'" class="mil-spec-clip font-headline tracking-widest uppercase text-xs font-bold px-8 py-4 text-primary-container border border-primary-container/20 hover:bg-primary-container/5 active:scale-95 transition-all">
+                READ_DOSSIER
+            </button>
+</div>
+</div>
+</section>
+<!-- TELEMETRY & STATUS SECTION (Bento Style) -->
+<section class="relative z-10 px-6 py-12 max-w-7xl mx-auto">
+<div class="grid grid-cols-1 md:grid-cols-12 gap-6">
+<!-- Skill Mastery Stats -->
+<div class="md:col-span-8 bg-surface-container-low border border-outline-variant/30 p-8 relative">
+<div class="flex items-center gap-2 mb-8">
+<span class="material-symbols-outlined text-secondary-container">bar_chart</span>
+<h3 class="font-headline font-bold text-xs tracking-[0.2em] uppercase">Core_Competency_Telemetry</h3>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-2 gap-x-12 gap-y-8">
+<!-- Stat Item -->
+<div>
+<div class="flex justify-between font-label text-[10px] tracking-widest mb-2">
+<span>UNITY_ENGINE</span>
+<span class="text-primary-container">98%</span>
+</div>
+<div class="h-1.5 bg-surface-variant w-full overflow-hidden">
+<div class="h-full bg-primary-container shadow-[0_0_10px_rgba(0,229,255,0.5)] w-[98%]"></div>
+</div>
+</div>
+<!-- Stat Item -->
+<div>
+<div class="flex justify-between font-label text-[10px] tracking-widest mb-2">
+<span>C#_PROGRAMMING</span>
+<span class="text-primary-container">95%</span>
+</div>
+<div class="h-1.5 bg-surface-variant w-full overflow-hidden">
+<div class="h-full bg-primary-container shadow-[0_0_10px_rgba(0,229,255,0.5)] w-[95%]"></div>
+</div>
+</div>
+<!-- Stat Item -->
+<div>
+<div class="flex justify-between font-label text-[10px] tracking-widest mb-2">
+<span>VR/AR_ARCHITECTURE</span>
+<span class="text-primary-container">92%</span>
+</div>
+<div class="h-1.5 bg-surface-variant w-full overflow-hidden">
+<div class="h-full bg-primary-container shadow-[0_0_10px_rgba(0,229,255,0.5)] w-[92%]"></div>
+</div>
+</div>
+<!-- Stat Item -->
+<div>
+<div class="flex justify-between font-label text-[10px] tracking-widest mb-2">
+<span>WEBGL_DEPLOYMENT</span>
+<span class="text-primary-container">89%</span>
+</div>
+<div class="h-1.5 bg-surface-variant w-full overflow-hidden">
+<div class="h-full bg-primary-container shadow-[0_0_10px_rgba(0,229,255,0.5)] w-[89%]"></div>
+</div>
+</div>
+</div>
+</div>
+<!-- System Logs (Telemetry Component) -->
+<div class="md:col-span-4 bg-surface-container-lowest border border-outline-variant/30 p-6 font-mono text-[10px] leading-tight text-primary/60 flex flex-col gap-2 overflow-hidden">
+<div class="text-secondary-container font-bold mb-2">SYSTEM_LOGS // STABLE</div>
+<div class="border-l border-primary/20 pl-2">
+<p class="animate-pulse">&gt; INITIALIZING KERNEL...</p>
+<p>&gt; LOADING ASSETS/MODELS/V5...</p>
+<p class="text-primary-container">&gt; SHADERS_OPTIMIZED [SUCCESS]</p>
+<p>&gt; CONNECTING_TO_UPLINK...</p>
+<p>&gt; READY_FOR_INTERACTION</p>
+<p>&gt; TRACING_LATENCY: 12ms</p>
+<p class="text-error-container">&gt; ERROR: NULL_PTR_SUPPRESSED</p>
+<p>&gt; CACHE_FLUSHED</p>
+<p class="animate-pulse">&gt; WAITING_FOR_INPUT...</p>
+</div>
+</div>
+</div>
+</section>
+<!-- Project Highlights Asymmetric Layout -->
+<section class="relative z-10 px-6 py-20">
+<div class="max-w-7xl mx-auto flex flex-col gap-32">
+<!-- Project 01 -->
+<div class="flex flex-col md:flex-row gap-12 items-center">
+<div class="w-full md:w-3/5 group relative overflow-hidden">
+<div></div>
+<img class="w-full aspect-video object-cover transition-all duration-700" alt="Construction VR" src="https://cdn.b12.io/client_media/kTZAsQks/09fc6db4-1639-11f0-b43d-0242ac110002-png-hero_image.png"/>
+<div class="absolute top-0 left-0 p-4 z-20">
+<span class="bg-primary-container text-on-primary text-[10px] font-bold px-3 py-1 font-label uppercase">Module_01</span>
+</div>
+</div>
+<div class="w-full md:w-2/5">
+<div class="mb-4 text-secondary-container font-label text-xs tracking-widest">PROJECT_CAT: CONSTRUCTION_SIM</div>
+<h4 class="font-headline font-black text-4xl text-secondary mb-6 leading-tight">VIRTUAL_REALITY ARCHITECT</h4>
+<p class="text-on-surface-variant font-body leading-relaxed mb-8">
+                            Developed a VR onboarding simulator for DSS+ on Oculus Quest 3, training 140,000+ industrial workers in electrical and construction safety.
+                        </p>
+<a href="projects.html" class="group flex items-center gap-4 text-primary font-headline text-xs font-bold tracking-widest hover:text-secondary-container transition-colors">
+                            DECRYPT_DATA_SET 
+                            <span class="material-symbols-outlined text-sm group-hover:translate-x-2 transition-transform">arrow_forward_ios</span>
+</a>
+</div>
+</div>
+<!-- Project 02 -->
+<div class="flex flex-col md:flex-row-reverse gap-12 items-center">
+<div class="w-full md:w-3/5 group relative overflow-hidden">
+<div></div>
+<img class="w-full aspect-video object-cover transition-all duration-700" alt="Project Superfun" src="https://cdn.b12.io/client_media/kTZAsQks/2bd5c754-38fe-11f0-8cbb-0242ac110002-png-hero_image.jpeg"/>
+<div class="absolute top-0 right-0 p-4 z-20 text-right">
+<span class="bg-secondary-container text-on-secondary text-[10px] font-bold px-3 py-1 font-label uppercase">Module_02</span>
+</div>
+</div>
+<div class="w-full md:w-2/5 text-right">
+<div class="mb-4 text-primary-container font-label text-xs tracking-widest">PROJECT_CAT: ARCADE_SHOOTER</div>
+<h4 class="font-headline font-black text-4xl text-secondary mb-6 leading-tight">SUPERFUN_CORE</h4>
+<p class="text-on-surface-variant font-body leading-relaxed mb-8">
+                            Contributed to the development of Project Superfun, a visually polished AA-level multiplayer game with modular gameplay systems.
+                        </p>
+<div class="flex justify-end">
+<a href="projects.html" class="group flex items-center gap-4 text-secondary-container font-headline text-xs font-bold tracking-widest hover:text-primary transition-colors">
+<span class="material-symbols-outlined text-sm group-hover:-translate-x-2 transition-transform">arrow_back_ios</span>
+                                ANALYZE_LOGS 
+                            </a>
+</div>
+</div>
+</div>
+</div>
+</section>
+</main>
+<!-- Footer Component -->
+<footer class="w-full px-6 py-4 flex justify-between items-center border-l-4 border-[#CCFF00] bg-[#131315]">
+<div class="flex items-center gap-6">
+<span class="text-[#CCFF00] font-bold font-headline text-[10px] tracking-widest uppercase">© 2026 JATIN SUYAL</span>
+<div class="h-4 w-px bg-slate-800"></div>
+<div class="flex gap-4">
+<a class="font-['Space_Grotesk'] text-[10px] tracking-widest uppercase text-slate-600 hover:text-[#CCFF00] transition-colors" href="https://github.com/jatinsuyal" target="_blank">GITHUB</a>
+<a class="font-['Space_Grotesk'] text-[10px] tracking-widest uppercase text-slate-600 hover:text-[#CCFF00] transition-colors" href="https://www.linkedin.com/in/jatin-suyal-855333173/" target="_blank">LINKEDIN</a>
+</div>
+</div>
+<div class="hidden md:flex gap-4 items-center">
+<span class="material-symbols-outlined text-sm text-[#CCFF00]">terminal</span>
+<span class="font-['Space_Grotesk'] text-[10px] tracking-widest uppercase text-slate-600">STABLE_CONNECTION // 127.0.0.1</span>
+</div>
+</footer>
+</body></html>

@@ -1,0 +1,371 @@
+<!DOCTYPE html>
+
+<html lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&amp;family=Manrope:wght@300;400;500;600;700;800&amp;family=Public+Sans:wght@300;400;500;600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        "surface-variant": "#1E1E1E",
+                        "on-surface-variant": "#C4C7C5",
+                        "primary": "#00D1FF",
+                    },
+                    fontFamily: {
+                        "headline": ["Public Sans", "sans-serif"],
+                        "body": ["Public Sans", "sans-serif"],
+                        "label": ["Public Sans", "sans-serif"],
+                        "mono": ["Space Grotesk", "monospace"]
+                    },
+                    borderRadius: {"DEFAULT": "0.25rem", "lg": "0.5rem", "xl": "0.75rem", "full": "9999px"},
+                },
+            },
+        }
+    </script>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+            display: inline-block;
+            line-height: 1;
+            text-transform: none;
+            letter-spacing: normal;
+            word-wrap: normal;
+            white-space: nowrap;
+            direction: ltr;
+        }
+        .tech-grid-bg {
+            background-image: 
+                linear-gradient(to right, rgba(0, 209, 255, 0.05) 1px, transparent 1px),
+                linear-gradient(to bottom, rgba(0, 209, 255, 0.05) 1px, transparent 1px);
+            background-size: 40px 40px;
+        }
+        .light-flare {
+            background: radial-gradient(circle at 50% 50%, rgba(0, 209, 255, 0.15) 0%, transparent 70%);
+        }
+    </style>
+</head>
+<body class="bg-[#0A0A0A] text-white font-body selection:bg-cyan-500/30">
+<!-- TopNavBar -->
+<nav class="fixed top-0 w-full border-b border-white/10 bg-surface-variant/60 backdrop-blur-xl z-50 shadow-[0_20px_50px_rgba(0,209,255,0.04)] flex justify-between items-center w-full px-8 py-4 h-16">
+<div class="text-xl font-bold tracking-tighter text-cyan-400 font-['Space_Grotesk']">UNITY_DEV_PORTFOLIO</div>
+<div class="hidden md:flex items-center space-x-8">
+<a class="font-['Space_Grotesk'] uppercase tracking-widest text-sm text-white/70 hover:text-white transition-colors hover:bg-white/5 px-3 py-1 rounded" href="#">Home</a>
+<a class="font-['Space_Grotesk'] uppercase tracking-widest text-sm text-cyan-400 border-b-2 border-cyan-400 pb-1" href="#">Projects</a>
+<a class="font-['Space_Grotesk'] uppercase tracking-widest text-sm text-white/70 hover:text-white transition-colors hover:bg-white/5 px-3 py-1 rounded" href="#">About</a>
+<a class="font-['Space_Grotesk'] uppercase tracking-widest text-sm text-white/70 hover:text-white transition-colors hover:bg-white/5 px-3 py-1 rounded" href="#">Contact</a>
+</div>
+<button class="bg-cyan-400/10 border border-cyan-400/30 text-cyan-400 px-5 py-2 rounded font-['Space_Grotesk'] text-xs uppercase tracking-widest hover:bg-cyan-400 hover:text-black transition-all duration-300 active:scale-95">
+            Initiate Connection
+        </button>
+</nav>
+<main class="pt-24 min-h-screen tech-grid-bg relative overflow-hidden">
+<!-- Background Decor -->
+<div class="absolute top-[-10%] left-[-10%] w-[40%] h-[40%] light-flare blur-3xl pointer-events-none"></div>
+<div class="absolute bottom-[10%] right-[-5%] w-[30%] h-[50%] light-flare blur-3xl pointer-events-none"></div>
+<div class="max-w-[1600px] mx-auto px-8 relative">
+<!-- Header Section -->
+<header class="mb-12">
+<div class="flex items-center gap-4 mb-2">
+<span class="h-[2px] w-12 bg-cyan-400"></span>
+<span class="text-cyan-400 font-mono text-xs tracking-[0.3em] uppercase">System Access Granted</span>
+</div>
+<h1 class="text-7xl md:text-8xl font-black tracking-tighter text-white font-headline">PROJECT_ARCHIVE</h1>
+</header>
+<div class="flex flex-col lg:flex-row gap-8 pb-20">
+<!-- Sidebar Filtering -->
+<aside class="w-full lg:w-72 flex-shrink-0 space-y-8">
+<div class="bg-white/5 border border-white/10 rounded-xl p-6 backdrop-blur-md">
+<div class="flex items-center gap-2 mb-6">
+<span class="material-symbols-outlined text-cyan-400 text-sm">filter_list</span>
+<h2 class="text-xs font-bold uppercase tracking-widest text-white/50">Advanced Filters</h2>
+</div>
+<!-- Engine Version -->
+<div class="space-y-4 mb-8">
+<label class="block text-[10px] uppercase tracking-wider text-cyan-400/70 font-bold">Engine Version</label>
+<div class="space-y-2">
+<label class="flex items-center gap-3 cursor-pointer group">
+<input checked="" class="rounded border-white/20 bg-transparent text-cyan-400 focus:ring-cyan-400/50" type="checkbox"/>
+<span class="text-sm text-white/70 group-hover:text-white transition-colors">Unity 6 (LTS)</span>
+</label>
+<label class="flex items-center gap-3 cursor-pointer group">
+<input class="rounded border-white/20 bg-transparent text-cyan-400 focus:ring-cyan-400/50" type="checkbox"/>
+<span class="text-sm text-white/70 group-hover:text-white transition-colors">Unity 2022.3</span>
+</label>
+<label class="flex items-center gap-3 cursor-pointer group">
+<input class="rounded border-white/20 bg-transparent text-cyan-400 focus:ring-cyan-400/50" type="checkbox"/>
+<span class="text-sm text-white/70 group-hover:text-white transition-colors">Legacy (2019+)</span>
+</label>
+</div>
+</div>
+<!-- Platform -->
+<div class="space-y-4 mb-8">
+<label class="block text-[10px] uppercase tracking-wider text-cyan-400/70 font-bold">Platform Target</label>
+<div class="grid grid-cols-2 gap-2">
+<button class="px-3 py-2 bg-white/10 rounded text-[10px] font-bold uppercase tracking-tighter hover:bg-cyan-400 hover:text-black transition-all">Quest 3</button>
+<button class="px-3 py-2 bg-white/10 rounded text-[10px] font-bold uppercase tracking-tighter hover:bg-cyan-400 hover:text-black transition-all">PCVR</button>
+<button class="px-3 py-2 bg-cyan-400 text-black rounded text-[10px] font-bold uppercase tracking-tighter">Mobile</button>
+<button class="px-3 py-2 bg-white/10 rounded text-[10px] font-bold uppercase tracking-tighter hover:bg-cyan-400 hover:text-black transition-all">WebGL</button>
+</div>
+</div>
+<!-- Skill Tags -->
+<div class="space-y-4">
+<label class="block text-[10px] uppercase tracking-wider text-cyan-400/70 font-bold">Core Competency</label>
+<div class="flex flex-wrap gap-2">
+<span class="px-2 py-1 bg-white/5 border border-white/10 rounded text-[10px] text-white/60">DOTS</span>
+<span class="px-2 py-1 bg-white/5 border border-white/10 rounded text-[10px] text-white/60">Shader Graph</span>
+<span class="px-2 py-1 bg-cyan-400/20 border border-cyan-400/40 rounded text-[10px] text-cyan-400">Networking</span>
+<span class="px-2 py-1 bg-white/5 border border-white/10 rounded text-[10px] text-white/60">Optimization</span>
+</div>
+</div>
+</div>
+<div class="p-6 rounded-xl border border-cyan-400/20 bg-cyan-400/5">
+<p class="text-[10px] font-mono text-cyan-400/60 leading-relaxed uppercase">
+                            Status: Nominal<br/>
+                            Database: Synchronized<br/>
+                            Uptime: 99.99%
+                        </p>
+</div>
+</aside>
+<!-- Project Grid -->
+<div class="flex-grow grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-6">
+<!-- Construction VR -->
+<div class="group relative bg-[#131313] border border-white/5 rounded-xl overflow-hidden hover:border-cyan-400/50 transition-all duration-500 hover:shadow-[0_0_30px_rgba(0,209,255,0.1)]">
+<div class="aspect-video relative overflow-hidden">
+<img class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110" data-alt="Modern construction site seen through virtual reality headset with wireframe architectural overlays and blueprints in bright daylight" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCj6q9Y3AyAPWu4RdzzajQ5q5Al_ZpBpvrC48ISoa8pen1eefCIPlT8fuDvaeKsPFUO-PPBhiykcfYgoWDuFVlYrb8VE-CSOG_8s8SM1Igp2yhhusC9P6p2joDkJNitRp-oOSXS4wZ-7okMnFFVEVnswuhktb488PANGOKyD9uyKB5Lagx8LYNrVzdumIxww_pUvLnZ5UzbvGM2CnbhGhnKN19ld29QqAxYxI0AjlaQgdrlMGFic9jySJBCJkqCqFgK-JQBjncSAK2i"/>
+<div class="absolute inset-0 bg-gradient-to-t from-[#131313] via-transparent to-transparent"></div>
+<div class="absolute top-4 left-4">
+<span class="bg-cyan-400 text-black text-[9px] font-black px-2 py-1 uppercase rounded tracking-widest">VR Architecture</span>
+</div>
+</div>
+<div class="p-6">
+<h3 class="text-xl font-bold mb-2 group-hover:text-cyan-400 transition-colors">Construction VR</h3>
+<p class="text-sm text-white/50 mb-6 line-clamp-2">High-fidelity safety simulation for heavy machinery operators with real-time physics and telemetry.</p>
+<div class="flex items-center justify-between">
+<div class="flex gap-3 text-white/40">
+<span class="material-symbols-outlined text-lg" title="Unity">settings_input_component</span>
+<span class="material-symbols-outlined text-lg" title="C#">code</span>
+<span class="material-symbols-outlined text-lg" title="Physics">architecture</span>
+</div>
+<button class="flex items-center gap-2 text-[10px] font-bold uppercase tracking-widest text-cyan-400 hover:text-white transition-colors">
+                                    View Logs <span class="material-symbols-outlined text-sm">arrow_right_alt</span>
+</button>
+</div>
+</div>
+</div>
+<!-- Metaverse HR Onboarding -->
+<div class="group relative bg-[#131313] border border-white/5 rounded-xl overflow-hidden hover:border-cyan-400/50 transition-all duration-500">
+<div class="aspect-video relative overflow-hidden">
+<img class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110" data-alt="Futuristic digital office lobby with holographic avatars and neon interfaces representing a metaverse employee onboarding experience" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDAgNJa5HPjWsgRE5COt2fmvY1kN-8AsgbT2mqO_fqcsvZCcZsruOsojOZy2bARArn0CAbEaXWCRxbcN54By6opdaYbM_MkJ7EARCgYCT3H4xC8yzx1lonDIoEOtZj_ulubuU6Q4OKwoUF7rW-bvyakrEdufdaj_UDCfgQCFkIzJxAVNdQFVX4Hc7nhSU2xcY2_rBBuv4iMpVqoLNHW4vKVJTZBk-sqCsbSkLylkN1H-BrS4cb4mWelHtRC2VCILGuoJuHp8LPZ69xm"/>
+<div class="absolute inset-0 bg-gradient-to-t from-[#131313] via-transparent to-transparent"></div>
+<div class="absolute top-4 left-4">
+<span class="bg-purple-500 text-white text-[9px] font-black px-2 py-1 uppercase rounded tracking-widest">Metaverse</span>
+</div>
+</div>
+<div class="p-6">
+<h3 class="text-xl font-bold mb-2 group-hover:text-cyan-400 transition-colors">Metaverse HR Onboarding</h3>
+<p class="text-sm text-white/50 mb-6 line-clamp-2">Distributed multi-user workspace for corporate induction featuring spatial audio and interactive whiteboards.</p>
+<div class="flex items-center justify-between">
+<div class="flex gap-3 text-white/40">
+<span class="material-symbols-outlined text-lg">groups</span>
+<span class="material-symbols-outlined text-lg">language</span>
+<span class="material-symbols-outlined text-lg">hub</span>
+</div>
+<button class="flex items-center gap-2 text-[10px] font-bold uppercase tracking-widest text-cyan-400 hover:text-white transition-colors">
+                                    View Logs <span class="material-symbols-outlined text-sm">arrow_right_alt</span>
+</button>
+</div>
+</div>
+</div>
+<!-- Project Superfun -->
+<div class="group relative bg-[#131313] border border-white/5 rounded-xl overflow-hidden hover:border-cyan-400/50 transition-all duration-500">
+<div class="aspect-video relative overflow-hidden">
+<img class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110" data-alt="Colorful stylized arcade game environment with glowing particles and retro futuristic aesthetic and fast-paced action elements" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCcEmWqwqxqWRcXVdZEIVFlJaePIIG3t7965UqZneY3zNIrB2ke1w1Ubl0f92KxciNGoZHoGoLKWLwyKyuqGVSNcymFXwXChJtenMAG4_yTIwT2IGsB1qThZ0a8Bq-WoHouJ97a9CBzCoW58jiuYIFmYpb0mzr0RKxvKzocMy6YZaY1dyqj9h9iCcpzmjaYlT3ufmWAx6C0PIEFIgt2rBZ6meEBlQwUNTs845JGTqoEUfMV00kDWsls5B9XBNZVYCsrr4zLdTMbZ4Lw"/>
+<div class="absolute inset-0 bg-gradient-to-t from-[#131313] via-transparent to-transparent"></div>
+<div class="absolute top-4 left-4">
+<span class="bg-yellow-400 text-black text-[9px] font-black px-2 py-1 uppercase rounded tracking-widest">AA Game Dev</span>
+</div>
+</div>
+<div class="p-6">
+<h3 class="text-xl font-bold mb-2 group-hover:text-cyan-400 transition-colors">Project Superfun</h3>
+<p class="text-sm text-white/50 mb-6 line-clamp-2">Experimental physics-based platformer utilizing ECS for massive entity counts and fluid simulations.</p>
+<div class="flex items-center justify-between">
+<div class="flex gap-3 text-white/40">
+<span class="material-symbols-outlined text-lg">bolt</span>
+<span class="material-symbols-outlined text-lg">layers</span>
+<span class="material-symbols-outlined text-lg">precision_manufacturing</span>
+</div>
+<button class="flex items-center gap-2 text-[10px] font-bold uppercase tracking-widest text-cyan-400 hover:text-white transition-colors">
+                                    View Logs <span class="material-symbols-outlined text-sm">arrow_right_alt</span>
+</button>
+</div>
+</div>
+</div>
+<!-- Road Safety VR -->
+<div class="group relative bg-[#131313] border border-white/5 rounded-xl overflow-hidden hover:border-cyan-400/50 transition-all duration-500">
+<div class="aspect-video relative overflow-hidden">
+<img class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110" data-alt="Interior of a modern car cockpit with virtual reality safety indicators and HUD elements showing hazard detection on a city street" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCW_-eISnMufxp0W3Yr0I0nCrJxxRWyxvKz2q4BjiSv7uWS61IUJ7NFR1Cqr-_udpVSzL5FXqDkBcq6xm4c-Qto91RbpFTe0E_u7j87JtJ5JEB-kfC9TqEoI04jBJ4OMlqIGv7YXTusRDSnBhxtbjE9PCmo2WbLTV8sFc58y9ftbYsSGllvpjwjSvXT9C36NIZqjt0GZusonFvc5Fp1iCE2sV2GsKlYWeFIXY_gnPMGzfWfBg6kbKpCK5lZQRck5eZhER1Z6qrRrKl8"/>
+<div class="absolute inset-0 bg-gradient-to-t from-[#131313] via-transparent to-transparent"></div>
+<div class="absolute top-4 left-4">
+<span class="bg-cyan-400 text-black text-[9px] font-black px-2 py-1 uppercase rounded tracking-widest">VR Simulation</span>
+</div>
+</div>
+<div class="p-6">
+<h3 class="text-xl font-bold mb-2 group-hover:text-cyan-400 transition-colors">Road Safety VR</h3>
+<p class="text-sm text-white/50 mb-6 line-clamp-2">Immersive training module for pedestrians and drivers using AI-driven traffic systems.</p>
+<div class="flex items-center justify-between">
+<div class="flex gap-3 text-white/40">
+<span class="material-symbols-outlined text-lg">directions_car</span>
+<span class="material-symbols-outlined text-lg">psychology</span>
+<span class="material-symbols-outlined text-lg">visibility</span>
+</div>
+<button class="flex items-center gap-2 text-[10px] font-bold uppercase tracking-widest text-cyan-400 hover:text-white transition-colors">
+                                    View Logs <span class="material-symbols-outlined text-sm">arrow_right_alt</span>
+</button>
+</div>
+</div>
+</div>
+<!-- Online Card Game -->
+<div class="group relative bg-[#131313] border border-white/5 rounded-xl overflow-hidden hover:border-cyan-400/50 transition-all duration-500">
+<div class="aspect-video relative overflow-hidden">
+<img class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110" data-alt="Fantasy-themed digital card game interface with glowing card borders and particle effects on a dark mystical table" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCfSJFBJylgzZ-f3hs63PSVcd3fOzXMGXpBp9117SnNNT7dFrwhj64mtjsWQXfeD0TP9WPPi_2I1flP-76fkmhm15J0rx4vZcQMEv1BrCcGuist9LXtHTnxHijzL3c6hHWFwA4H-uSXYqouQgsw3fwD8KpEyQSpe5HjmO30Imk_Hs-AFDgdstO4S5y7l_aq7jbT342A-5svrhxyVzFP0xp6CWWDsKc_wYK0HOc-Up1Qb8h6L7TsmJLE43ZAuWaGDk6C1v3MNaKXmX8k"/>
+<div class="absolute inset-0 bg-gradient-to-t from-[#131313] via-transparent to-transparent"></div>
+<div class="absolute top-4 left-4">
+<span class="bg-orange-500 text-white text-[9px] font-black px-2 py-1 uppercase rounded tracking-widest">Multiplayer</span>
+</div>
+</div>
+<div class="p-6">
+<h3 class="text-xl font-bold mb-2 group-hover:text-cyan-400 transition-colors">Online Card Game</h3>
+<p class="text-sm text-white/50 mb-6 line-clamp-2">Cross-platform CCG featuring authoritative server logic and real-time deck building mechanics.</p>
+<div class="flex items-center justify-between">
+<div class="flex gap-3 text-white/40">
+<span class="material-symbols-outlined text-lg">style</span>
+<span class="material-symbols-outlined text-lg">cloud_sync</span>
+<span class="material-symbols-outlined text-lg">database</span>
+</div>
+<button class="flex items-center gap-2 text-[10px] font-bold uppercase tracking-widest text-cyan-400 hover:text-white transition-colors">
+                                    View Logs <span class="material-symbols-outlined text-sm">arrow_right_alt</span>
+</button>
+</div>
+</div>
+</div>
+<!-- Space Mission -->
+<div class="group relative bg-[#131313] border border-white/5 rounded-xl overflow-hidden hover:border-cyan-400/50 transition-all duration-500">
+<div class="aspect-video relative overflow-hidden">
+<img class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110" data-alt="Cinematic shot of a spacecraft orbiting a detailed planet with realistic star fields and lighting in deep space" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCAufq87feV46LNXXp8ewq92KyKTQjufEm3r6SJAd7t5HI3vgmYktp5xJiCnqgU8-HHbDvRc0eXrGm3KPCOD_HUdutwt1GlxipAAu9N7okcck6sl3oBaSoSXTVMZjrZWbLYj2MiXBbtKszwt4o-fUGsxBZLnAnbGHRREfdI3Or146cjOCTRIEF_twsifYo8mJiqyb3KeTgHBb1AhL36CHOhxNmv3VlpmodT5KoWF5ksjS2hvB0KkIAM9EIJJ4sCtRZmNaheQbUYbn-u"/>
+<div class="absolute inset-0 bg-gradient-to-t from-[#131313] via-transparent to-transparent"></div>
+<div class="absolute top-4 left-4">
+<span class="bg-blue-600 text-white text-[9px] font-black px-2 py-1 uppercase rounded tracking-widest">Physics Tech</span>
+</div>
+</div>
+<div class="p-6">
+<h3 class="text-xl font-bold mb-2 group-hover:text-cyan-400 transition-colors">Space Mission</h3>
+<p class="text-sm text-white/50 mb-6 line-clamp-2">Orbtial mechanics simulator with realistic N-body gravitation and modular ship construction.</p>
+<div class="flex items-center justify-between">
+<div class="flex gap-3 text-white/40">
+<span class="material-symbols-outlined text-lg">rocket_launch</span>
+<span class="material-symbols-outlined text-lg">public</span>
+<span class="material-symbols-outlined text-lg">auto_mode</span>
+</div>
+<button class="flex items-center gap-2 text-[10px] font-bold uppercase tracking-widest text-cyan-400 hover:text-white transition-colors">
+                                    View Logs <span class="material-symbols-outlined text-sm">arrow_right_alt</span>
+</button>
+</div>
+</div>
+</div>
+<!-- Colorverse -->
+<div class="group relative bg-[#131313] border border-white/5 rounded-xl overflow-hidden hover:border-cyan-400/50 transition-all duration-500">
+<div class="aspect-video relative overflow-hidden">
+<img class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110" data-alt="Abstract vibrant geometric landscape with shifting colors and floating prisms in a dreamlike digital environment" src="https://lh3.googleusercontent.com/aida-public/AB6AXuD1yCALLDS-V-NpHbsK9nWm_UtIdqmMq_lioqZ9EdF21Fp7bLRGmNae17xB38fE7OLrObivJs05JnuOM-cxsVQ1RszrGWT9-v2HpeUTRtX4d9ulmL8sViNvRoaStdyeIn5mPBT00AUPm_TCl_2Xh1u8caALIQ1AeHgfmJJOqri4do-1mbsZowme8b__PHhJpgtlHmsdBzg3WpzFImPf6ectKUN3CZR2nunr7idw78QKQcPP1vcApfCiypEjqh4lEC8VyB5uDd1ueCDI"/>
+<div class="absolute inset-0 bg-gradient-to-t from-[#131313] via-transparent to-transparent"></div>
+<div class="absolute top-4 left-4">
+<span class="bg-pink-500 text-white text-[9px] font-black px-2 py-1 uppercase rounded tracking-widest">Visual Art</span>
+</div>
+</div>
+<div class="p-6">
+<h3 class="text-xl font-bold mb-2 group-hover:text-cyan-400 transition-colors">Colorverse</h3>
+<p class="text-sm text-white/50 mb-6 line-clamp-2">Generative art experience exploring procedural textures and reactive music visualizations.</p>
+<div class="flex items-center justify-between">
+<div class="flex gap-3 text-white/40">
+<span class="material-symbols-outlined text-lg">palette</span>
+<span class="material-symbols-outlined text-lg">graphic_eq</span>
+<span class="material-symbols-outlined text-lg">brush</span>
+</div>
+<button class="flex items-center gap-2 text-[10px] font-bold uppercase tracking-widest text-cyan-400 hover:text-white transition-colors">
+                                    View Logs <span class="material-symbols-outlined text-sm">arrow_right_alt</span>
+</button>
+</div>
+</div>
+</div>
+<!-- Chess AI -->
+<div class="group relative bg-[#131313] border border-white/5 rounded-xl overflow-hidden hover:border-cyan-400/50 transition-all duration-500">
+<div class="aspect-video relative overflow-hidden">
+<img class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110" data-alt="Close up of a marble chess set with digital analysis lines and holographic move predictions glowing on the board" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAyaSnVdRzMwIm1ViwUzcquglsY473bF2d9G0iY803xm4LLq5ETuRaWQahUYMagocqwynJgsj1Y-1EnZvp2v9LAIryqoYhwhJCL_UdKO-aWeGaADXDgFS5ANVmXR4nXZ0Au0Mr5GlFxI4R0PQwuUEMTOAZC9d3sKEynLkc8kF2P0Usl7CAWKtSb7jRsEbHWOe-UuRFUgScuV992ZzhgWUaG3S2xfo_k4yVilswZhPu8aTNR1vJb4zvyCXfNxVvb5Akhgq9Xwk_dMWJt"/>
+<div class="absolute inset-0 bg-gradient-to-t from-[#131313] via-transparent to-transparent"></div>
+<div class="absolute top-4 left-4">
+<span class="bg-emerald-500 text-black text-[9px] font-black px-2 py-1 uppercase rounded tracking-widest">Neural Network</span>
+</div>
+</div>
+<div class="p-6">
+<h3 class="text-xl font-bold mb-2 group-hover:text-cyan-400 transition-colors">Chess AI</h3>
+<p class="text-sm text-white/50 mb-6 line-clamp-2">Minimax algorithm implementation with alpha-beta pruning and custom bitboard engine.</p>
+<div class="flex items-center justify-between">
+<div class="flex gap-3 text-white/40">
+<span class="material-symbols-outlined text-lg">memory</span>
+<span class="material-symbols-outlined text-lg">grid_on</span>
+<span class="material-symbols-outlined text-lg">terminal</span>
+</div>
+<button class="flex items-center gap-2 text-[10px] font-bold uppercase tracking-widest text-cyan-400 hover:text-white transition-colors">
+                                    View Logs <span class="material-symbols-outlined text-sm">arrow_right_alt</span>
+</button>
+</div>
+</div>
+</div>
+<!-- Game Engine -->
+<div class="group relative bg-[#131313] border border-white/5 rounded-xl overflow-hidden hover:border-cyan-400/50 transition-all duration-500">
+<div class="aspect-video relative overflow-hidden">
+<img class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110" data-alt="Complex server room with glowing blue wires and digital data nodes representing core game engine architecture" src="https://lh3.googleusercontent.com/aida-public/AB6AXuD0Lz9t9k3ei__U_8Y1itBldBQIjHCySdDnCwrUMiKY4AFWduccXcVUUNj1LV4ssdFCZXVlmYUd3w88wLSkv-0xhAV43jTVqzY7iH6uTrXHlUEv7maQGIeRo4Y1hlClf-b-S9SPPAiwTBLY-zbpnWzNvRwm6eukwLd_Y45bqH6iVS0zmVV2kblfWWZqOJE1Z3EKXEEHsWGc-tNJNiGHCDeOO0U52ek6AHAfW2hXsiJbjrOyUpRpgW4lqHimdDNvjlV2T85JfB2kobmr"/>
+<div class="absolute inset-0 bg-gradient-to-t from-[#131313] via-transparent to-transparent"></div>
+<div class="absolute top-4 left-4">
+<span class="bg-gray-100 text-black text-[9px] font-black px-2 py-1 uppercase rounded tracking-widest">Low Level</span>
+</div>
+</div>
+<div class="p-6">
+<h3 class="text-xl font-bold mb-2 group-hover:text-cyan-400 transition-colors">Game Engine</h3>
+<p class="text-sm text-white/50 mb-6 line-clamp-2">Custom C++ renderer with Vulkan support, custom entity component system and asset pipeline.</p>
+<div class="flex items-center justify-between">
+<div class="flex gap-3 text-white/40">
+<span class="material-symbols-outlined text-lg">token</span>
+<span class="material-symbols-outlined text-lg">rebase_edit</span>
+<span class="material-symbols-outlined text-lg">dns</span>
+</div>
+<button class="flex items-center gap-2 text-[10px] font-bold uppercase tracking-widest text-cyan-400 hover:text-white transition-colors">
+                                    View Logs <span class="material-symbols-outlined text-sm">arrow_right_alt</span>
+</button>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</main>
+<!-- Footer -->
+<footer class="w-full border-t border-white/5 py-6 bg-[#131313] flex flex-col md:flex-row justify-between items-center px-12 max-w-full">
+<div class="text-cyan-400 font-mono text-[10px] uppercase tracking-[0.1rem] mb-4 md:mb-0">
+            SYSTEM_OPERATOR // <span class="opacity-50">v4.0.1-PROD</span>
+</div>
+<div class="text-white/40 font-['Manrope'] text-[10px] uppercase tracking-[0.1rem]">
+            © 2024 SYSTEM_OPERATOR // ALL RIGHTS RESERVED
+        </div>
+<div class="flex gap-8 mt-4 md:mt-0">
+<a class="text-white/40 hover:text-cyan-400 transition-colors font-['Manrope'] text-[10px] uppercase tracking-[0.1rem]" href="#">GitHub</a>
+<a class="text-white/40 hover:text-cyan-400 transition-colors font-['Manrope'] text-[10px] uppercase tracking-[0.1rem]" href="#">LinkedIn</a>
+<a class="text-white/40 hover:text-cyan-400 transition-colors font-['Manrope'] text-[10px] uppercase tracking-[0.1rem]" href="#">Documentation</a>
+</div>
+</footer>
+</body></html>
