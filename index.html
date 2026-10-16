@@ -1,58 +1,541 @@
 <!doctype html>
 <html lang="en">
 <head>
-<meta charset="utf-8">
-<meta name="viewport" content="width=device-width,initial-scale=1">
-<title>Jatin Suyal | Unity &amp; XR Developer</title>
-<meta name="description" content="Unity developer creating immersive games, XR experiences, and interactive 3D applications.">
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700&family=Space+Grotesk:wght@500;700;800&display=swap" rel="stylesheet">
-<style>
-:root{color-scheme:dark;--bg:#080d13;--text:#f2f7fb;--muted:#d1dbe2;--accent:#39e5f2}
-*{box-sizing:border-box}html,body{margin:0;background:var(--bg);color:var(--text);font-family:Manrope,Arial,sans-serif;overflow-x:hidden}a{color:inherit;text-decoration:none}
-.hero{height:calc(100vh + 16320px);position:relative}.stage{height:100vh;height:100dvh;position:sticky;top:0;overflow:hidden;background:var(--bg);isolation:isolate}
-#frame{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:center;display:block;opacity:0}
-.shade{position:absolute;inset:0;pointer-events:none;background:linear-gradient(90deg,rgba(4,8,12,.86) 0%,rgba(4,8,12,.57) 28%,rgba(4,8,12,.08) 68%,rgba(4,8,12,.02) 100%),linear-gradient(0deg,rgba(4,8,12,.28),transparent 28%,transparent 75%,rgba(4,8,12,.22))}
-.top{position:absolute;z-index:3;top:0;left:0;right:0;padding:24px 6vw;display:flex;justify-content:space-between;align-items:center;border-bottom:1px solid rgba(255,255,255,.13);font-size:12px;letter-spacing:.12em}.brand{font-family:'Space Grotesk',sans-serif;font-weight:800;color:var(--accent)}.nav{display:flex;gap:22px;align-items:center;font-size:10px;letter-spacing:.12em;color:#d3dee6}.nav a:hover{color:var(--accent)}
-.intro{position:absolute;z-index:3;left:8vw;top:50%;transform:translateY(-45%);max-width:570px}.kicker{font-size:11px;letter-spacing:.18em;text-transform:uppercase;color:#d2e0e8;margin:0 0 22px}
-h1{font-family:'Space Grotesk',sans-serif;font-size:clamp(48px,7.4vw,100px);line-height:.92;letter-spacing:-.065em;margin:0 0 24px;font-weight:800}h1 span{color:var(--accent)}.intro p{max-width:410px;font-size:15px;line-height:1.7;color:var(--muted);margin:0}
-.actions{display:flex;gap:12px;flex-wrap:wrap;margin-top:28px}.button{display:inline-flex;align-items:center;justify-content:center;padding:13px 18px;border:1px solid rgba(255,255,255,.25);font-size:10px;font-weight:700;letter-spacing:.12em;transition:transform .2s,border-color .2s,background .2s}.button.primary{background:var(--accent);border-color:var(--accent);color:#071116}.button:hover{transform:translateY(-2px);border-color:var(--accent)}
-.bottom{position:absolute;z-index:3;left:6vw;right:6vw;bottom:26px;display:flex;align-items:center;justify-content:space-between;gap:16px;color:#d4dfe7;font-size:10px;letter-spacing:.13em;text-transform:uppercase}.progress{height:2px;background:rgba(255,255,255,.25);position:absolute;z-index:4;bottom:0;left:0;right:0}.progress span{display:block;width:0;height:100%;background:var(--accent)}
-.loading{position:absolute;inset:0;display:grid;place-items:center;color:#b8c7d1;font-size:12px;letter-spacing:.12em;text-transform:uppercase;z-index:1}
-@media(max-width:700px){.top{padding:20px 6vw}.nav{gap:12px;font-size:8px}.intro{left:7vw;right:7vw;top:48%}h1{font-size:clamp(48px,13vw,78px)}.intro p{font-size:13px;max-width:310px}.bottom{left:7vw;right:7vw;bottom:20px;font-size:8px}.shade{background:linear-gradient(90deg,rgba(4,8,12,.82),rgba(4,8,12,.3)),linear-gradient(0deg,rgba(4,8,12,.4),transparent 45%)}.button{padding:12px 13px}}
-@media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}}
-</style>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Jatin Suyal | Unity & XR Developer</title>
+  <meta name="description" content="Experienced Unity Game Developer (4+ Years) specializing in immersive gaming, XR systems, and real-time 3D.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700&family=Space+Grotesk:wght@500;700;800&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+
+  <style>
+    :root {
+      --bg: #070b10;
+      --cyan: #00e5ff;
+      --lime: #c3f400;
+      --text: #f0f4f8;
+      --text-muted: #8ea4b5;
+      --folder-tab: #b37338;
+      --folder-back: #c58243;
+      --folder-front: #df9b58;
+      --folder-dark: #8c5220;
+      --font-head: 'Space Grotesk', sans-serif;
+      --font-body: 'Manrope', sans-serif;
+      --font-mono: 'JetBrains Mono', monospace;
+    }
+
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+
+    html, body {
+      background: var(--bg);
+      color: var(--text);
+      font-family: var(--font-body);
+      overflow-x: hidden;
+      overscroll-behavior: none; /* Prevents rubberband pull into empty void */
+    }
+
+    a { color: inherit; text-decoration: none; }
+
+    /* Top Navigation (Fixed) */
+    .topbar {
+      position: fixed; top: 0; left: 0; right: 0; z-index: 50;
+      height: 64px; display: flex; align-items: center; justify-content: space-between;
+      padding: 0 5vw; background: rgba(7, 11, 16, 0.75); backdrop-filter: blur(14px);
+      -webkit-backdrop-filter: blur(14px);
+      border-bottom: 1px solid rgba(255, 255, 255, 0.06);
+    }
+    .brand { font-family: var(--font-head); font-weight: 800; font-size: 15px; letter-spacing: 2px; color: var(--cyan); }
+    .nav { display: flex; align-items: center; gap: 24px; font-family: var(--font-mono); font-size: 11px; letter-spacing: 1px; }
+    .nav a { color: var(--text-muted); transition: color 0.2s; }
+    .nav a:hover { color: var(--cyan); }
+    .btn-uplink {
+      background: var(--cyan); color: #080d13; padding: 8px 18px; border-radius: 4px;
+      font-weight: 700; font-family: var(--font-mono); font-size: 11px; letter-spacing: 1.5px;
+      transition: all 0.2s;
+    }
+    .btn-uplink:hover { background: #6df1fb; transform: translateY(-1px); }
+
+    /* Scroll progress line */
+    .scroll-progress {
+      position: fixed; top: 64px; left: 0; height: 2px; background: var(--cyan);
+      box-shadow: 0 0 10px var(--cyan); z-index: 51; width: 0%;
+      transition: width 0.05s ease-out;
+    }
+
+    /* SCROLL TRACK: Determines total scroll distance. 
+       Fixed viewport NEVER unpins, making it impossible to scroll past the final frame! */
+    .scroll-track {
+      height: 360vh;
+      position: relative;
+      pointer-events: none;
+    }
+
+    /* FIXED STAGE: Locked to viewport (never scrolls away into black space) */
+    .fixed-stage {
+      position: fixed;
+      inset: 0;
+      width: 100vw;
+      height: 100vh;
+      height: 100dvh;
+      overflow: hidden;
+      display: flex;
+      align-items: center;
+      padding: 0 6vw;
+      z-index: 10;
+      pointer-events: auto;
+    }
+
+    /* Fullscreen Motion Graphics Sequence */
+    .sequence-bg {
+      position: absolute; inset: 0; width: 100%; height: 100%;
+      object-fit: cover; object-position: center; z-index: 1;
+      display: block;
+    }
+    .sequence-overlay {
+      position: absolute; inset: 0; z-index: 2; pointer-events: none;
+      background: 
+        linear-gradient(90deg, rgba(7, 11, 16, 0.94) 0%, rgba(7, 11, 16, 0.68) 42%, rgba(7, 11, 16, 0.25) 75%, rgba(7, 11, 16, 0.65) 100%),
+        linear-gradient(180deg, rgba(7, 11, 16, 0.7) 0%, transparent 20%, transparent 80%, rgba(7, 11, 16, 0.95) 100%);
+    }
+
+    /* Content Stage Area */
+    .content-stage {
+      position: relative; z-index: 15; width: 100%; max-width: 660px;
+      min-height: 420px; display: flex; align-items: center;
+    }
+
+    /* Phased Text Transitions with Scroll */
+    .phase-layer {
+      position: absolute; left: 0; top: 50%; transform: translateY(-50%);
+      width: 100%; transition: opacity 0.4s ease, transform 0.4s ease;
+      opacity: 0; pointer-events: none;
+    }
+    .phase-layer.active {
+      opacity: 1; transform: translateY(-50%) translateZ(0); pointer-events: auto;
+    }
+
+    .tag {
+      font-family: var(--font-mono); font-size: 11px; letter-spacing: 2px;
+      color: var(--lime); margin-bottom: 14px; display: inline-flex; align-items: center; gap: 8px;
+    }
+    .tag::before { content: ""; width: 6px; height: 6px; background: var(--lime); border-radius: 50%; }
+
+    h1 {
+      font-family: var(--font-head); font-size: clamp(38px, 5.2vw, 68px);
+      line-height: 1.05; letter-spacing: -1.5px; font-weight: 800; margin-bottom: 18px;
+    }
+
+    /* Glitch Scrambler: Fixed inline-block to prevent line breaking/jumping */
+    .scramble-box {
+      display: inline-block;
+      white-space: nowrap;
+      color: var(--cyan);
+      text-shadow: 0 0 24px rgba(0, 229, 255, 0.5);
+    }
+
+    .bio {
+      color: var(--text-muted); font-size: 15px; line-height: 1.7; margin-bottom: 26px; max-width: 500px;
+    }
+
+    /* Telemetry Bento (Phase 2) */
+    .telemetry-grid {
+      display: grid; grid-template-columns: 1fr 1fr; gap: 14px; margin-top: 18px;
+    }
+    .stat-item {
+      background: rgba(14, 21, 30, 0.7); border: 1px solid rgba(0, 229, 255, 0.15);
+      padding: 14px; border-radius: 6px; backdrop-filter: blur(8px);
+    }
+    .stat-header {
+      display: flex; justify-content: space-between; font-family: var(--font-mono);
+      font-size: 10px; letter-spacing: 1.5px; margin-bottom: 8px;
+    }
+    .stat-header span:last-child { color: var(--cyan); font-weight: 700; }
+    .bar-bg { height: 4px; background: rgba(255, 255, 255, 0.08); border-radius: 2px; overflow: hidden; }
+    .bar-fill { height: 100%; background: var(--cyan); box-shadow: 0 0 10px var(--cyan); }
+
+    /* =========================================================================
+       BROWN FOLDER BUTTON & PROJECT IMAGES HOVER ILLUSION (Phase 3)
+       ========================================================================= */
+    .dossier-wrapper {
+      position: relative; display: inline-flex; flex-direction: column; align-items: flex-start;
+      margin-top: 22px;
+    }
+
+    .brown-folder-card {
+      position: relative;
+      display: inline-flex;
+      align-items: center;
+      gap: 22px;
+      padding: 18px 32px 18px 24px;
+      background: linear-gradient(135deg, rgba(28, 19, 12, 0.88) 0%, rgba(18, 12, 8, 0.94) 100%);
+      border: 1.5px solid rgba(223, 155, 88, 0.45);
+      border-radius: 12px;
+      cursor: pointer;
+      backdrop-filter: blur(14px);
+      box-shadow: 0 12px 30px rgba(0, 0, 0, 0.6), 0 0 20px rgba(223, 155, 88, 0.15);
+      transition: all 0.35s cubic-bezier(0.16, 1, 0.3, 1);
+      user-select: none;
+    }
+    .brown-folder-card:hover, .brown-folder-card:focus {
+      border-color: #df9b58;
+      box-shadow: 0 16px 40px rgba(0, 0, 0, 0.75), 0 0 35px rgba(223, 155, 88, 0.4);
+      transform: translateY(-3px);
+    }
+
+    /* 3D Brown Manila Folder Container */
+    .folder-3d {
+      position: relative;
+      width: 62px;
+      height: 46px;
+      flex-shrink: 0;
+      perspective: 500px;
+    }
+
+    /* Manila Folder Back Plate & Tab */
+    .folder-back-plate {
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(180deg, var(--folder-back) 0%, var(--folder-dark) 100%);
+      border-radius: 6px;
+      box-shadow: inset 0 1px 2px rgba(255, 255, 255, 0.35), 0 4px 10px rgba(0,0,0,0.5);
+      z-index: 1;
+    }
+    .folder-back-plate::before {
+      content: "";
+      position: absolute;
+      top: -7px;
+      left: 0;
+      width: 24px;
+      height: 9px;
+      background: var(--folder-tab);
+      border-radius: 4px 4px 0 0;
+      box-shadow: inset 0 1px 1px rgba(255, 255, 255, 0.3);
+    }
+
+    /* Inside the folder: 2 Project Preview Images that fan out on hover */
+    .project-file {
+      position: absolute;
+      bottom: 6px;
+      left: 0;
+      width: 86px;
+      height: 54px;
+      border-radius: 6px;
+      overflow: hidden;
+      border: 2px solid #fff;
+      box-shadow: 0 14px 30px rgba(0, 0, 0, 0.95), 0 0 16px rgba(0, 229, 255, 0.35);
+      z-index: 2;
+      transition: all 0.45s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+      opacity: 0;
+      pointer-events: none;
+      transform: scale(0.3) translateY(10px);
+    }
+    .project-file img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+    }
+
+    /* File 1: Construction VR Simulator - Fans out to the left */
+    .file-1 {
+      transform-origin: bottom center;
+    }
+    .brown-folder-card:hover .file-1,
+    .brown-folder-card:focus .file-1,
+    .brown-folder-card.hovered .file-1 {
+      opacity: 1 !important;
+      visibility: visible !important;
+      transform: translateY(-74px) translateX(-34px) rotate(-16deg) scale(1.18) !important;
+      z-index: 10 !important;
+      border-color: var(--cyan);
+    }
+
+    /* File 2: Project Superfun - Fans out to the right */
+    .file-2 {
+      transform-origin: bottom center;
+    }
+    .brown-folder-card:hover .file-2,
+    .brown-folder-card:focus .file-2,
+    .brown-folder-card.hovered .file-2 {
+      opacity: 1 !important;
+      visibility: visible !important;
+      transform: translateY(-82px) translateX(34px) rotate(14deg) scale(1.22) !important;
+      z-index: 10 !important;
+      border-color: var(--lime);
+    }
+
+    /* Manila Folder Front Flap (Opens when hovering) */
+    .folder-front-flap {
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      height: 33px;
+      background: linear-gradient(180deg, var(--folder-front) 0%, var(--folder-tab) 100%);
+      border-radius: 0 0 6px 6px;
+      z-index: 5;
+      transform-origin: bottom center;
+      transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.4s;
+      box-shadow: 0 -2px 10px rgba(0, 0, 0, 0.35);
+      border-top: 1px solid rgba(255, 255, 255, 0.25);
+    }
+    .brown-folder-card:hover .folder-front-flap,
+    .brown-folder-card:focus .folder-front-flap,
+    .brown-folder-card.hovered .folder-front-flap {
+      transform: rotateX(-42deg) skewX(-6deg) scaleY(0.85);
+      box-shadow: 0 10px 20px rgba(0, 0, 0, 0.6);
+    }
+
+    /* Button Text Area */
+    .folder-label-group {
+      display: flex;
+      flex-direction: column;
+      gap: 3px;
+    }
+    .folder-main-label {
+      font-family: var(--font-head);
+      font-weight: 800;
+      font-size: 15px;
+      letter-spacing: 1.5px;
+      text-transform: uppercase;
+      color: #fff;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+    .folder-sub-label {
+      font-family: var(--font-mono);
+      font-size: 10px;
+      letter-spacing: 1px;
+      color: #df9b58;
+      text-transform: uppercase;
+    }
+
+    /* Live Telemetry Info on the Bottom Right */
+    .hud-telemetry {
+      position: absolute; bottom: 25px; right: 5vw; z-index: 20;
+      font-family: var(--font-mono); font-size: 10px; color: var(--text-muted);
+      letter-spacing: 1px; display: flex; flex-direction: column; gap: 4px; text-align: right;
+    }
+    .hud-telemetry span.active { color: var(--cyan); font-weight: 600; }
+
+    @media (max-width: 860px) {
+      .telemetry-grid { grid-template-columns: 1fr; }
+      .nav a:not(:last-child) { display: none; }
+    }
+  </style>
 </head>
 <body>
-<main>
-<section class="hero" id="home" aria-label="Jatin Suyal portfolio introduction">
- <div class="stage">
-  <div class="loading" id="loading">Loading motion sequence…</div>
-  <img id="frame" alt="Animated product render sequence">
-  <div class="shade"></div>
-  <header class="top"><a class="brand" href="index.html">JATIN SUYAL</a><nav class="nav"><a href="projects.html">DOSSIER ↗</a><a href="https://github.com/jatinsuyal" target="_blank" rel="noreferrer">GITHUB ↗</a><a href="https://www.linkedin.com/in/jatin-suyal-855333173/" target="_blank" rel="noreferrer">LINKEDIN ↗</a></nav></header>
-  <div class="intro">
-   <p class="kicker">Unity Developer · XR &amp; Interactive Experiences</p>
-   <h1>Building<br>worlds<span>.</span><br>Beyond<br>the screen.</h1>
-   <p>I create immersive experiences, games, and interactive 3D applications.</p>
-   <div class="actions"><a class="button primary" href="projects.html">PROJECT DOSSIER ↗</a><a class="button" href="contact.html">GET IN TOUCH</a></div>
+
+  <!-- Top Scroll Progress Line -->
+  <div class="scroll-progress" id="progressBar"></div>
+
+  <!-- Top Navigation -->
+  <header class="topbar">
+    <div class="brand">JATIN SUYAL</div>
+    <nav class="nav">
+      <a href="projects.html">ARCHIVE ↗</a>
+      <a href="https://github.com/jatinsuyal" target="_blank" rel="noreferrer">GITHUB ↗</a>
+      <a href="https://www.linkedin.com/in/jatin-suyal-855333173/" target="_blank" rel="noreferrer">LINKEDIN ↗</a>
+      <a class="btn-uplink" href="mailto:contact@jatinsuyal.com">COMMS</a>
+    </nav>
+  </header>
+
+  <!-- FIXED STAGE: Never scrolls out of view or into a black void -->
+  <div class="fixed-stage">
+    <!-- Fullscreen Motion Graphics Sequence (Scrubbed by scroll) -->
+    <img id="sequenceImg" class="sequence-bg" alt="Motion Sequence" src="https://raw.githubusercontent.com/jatinsuyal/jatinsuyal.github.io/main/FrameRenders/frame_000000.webp">
+    <div class="sequence-overlay"></div>
+
+    <!-- Phased Content: Transitions as scroll progress advances -->
+    <div class="content-stage">
+
+      <!-- Phase 1: Identity & Animated Headline -->
+      <div class="phase-layer active" id="phase1">
+        <div class="tag">SYSTEM_AUTH // J_SUYAL</div>
+        <h1>
+          Building worlds.<br>
+          <span class="scramble-box" id="scrambleWord">XR EXPERIENCES</span><br>
+          Beyond the screen.
+        </h1>
+        <p class="bio">
+          Experienced Unity Game Developer (4+ Years) based in Delhi. Specializing in crafting immersive gaming experiences, pushing the boundaries of creativity and innovation in the Unity ecosystem.
+        </p>
+      </div>
+
+      <!-- Phase 2: Telemetry & Core Competency -->
+      <div class="phase-layer" id="phase2">
+        <div class="tag">CORE_COMPETENCY // TELEMETRY</div>
+        <h1>Engineered for<br><span style="color:var(--cyan)">Precision & Real-Time.</span></h1>
+        <div class="telemetry-grid">
+          <div class="stat-item">
+            <div class="stat-header"><span>UNITY_ENGINE</span><span>98%</span></div>
+            <div class="bar-bg"><div class="bar-fill" style="width:98%"></div></div>
+          </div>
+          <div class="stat-item">
+            <div class="stat-header"><span>C#_PROGRAMMING</span><span>95%</span></div>
+            <div class="bar-bg"><div class="bar-fill" style="width:95%"></div></div>
+          </div>
+          <div class="stat-item">
+            <div class="stat-header"><span>VR/AR_ARCHITECTURE</span><span>92%</span></div>
+            <div class="bar-bg"><div class="bar-fill" style="width:92%"></div></div>
+          </div>
+          <div class="stat-item">
+            <div class="stat-header"><span>WEBGL_DEPLOYMENT</span><span>89%</span></div>
+            <div class="bar-bg"><div class="bar-fill" style="width:89%"></div></div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Phase 3: Brown Manila Folder with 2 Project Preview Images Hover Illusion -->
+      <div class="phase-layer" id="phase3">
+        <div class="tag">MODULE_INDEX // ARCHIVE</div>
+        <h1>Explore the<br><span style="color:var(--cyan)">Production Archive.</span></h1>
+        <p class="bio">
+          Step inside the technical case studies featuring VR industrial architecture and AA multiplayer mechanics.
+        </p>
+
+        <div class="dossier-wrapper">
+          <!-- Realistic Brown Manila Folder Link to projects.html -->
+          <a class="brown-folder-card" id="folderTrigger" href="projects.html" aria-label="Open Project Archive">
+            <div class="folder-3d">
+              <div class="folder-back-plate"></div>
+              
+              <!-- Project Image 1: VR Construction Simulator (Pops out on hover) -->
+              <div class="project-file file-1">
+                <img src="https://cdn.b12.io/client_media/kTZAsQks/09fc6db4-1639-11f0-b43d-0242ac110002-png-hero_image.png" alt="Construction VR Simulator">
+              </div>
+
+              <!-- Project Image 2: Project Superfun (Pops out on hover) -->
+              <div class="project-file file-2">
+                <img src="https://cdn.b12.io/client_media/kTZAsQks/2bd5c754-38fe-11f0-8cbb-0242ac110002-png-hero_image.jpeg" alt="Project Superfun">
+              </div>
+
+              <div class="folder-front-flap"></div>
+            </div>
+
+            <div class="folder-label-group">
+              <span class="folder-main-label">PROJECT_ARCHIVE ↗</span>
+              <span class="folder-sub-label">HOVER TO PREVIEW · CLICK TO OPEN</span>
+            </div>
+          </a>
+        </div>
+      </div>
+
+    </div>
+
+    <!-- Live Telemetry Info on the Bottom Right -->
+    <div class="hud-telemetry">
+      <span class="active" id="frameLabel">FRAME 001 / 408</span>
+      <span id="scrollHint">SCROLL TO ADVANCE ↕</span>
+    </div>
   </div>
-  <div class="bottom"><span>Scroll to explore</span><span id="frameCount">001 / 408</span></div>
-  <div class="progress"><span id="progress"></span></div>
- </div>
-</section>
-</main>
-<script>
-(()=>{
- const frame=document.getElementById('frame'),loading=document.getElementById('loading'),countLabel=document.getElementById('frameCount'),progressBar=document.getElementById('progress');
- const total=408,base='https://raw.githubusercontent.com/jatinsuyal/jatinsuyal.github.io/main/FrameRenders/';
- const frames=new Array(total);let desired=0,shown=-1,scheduled=false,nextToLoad=0,activeLoads=0,loaded=0;const concurrency=8;
- function pump(){while(activeLoads<concurrency&&nextToLoad<total){const i=nextToLoad++,im=new Image();frames[i]=im;activeLoads++;im.onload=()=>{activeLoads--;loaded++;if(i===0){frame.src=im.src;frame.style.opacity='1';loading.style.display='none'}if(i===desired)paint();if(loaded===total)loading.style.display='none';pump()};im.onerror=()=>{activeLoads--;pump()};im.src=base+'frame_'+String(i).padStart(6,'0')+'.webp'}}
- function paint(){let i=desired;if(!frames[i]||!frames[i].complete||!frames[i].naturalWidth){let found=-1;for(let d=1;d<total;d++){const a=desired-d,b=desired+d;if(a>=0&&frames[a]?.complete&&frames[a]?.naturalWidth){found=a;break}if(b<total&&frames[b]?.complete&&frames[b]?.naturalWidth){found=b;break}}if(found<0)return;i=found}shown=i;if(frame.src!==frames[i].src)frame.src=frames[i].src;countLabel.textContent=String(i+1).padStart(3,'0')+' / '+total}
- function update(){const hero=document.querySelector('.hero'),range=Math.max(1,hero.offsetHeight-innerHeight),p=Math.max(0,Math.min(1,-hero.getBoundingClientRect().top/range));desired=Math.round(p*(total-1));progressBar.style.width=(p*100)+'%';if(desired!==shown)paint();scheduled=false}
- function onScroll(){if(!scheduled){scheduled=true;requestAnimationFrame(update)}}window.addEventListener('scroll',onScroll,{passive:true});window.addEventListener('resize',onScroll);pump();update()
-})();
-</script>
+
+  <!-- SCROLL TRACK: Controls scroll depth without ever unpinning the stage -->
+  <div class="scroll-track"></div>
+
+  <script>
+    // 1. Text Glitch Scrambler (Single-line, no text breaking)
+    const words = ['XR EXPERIENCES', 'REAL-TIME 3D', 'UNITY SYSTEMS', 'VR WORLDS'];
+    let wordIdx = 0;
+    const scrambleEl = document.getElementById('scrambleWord');
+    const chars = '!<>-_/[]{}—=+*^?#';
+
+    function scrambleTo(newText) {
+      let step = 0;
+      const targetLength = newText.length;
+      const timer = setInterval(() => {
+        let str = '';
+        for (let i = 0; i < targetLength; i++) {
+          if (i < step) {
+            str += newText[i] || '';
+          } else {
+            str += chars[Math.floor(Math.random() * chars.length)];
+          }
+        }
+        scrambleEl.textContent = str;
+        step += 1;
+        if (step > targetLength) {
+          clearInterval(timer);
+          scrambleEl.textContent = newText;
+        }
+      }, 35);
+    }
+
+    setInterval(() => {
+      wordIdx = (wordIdx + 1) % words.length;
+      scrambleTo(words[wordIdx]);
+    }, 2800);
+
+    // 2. Fullscreen Frame Sequence Scrubber
+    const img = document.getElementById('sequenceImg');
+    const frameLabel = document.getElementById('frameLabel');
+    const progressBar = document.getElementById('progressBar');
+    const totalFrames = 408;
+    const base = 'https://raw.githubusercontent.com/jatinsuyal/jatinsuyal.github.io/main/FrameRenders/';
+
+    const phase1 = document.getElementById('phase1');
+    const phase2 = document.getElementById('phase2');
+    const phase3 = document.getElementById('phase3');
+
+    // Preload frames cache
+    const cache = new Map();
+    function loadFrame(i) {
+      if (cache.has(i)) return;
+      const im = new Image();
+      im.src = `${base}frame_${String(i).padStart(6, '0')}.webp`;
+      cache.set(i, im);
+    }
+
+    // Initial preloading
+    loadFrame(0);
+    loadFrame(407);
+    for (let i = 1; i < 20; i++) loadFrame(i * 20);
+
+    function onScroll() {
+      const maxScroll = Math.max(1, document.documentElement.scrollHeight - window.innerHeight);
+      const scrollY = window.scrollY || window.pageYOffset;
+      const progress = Math.max(0, Math.min(1, scrollY / maxScroll));
+
+      // Progress bar
+      if (progressBar) progressBar.style.width = (progress * 100) + '%';
+
+      // Sequence scrubbing
+      const frame = Math.round(progress * (totalFrames - 1));
+      img.src = `${base}frame_${String(frame).padStart(6, '0')}.webp`;
+      frameLabel.textContent = `FRAME ${String(frame + 1).padStart(3, '0')} / ${totalFrames}`;
+
+      // Preload nearby frames
+      for (let d = 1; d <= 4; d++) {
+        if (frame + d < totalFrames) loadFrame(frame + d);
+        if (frame - d >= 0) loadFrame(frame - d);
+      }
+
+      // Phased text transitions
+      if (progress < 0.35) {
+        phase1.classList.add('active');
+        phase2.classList.remove('active');
+        phase3.classList.remove('active');
+      } else if (progress >= 0.35 && progress < 0.72) {
+        phase1.classList.remove('active');
+        phase2.classList.add('active');
+        phase3.classList.remove('active');
+      } else {
+        phase1.classList.remove('active');
+        phase2.classList.remove('active');
+        phase3.classList.add('active');
+      }
+    }
+
+    window.addEventListener('scroll', onScroll, { passive: true });
+    window.addEventListener('resize', onScroll);
+    onScroll();
+
+    // 3. Folder Hover Event Listeners
+    const folderTrigger = document.getElementById('folderTrigger');
+    folderTrigger.addEventListener('mouseenter', () => folderTrigger.classList.add('hovered'));
+    folderTrigger.addEventListener('mouseleave', () => folderTrigger.classList.remove('hovered'));
+  </script>
 </body>
 </html>
