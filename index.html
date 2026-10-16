@@ -37,28 +37,31 @@
 
     a { color: inherit; text-decoration: none; }
 
-    /* Top Navigation (Fixed) */
+    /* Top Navigation (Fixed & Unified across all pages) */
     .topbar {
       position: fixed; top: 0; left: 0; right: 0; z-index: 50;
-      height: 64px; display: flex; align-items: center; justify-content: space-between;
-      padding: 0 5vw; background: rgba(7, 11, 16, 0.75); backdrop-filter: blur(14px);
-      -webkit-backdrop-filter: blur(14px);
-      border-bottom: 1px solid rgba(255, 255, 255, 0.06);
+      height: 58px; display: flex; align-items: center; justify-content: space-between;
+      padding: 0 6vw; background: rgba(19, 19, 21, 0.6); backdrop-filter: blur(16px);
+      -webkit-backdrop-filter: blur(16px);
+      border-bottom: 1px solid rgba(0, 229, 255, 0.12);
+      box-shadow: 0 0 15px rgba(0, 229, 255, 0.08);
     }
-    .brand { font-family: var(--font-head); font-weight: 800; font-size: 15px; letter-spacing: 2px; color: var(--cyan); }
-    .nav { display: flex; align-items: center; gap: 24px; font-family: var(--font-mono); font-size: 11px; letter-spacing: 1px; }
-    .nav a { color: var(--text-muted); transition: color 0.2s; }
-    .nav a:hover { color: var(--cyan); }
+    .brand { font-family: var(--font-head); font-weight: 900; font-size: 18px; letter-spacing: -0.5px; color: var(--cyan); }
+    .nav { display: flex; align-items: center; gap: 32px; font-family: var(--font-head); font-size: 12px; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase; }
+    .nav-link { color: #849396; transition: all 0.2s; padding-bottom: 2px; }
+    .nav-link:hover { color: #c3f5ff; }
+    .nav-link.active { color: var(--cyan); border-bottom: 2px solid var(--cyan); }
     .btn-uplink {
-      background: var(--cyan); color: #080d13; padding: 8px 18px; border-radius: 4px;
-      font-weight: 700; font-family: var(--font-mono); font-size: 11px; letter-spacing: 1.5px;
-      transition: all 0.2s;
+      background: var(--cyan); color: #00363d; padding: 7px 16px;
+      clip-path: polygon(0 0, calc(100% - 8px) 0, 100% 8px, 100% 100%, 0 100%);
+      font-weight: 800; font-family: var(--font-head); font-size: 10px; letter-spacing: 0.15em;
+      transition: all 0.2s; text-transform: uppercase; display: flex; align-items: center;
     }
-    .btn-uplink:hover { background: #6df1fb; transform: translateY(-1px); }
+    .btn-uplink:hover { filter: brightness(1.15); transform: scale(1.02); }
 
     /* Scroll progress line */
     .scroll-progress {
-      position: fixed; top: 64px; left: 0; height: 2px; background: var(--cyan);
+      position: fixed; top: 58px; left: 0; height: 2px; background: var(--cyan);
       box-shadow: 0 0 10px var(--cyan); z-index: 51; width: 0%;
       transition: width 0.05s ease-out;
     }
@@ -331,15 +334,16 @@
   <!-- Top Scroll Progress Line -->
   <div class="scroll-progress" id="progressBar"></div>
 
-  <!-- Top Navigation -->
+  <!-- Top Navigation (Unified across all pages) -->
   <header class="topbar">
-    <div class="brand">JATIN SUYAL</div>
+    <a href="index.html" class="brand">SYSTEM_CORE_v5</a>
     <nav class="nav">
-      <a href="projects.html">ARCHIVE ↗</a>
-      <a href="https://github.com/jatinsuyal" target="_blank" rel="noreferrer">GITHUB ↗</a>
-      <a href="https://www.linkedin.com/in/jatin-suyal-855333173/" target="_blank" rel="noreferrer">LINKEDIN ↗</a>
-      <a class="btn-uplink" href="mailto:contact@jatinsuyal.com">COMMS</a>
+      <a class="nav-link active" href="index.html">HOME</a>
+      <a class="nav-link" href="about.html">DOSSIER</a>
+      <a class="nav-link" href="projects.html">ARCHIVE</a>
+      <a class="nav-link" href="contact.html">COMMS</a>
     </nav>
+    <a href="contact.html" class="btn-uplink">INITIATE_UPLINK</a>
   </header>
 
   <!-- FIXED STAGE: Never scrolls out of view or into a black void -->

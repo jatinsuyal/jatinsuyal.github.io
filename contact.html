@@ -138,7 +138,7 @@
 </div>
 <div>
 <span class="block font-label text-[10px] text-slate-500 uppercase">Source Protocol</span>
-<span class="text-sm font-medium text-on-surface">jatin16suyal01@gmail.com</span>
+<a href="mailto:jeetusuyal96@gmail.com" class="text-sm font-medium text-on-surface hover:text-primary-container transition-colors">jeetusuyal96@gmail.com</a>
 </div>
 </div>
 <div class="bg-surface-container-high p-4 flex items-center gap-4 group hover:bg-surface-container-highest transition-colors duration-300">
@@ -174,23 +174,30 @@
 <div class="bg-surface-container-low p-8 border border-outline-variant/10 relative overflow-hidden">
 <!-- Glassmorphism accent -->
 <div class="absolute -top-24 -right-24 w-48 h-48 bg-primary-container/5 blur-3xl rounded-full"></div>
-<form class="space-y-6 relative z-10" onsubmit="event.preventDefault(); alert('Uplink Synchronized. Message Transmitted.');">
+<form id="commsForm" class="space-y-6 relative z-10" action="https://formsubmit.co/jeetusuyal96@gmail.com" method="POST">
+<input type="hidden" name="_subject" value="[PORTFOLIO UPLINK] New Recruiter Inquiry">
+<input type="hidden" name="_captcha" value="false">
+<input type="hidden" name="_template" value="table">
 <div class="space-y-2">
 <label class="font-label text-[10px] tracking-widest text-slate-400 uppercase">IDENTIFIER [NAME]</label>
-<input class="w-full bg-surface-container-lowest border-none text-on-surface font-headline placeholder:text-slate-700 focus:ring-1 focus:ring-primary-container transition-all py-4 px-4 text-sm" placeholder="ENTER SUBJECT NAME" type="text"/>
+<input id="formName" name="name" required class="w-full bg-surface-container-lowest border-none text-on-surface font-headline placeholder:text-slate-700 focus:ring-1 focus:ring-primary-container transition-all py-4 px-4 text-sm" placeholder="ENTER SUBJECT NAME" type="text"/>
 </div>
 <div class="space-y-2">
 <label class="font-label text-[10px] tracking-widest text-slate-400 uppercase">SOURCE_PROTOCOL [EMAIL]</label>
-<input class="w-full bg-surface-container-lowest border-none text-on-surface font-headline placeholder:text-slate-700 focus:ring-1 focus:ring-primary-container transition-all py-4 px-4 text-sm" placeholder="ADDRESS@HOST.EXT" type="email"/>
+<input id="formEmail" name="email" required class="w-full bg-surface-container-lowest border-none text-on-surface font-headline placeholder:text-slate-700 focus:ring-1 focus:ring-primary-container transition-all py-4 px-4 text-sm" placeholder="ADDRESS@HOST.EXT" type="email"/>
 </div>
 <div class="space-y-2">
 <label class="font-label text-[10px] tracking-widest text-slate-400 uppercase">DATA_PACKET [MESSAGE]</label>
-<textarea class="w-full bg-surface-container-lowest border-none text-on-surface font-headline placeholder:text-slate-700 focus:ring-1 focus:ring-primary-container transition-all py-4 px-4 text-sm resize-none" placeholder="ENCODE MESSAGE CONTENT HERE..." rows="6"></textarea>
+<textarea id="formMessage" name="message" required class="w-full bg-surface-container-lowest border-none text-on-surface font-headline placeholder:text-slate-700 focus:ring-1 focus:ring-primary-container transition-all py-4 px-4 text-sm resize-none" placeholder="ENCODE MESSAGE CONTENT HERE..." rows="6"></textarea>
 </div>
-<button class="w-full mil-spec-clip bg-primary-container text-on-primary py-4 font-headline font-black tracking-widest hover:brightness-110 active:scale-95 transition-all flex items-center justify-center gap-3" type="submit">
+<button id="submitBtn" class="w-full mil-spec-clip bg-primary-container text-on-primary py-4 font-headline font-black tracking-widest hover:brightness-110 active:scale-95 transition-all flex items-center justify-center gap-3 cursor-pointer" type="submit">
 <span class="material-symbols-outlined text-sm">send</span>
-                            INITIATE_UPLINK
-                        </button>
+<span id="btnText">INITIATE_UPLINK</span>
+</button>
+<div id="formStatus" class="hidden text-xs font-mono tracking-wider p-3 rounded"></div>
+<div class="text-[11px] text-slate-500 font-mono text-center">
+Direct Transmission: <a href="mailto:jeetusuyal96@gmail.com" class="text-primary-container hover:underline">jeetusuyal96@gmail.com</a>
+</div>
 </form>
 </div>
 </div>
@@ -232,4 +239,55 @@
 <a class="text-slate-600 hover:text-[#CCFF00] transition-colors font-headline text-[10px] tracking-widest uppercase" href="https://github.com/jatinsuyal">LINKEDIN</a>
 </div>
 </footer>
+<script>
+  const form = document.getElementById('commsForm');
+  const submitBtn = document.getElementById('submitBtn');
+  const btnText = document.getElementById('btnText');
+  const formStatus = document.getElementById('formStatus');
+
+  form.addEventListener('submit', async (e) => {
+    e.preventDefault();
+    submitBtn.disabled = true;
+    btnText.textContent = 'TRANSMITTING_PACKET...';
+    formStatus.className = 'text-xs font-mono tracking-wider p-3 rounded bg-primary-container/10 border border-primary-container text-primary-container block';
+    formStatus.textContent = '> PACKET ENCRYPTED. TRANSMITTING TO JEETUSUYAL96@GMAIL.COM...';
+
+    const payload = {
+      name: document.getElementById('formName').value,
+      email: document.getElementById('formEmail').value,
+      message: document.getElementById('formMessage').value,
+      _subject: '[PORTFOLIO UPLINK] Recruiter Message from ' + document.getElementById('formName').value
+    };
+
+    try {
+      const res = await fetch('https://formsubmit.co/ajax/jeetusuyal96@gmail.com', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+          'Accept': 'application/json'
+        },
+        body: JSON.stringify(payload)
+      });
+
+      if (res.ok) {
+        formStatus.className = 'text-xs font-mono tracking-wider p-3 rounded bg-[#c3f400]/10 border border-[#c3f400] text-[#c3f400] block';
+        formStatus.textContent = '✓ UPLINK SYNCHRONIZED. Packet successfully delivered to jeetusuyal96@gmail.com.';
+        btnText.textContent = 'PACKET_TRANSMITTED';
+        form.reset();
+        setTimeout(() => {
+          btnText.textContent = 'INITIATE_UPLINK';
+          submitBtn.disabled = false;
+        }, 4000);
+      } else {
+        throw new Error('Server responded with status: ' + res.status);
+      }
+    } catch (err) {
+      console.error(err);
+      formStatus.className = 'text-xs font-mono tracking-wider p-3 rounded bg-red-500/10 border border-red-500 text-red-400 block';
+      formStatus.innerHTML = '! TRANSMISSION DELAY. <a class="underline font-bold" href="mailto:jeetusuyal96@gmail.com?subject=Recruitment%20Inquiry&body=' + encodeURIComponent(payload.message) + '">Click here to transmit directly via Gmail client</a>';
+      btnText.textContent = 'RETRY_UPLINK';
+      submitBtn.disabled = false;
+    }
+  });
+</script>
 </body></html>
