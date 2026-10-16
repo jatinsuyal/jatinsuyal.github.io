@@ -87,9 +87,36 @@
         <p class="text-sm text-[#bac9cc] mt-3">Autoplaying muted · Loops continuously</p>
     </div>
     <div class="aspect-video w-full overflow-hidden border border-white/10 bg-[#131315] rounded-sm shadow-[0_0_30px_rgba(0,0,0,0.8)]">
-        <iframe class="w-full h-full" src="https://www.youtube.com/embed/Upom5ODCmr4?autoplay=1&amp;mute=1&amp;loop=1&amp;playlist=Upom5ODCmr4&amp;playsinline=1&amp;vq=hd1080&amp;cc_load_policy=0" title="Project Superfun demo" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen loading="lazy"></iframe>
+        <div id="yt-player-superfun" class="w-full h-full"></div>
     </div>
 </section>
+<script>
+    var tag = document.createElement('script');
+    tag.src = "https://www.youtube.com/iframe_api";
+    document.head.appendChild(tag);
+    function onYouTubeIframeAPIReady() {
+        new YT.Player('yt-player-superfun', {
+            videoId: 'Upom5ODCmr4',
+            playerVars: {
+                autoplay: 1, mute: 1, loop: 1, playlist: 'Upom5ODCmr4',
+                playsinline: 1, cc_load_policy: 0, cc_lang_pref: 'none',
+                rel: 0, modestbranding: 1
+            },
+            events: {
+                onReady: function(e) {
+                    e.target.setPlaybackQualityRange('hd1080', 'highres');
+                    e.target.setPlaybackQuality('hd1080');
+                },
+                onStateChange: function(e) {
+                    if (e.data === YT.PlayerState.PLAYING) {
+                        e.target.setPlaybackQualityRange('hd1080', 'highres');
+                        e.target.setPlaybackQuality('hd1080');
+                    }
+                }
+            }
+        });
+    }
+</script>
 
 <!-- Content Grid -->
 <div class="max-w-7xl mx-auto px-6 md:px-8 py-24 space-y-32">

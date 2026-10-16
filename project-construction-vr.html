@@ -42,9 +42,36 @@ h1,h2,h3,.label{font-family:"Space Grotesk",sans-serif}
 <p class="text-sm leading-6 text-[#bac9cc] mt-2">Project walkthrough · Autoplaying muted, with looping enabled.</p>
 </div>
 <div class="overflow-hidden border border-[#3b494c]/60 bg-[#1c1b1d] aspect-video">
-<iframe class="w-full h-full" src="https://www.youtube.com/embed/xEvquYvqqIE?autoplay=1&mute=1&loop=1&playlist=xEvquYvqqIE&playsinline=1&vq=hd1080&cc_load_policy=0" title="DSS+ Construction VR project demo" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen loading="lazy"></iframe>
+<div id="yt-player-construction" class="w-full h-full"></div>
 </div>
 </section>
+<script>
+    var tag = document.createElement('script');
+    tag.src = "https://www.youtube.com/iframe_api";
+    document.head.appendChild(tag);
+    function onYouTubeIframeAPIReady() {
+        new YT.Player('yt-player-construction', {
+            videoId: 'xEvquYvqqIE',
+            playerVars: {
+                autoplay: 1, mute: 1, loop: 1, playlist: 'xEvquYvqqIE',
+                playsinline: 1, cc_load_policy: 0, cc_lang_pref: 'none',
+                rel: 0, modestbranding: 1
+            },
+            events: {
+                onReady: function(e) {
+                    e.target.setPlaybackQualityRange('hd1080', 'highres');
+                    e.target.setPlaybackQuality('hd1080');
+                },
+                onStateChange: function(e) {
+                    if (e.data === YT.PlayerState.PLAYING) {
+                        e.target.setPlaybackQualityRange('hd1080', 'highres');
+                        e.target.setPlaybackQuality('hd1080');
+                    }
+                }
+            }
+        });
+    }
+</script>
 <section class="grid lg:grid-cols-12 gap-8 mt-8 md:mt-12">
 <div class="lg:col-span-5 border border-[#3b494c]/50 bg-[#1c1b1d] p-6 md:p-8">
 <p class="label text-[10px] tracking-[0.2em] text-[#00e5ff] mb-3">01 / OVERVIEW</p>
