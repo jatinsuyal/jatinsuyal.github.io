@@ -1,303 +1,58 @@
-<!DOCTYPE html>
-<html class="dark" lang="en">
+<!doctype html>
+<html lang="en">
 <head>
-    <meta charset="utf-8"/>
-    <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
-    <title>JATIN SUYAL | UNITY_ENGINE_CORE</title>
-    <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
-    <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700;900&amp;family=Manrope:wght@300;400;500;600;700;800&amp;display=swap" rel="stylesheet"/>
-    <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
-    <script id="tailwind-config">
-        tailwind.config = {
-            darkMode: "class",
-            theme: {
-                extend: {
-                    colors: {
-                        "error-container": "#93000a",
-                        "surface-container-high": "#2a2a2c",
-                        "on-surface-variant": "#bac9cc",
-                        "on-tertiary": "#00363d",
-                        "on-error": "#690005",
-                        "tertiary-fixed-dim": "#00daf3",
-                        "on-secondary": "#283500",
-                        "on-secondary-container": "#556d00",
-                        "surface-container-low": "#1c1b1d",
-                        "surface-container": "#201f22",
-                        "surface-variant": "#353437",
-                        "on-background": "#e5e1e4",
-                        "background": "#131315",
-                        "inverse-on-surface": "#313032",
-                        "tertiary-fixed": "#9cf0ff",
-                        "inverse-primary": "#006875",
-                        "secondary-fixed": "#c3f400",
-                        "surface": "#131315",
-                        "error": "#ffb4ab",
-                        "on-tertiary-container": "#00626e",
-                        "outline-variant": "#3b494c",
-                        "surface-container-highest": "#353437",
-                        "primary-container": "#00e5ff",
-                        "primary": "#c3f5ff",
-                        "inverse-surface": "#e5e1e4",
-                        "primary-fixed-dim": "#00daf3",
-                        "tertiary": "#c3f5ff",
-                        "secondary-fixed-dim": "#abd600",
-                        "on-primary-fixed": "#001f24",
-                        "on-surface": "#e5e1e4",
-                        "on-error-container": "#ffdad6",
-                        "surface-bright": "#39393b",
-                        "on-primary-fixed-variant": "#004f58",
-                        "secondary-container": "#c3f400",
-                        "surface-dim": "#131315",
-                        "on-secondary-fixed-variant": "#3c4d00",
-                        "outline": "#849396",
-                        "secondary": "#ffffff",
-                        "surface-tint": "#00daf3",
-                        "on-tertiary-fixed": "#001f24",
-                        "on-primary": "#00363d",
-                        "on-secondary-fixed": "#161e00",
-                        "primary-fixed": "#9cf0ff",
-                        "on-tertiary-fixed-variant": "#004f58",
-                        "tertiary-container": "#00e5ff",
-                        "on-primary-container": "#00626e",
-                        "surface-container-lowest": "#0e0e10"
-                    },
-                    fontFamily: {
-                        "headline": ["Space Grotesk"],
-                        "body": ["Manrope"],
-                        "label": ["Space Grotesk"]
-                    },
-                    borderRadius: {"DEFAULT": "0px", "lg": "0px", "xl": "0px", "full": "9999px"},
-                },
-            },
-        }
-    </script>
-    <style>
-        .scanline {
-            width: 100%;
-            height: 100px;
-            z-index: 10;
-            background: linear-gradient(0deg, rgba(0, 0, 0, 0) 0%, rgba(0, 229, 255, 0.02) 50%, rgba(0, 0, 0, 0) 100%);
-            opacity: 0.1;
-            position: absolute;
-            bottom: 100%;
-            pointer-events: none;
-        }
-        .grid-overlay {
-            background-image: radial-gradient(circle, #00e5ff11 1px, transparent 1px);
-            background-size: 24px 24px;
-        }
-        .corner-accent {
-            width: 8px;
-            height: 8px;
-            border-style: solid;
-            position: absolute;
-        }
-        .corner-tl { top: -2px; left: -2px; border-width: 2px 0 0 2px; }
-        .corner-tr { top: -2px; right: -2px; border-width: 2px 2px 0 0; }
-        .corner-bl { bottom: -2px; left: -2px; border-width: 0 0 2px 2px; }
-        .corner-br { bottom: -2px; right: -2px; border-width: 0 2px 2px 0; }
-        
-        .mil-spec-clip {
-            clip-path: polygon(0 0, calc(100% - 12px) 0, 100% 12px, 100% 100%, 0 100%);
-        }
-        .hud-blur {
-            backdrop-filter: blur(12px);
-            background: rgba(19, 19, 21, 0.6);
-        }
-    </style>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Jatin Suyal | Unity &amp; XR Developer</title>
+<meta name="description" content="Unity developer creating immersive games, XR experiences, and interactive 3D applications.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700&family=Space+Grotesk:wght@500;700;800&display=swap" rel="stylesheet">
+<style>
+:root{color-scheme:dark;--bg:#080d13;--text:#f2f7fb;--muted:#d1dbe2;--accent:#39e5f2}
+*{box-sizing:border-box}html,body{margin:0;background:var(--bg);color:var(--text);font-family:Manrope,Arial,sans-serif;overflow-x:hidden}a{color:inherit;text-decoration:none}
+.hero{height:calc(100vh + 16320px);position:relative}.stage{height:100vh;height:100dvh;position:sticky;top:0;overflow:hidden;background:var(--bg);isolation:isolate}
+#frame{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:center;display:block;opacity:0}
+.shade{position:absolute;inset:0;pointer-events:none;background:linear-gradient(90deg,rgba(4,8,12,.86) 0%,rgba(4,8,12,.57) 28%,rgba(4,8,12,.08) 68%,rgba(4,8,12,.02) 100%),linear-gradient(0deg,rgba(4,8,12,.28),transparent 28%,transparent 75%,rgba(4,8,12,.22))}
+.top{position:absolute;z-index:3;top:0;left:0;right:0;padding:24px 6vw;display:flex;justify-content:space-between;align-items:center;border-bottom:1px solid rgba(255,255,255,.13);font-size:12px;letter-spacing:.12em}.brand{font-family:'Space Grotesk',sans-serif;font-weight:800;color:var(--accent)}.nav{display:flex;gap:22px;align-items:center;font-size:10px;letter-spacing:.12em;color:#d3dee6}.nav a:hover{color:var(--accent)}
+.intro{position:absolute;z-index:3;left:8vw;top:50%;transform:translateY(-45%);max-width:570px}.kicker{font-size:11px;letter-spacing:.18em;text-transform:uppercase;color:#d2e0e8;margin:0 0 22px}
+h1{font-family:'Space Grotesk',sans-serif;font-size:clamp(48px,7.4vw,100px);line-height:.92;letter-spacing:-.065em;margin:0 0 24px;font-weight:800}h1 span{color:var(--accent)}.intro p{max-width:410px;font-size:15px;line-height:1.7;color:var(--muted);margin:0}
+.actions{display:flex;gap:12px;flex-wrap:wrap;margin-top:28px}.button{display:inline-flex;align-items:center;justify-content:center;padding:13px 18px;border:1px solid rgba(255,255,255,.25);font-size:10px;font-weight:700;letter-spacing:.12em;transition:transform .2s,border-color .2s,background .2s}.button.primary{background:var(--accent);border-color:var(--accent);color:#071116}.button:hover{transform:translateY(-2px);border-color:var(--accent)}
+.bottom{position:absolute;z-index:3;left:6vw;right:6vw;bottom:26px;display:flex;align-items:center;justify-content:space-between;gap:16px;color:#d4dfe7;font-size:10px;letter-spacing:.13em;text-transform:uppercase}.progress{height:2px;background:rgba(255,255,255,.25);position:absolute;z-index:4;bottom:0;left:0;right:0}.progress span{display:block;width:0;height:100%;background:var(--accent)}
+.loading{position:absolute;inset:0;display:grid;place-items:center;color:#b8c7d1;font-size:12px;letter-spacing:.12em;text-transform:uppercase;z-index:1}
+@media(max-width:700px){.top{padding:20px 6vw}.nav{gap:12px;font-size:8px}.intro{left:7vw;right:7vw;top:48%}h1{font-size:clamp(48px,13vw,78px)}.intro p{font-size:13px;max-width:310px}.bottom{left:7vw;right:7vw;bottom:20px;font-size:8px}.shade{background:linear-gradient(90deg,rgba(4,8,12,.82),rgba(4,8,12,.3)),linear-gradient(0deg,rgba(4,8,12,.4),transparent 45%)}.button{padding:12px 13px}}
+@media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}}
+</style>
 </head>
-<body class="bg-background text-on-background font-body selection:bg-primary-container selection:text-on-primary-container overflow-x-hidden">
-<!-- Top Navigation Bar -->
-<header class="fixed top-0 left-0 w-full z-50 flex justify-between items-center px-6 py-3 bg-[#131315]/60 backdrop-blur-xl border-b border-[#00E5FF]/10 shadow-[0_0_15px_rgba(0,229,255,0.1)]">
-    <div class="text-[#00E5FF] font-black tracking-tighter text-xl font-headline">SYSTEM_CORE_v5</div>
-    <nav class="hidden md:flex items-center gap-8">
-        <a class="font-['Space_Grotesk'] tracking-[0.1em] uppercase text-xs font-bold text-[#00E5FF] border-b-2 border-[#00E5FF] pb-1 transition-all duration-200" href="index.html">HOME</a>
-        <a class="font-['Space_Grotesk'] tracking-[0.1em] uppercase text-xs font-bold text-slate-500 hover:text-[#00E5FF]/80 transition-all duration-200" href="about.html">DOSSIER</a>
-        <a class="font-['Space_Grotesk'] tracking-[0.1em] uppercase text-xs font-bold text-slate-500 hover:text-[#00E5FF]/80 transition-all duration-200" href="projects.html">ARCHIVE</a>
-        <a class="font-['Space_Grotesk'] tracking-[0.1em] uppercase text-xs font-bold text-slate-500 hover:text-[#00E5FF]/80 transition-all duration-200" href="contact.html">COMMS</a>
-    </nav>
-    <a href="contact.html" class="mil-spec-clip bg-primary-container text-on-primary px-6 py-2 font-headline font-bold text-xs tracking-widest active:scale-95 transition-all duration-100 flex items-center">
-        INITIATE_UPLINK
-    </a>
-</header>
-<!-- Main Content Canvas -->
-<main class="relative min-h-screen pt-20 pb-16 overflow-hidden">
-<!-- Persistent Grid & Texture Overlay -->
-<div class="fixed inset-0 grid-overlay pointer-events-none z-0"></div>
-<div class="scanline animate-pulse"></div>
-<!-- HERO SECTION -->
-<section class="relative min-h-[921px] flex flex-col items-center justify-end pb-40 px-6 text-center z-10">
-<!-- Background Image Panels -->
-<div class="absolute inset-0 z-0 pointer-events-none">
-            <img src="vr_headset_ultra_hd_hero_1775034271800.png" class="w-full h-full object-cover" alt="VR Headset Showcase Ultra HD"/>
-            <div class="absolute inset-0 bg-transparent"></div>
-            <div class="absolute inset-0 bg-gradient-to-t from-background via-background/40 to-transparent"></div>
-        </div>
-<!-- Content -->
-<div class="relative max-w-5xl mx-auto">
-<div class="inline-block border-l-2 border-secondary-container pl-4 mb-6 text-left">
-<span class="font-label text-xs tracking-[0.2em] text-secondary-container block mb-1">SYSTEM_AUTH // J_SUYAL</span>
-<h2 class="font-headline font-black text-6xl md:text-9xl tracking-tighter text-secondary drop-shadow-[0_0_20px_rgba(255,255,255,0.2)]">
-                        JATIN SUYAL
-                    </h2>
-</div>
-<div class="bg-surface-container-low/40 hud-blur p-1 mb-8 relative border border-white/5">
-<div class="p-6 md:p-10">
-<p class="font-headline text-lg md:text-2xl text-primary-container tracking-widest mb-4 uppercase">
-                            Experienced Unity Game Developer (4+ Years)
-                        </p>
-                        <p class="font-body text-on-surface-variant text-base md:text-lg max-w-2xl mx-auto leading-relaxed">
-                            Based in Delhi, I specialize in crafting immersive gaming experiences, pushing the boundaries of creativity and innovation in the Unity ecosystem.
-                        </p>
-</div>
-<!-- HUD Corner Accents -->
-<div class="corner-accent corner-tl border-primary-container"></div>
-<div class="corner-accent corner-tr border-primary-container"></div>
-<div class="corner-accent corner-bl border-primary-container"></div>
-<div class="corner-accent corner-br border-primary-container"></div>
-</div>
-<div class="flex flex-col md:flex-row gap-4 justify-center items-center">
-<button onclick="window.location.href='projects.html'" class="mil-spec-clip bg-primary-container text-on-primary font-headline tracking-widest uppercase text-xs font-bold px-8 py-4 hover:brightness-110 active:scale-95 transition-all">
-                ACCESS_ARCHIVE
-            </button>
-            <button onclick="window.location.href='about.html'" class="mil-spec-clip font-headline tracking-widest uppercase text-xs font-bold px-8 py-4 text-primary-container border border-primary-container/20 hover:bg-primary-container/5 active:scale-95 transition-all">
-                READ_DOSSIER
-            </button>
-</div>
-</div>
-</section>
-<!-- TELEMETRY & STATUS SECTION (Bento Style) -->
-<section class="relative z-10 px-6 py-12 max-w-7xl mx-auto">
-<div class="grid grid-cols-1 md:grid-cols-12 gap-6">
-<!-- Skill Mastery Stats -->
-<div class="md:col-span-8 bg-surface-container-low border border-outline-variant/30 p-8 relative">
-<div class="flex items-center gap-2 mb-8">
-<span class="material-symbols-outlined text-secondary-container">bar_chart</span>
-<h3 class="font-headline font-bold text-xs tracking-[0.2em] uppercase">Core_Competency_Telemetry</h3>
-</div>
-<div class="grid grid-cols-1 md:grid-cols-2 gap-x-12 gap-y-8">
-<!-- Stat Item -->
-<div>
-<div class="flex justify-between font-label text-[10px] tracking-widest mb-2">
-<span>UNITY_ENGINE</span>
-<span class="text-primary-container">98%</span>
-</div>
-<div class="h-1.5 bg-surface-variant w-full overflow-hidden">
-<div class="h-full bg-primary-container shadow-[0_0_10px_rgba(0,229,255,0.5)] w-[98%]"></div>
-</div>
-</div>
-<!-- Stat Item -->
-<div>
-<div class="flex justify-between font-label text-[10px] tracking-widest mb-2">
-<span>C#_PROGRAMMING</span>
-<span class="text-primary-container">95%</span>
-</div>
-<div class="h-1.5 bg-surface-variant w-full overflow-hidden">
-<div class="h-full bg-primary-container shadow-[0_0_10px_rgba(0,229,255,0.5)] w-[95%]"></div>
-</div>
-</div>
-<!-- Stat Item -->
-<div>
-<div class="flex justify-between font-label text-[10px] tracking-widest mb-2">
-<span>VR/AR_ARCHITECTURE</span>
-<span class="text-primary-container">92%</span>
-</div>
-<div class="h-1.5 bg-surface-variant w-full overflow-hidden">
-<div class="h-full bg-primary-container shadow-[0_0_10px_rgba(0,229,255,0.5)] w-[92%]"></div>
-</div>
-</div>
-<!-- Stat Item -->
-<div>
-<div class="flex justify-between font-label text-[10px] tracking-widest mb-2">
-<span>WEBGL_DEPLOYMENT</span>
-<span class="text-primary-container">89%</span>
-</div>
-<div class="h-1.5 bg-surface-variant w-full overflow-hidden">
-<div class="h-full bg-primary-container shadow-[0_0_10px_rgba(0,229,255,0.5)] w-[89%]"></div>
-</div>
-</div>
-</div>
-</div>
-<!-- System Logs (Telemetry Component) -->
-<div class="md:col-span-4 bg-surface-container-lowest border border-outline-variant/30 p-6 font-mono text-[10px] leading-tight text-primary/60 flex flex-col gap-2 overflow-hidden">
-<div class="text-secondary-container font-bold mb-2">SYSTEM_LOGS // STABLE</div>
-<div class="border-l border-primary/20 pl-2">
-<p class="animate-pulse">&gt; INITIALIZING KERNEL...</p>
-<p>&gt; LOADING ASSETS/MODELS/V5...</p>
-<p class="text-primary-container">&gt; SHADERS_OPTIMIZED [SUCCESS]</p>
-<p>&gt; CONNECTING_TO_UPLINK...</p>
-<p>&gt; READY_FOR_INTERACTION</p>
-<p>&gt; TRACING_LATENCY: 12ms</p>
-<p class="text-error-container">&gt; ERROR: NULL_PTR_SUPPRESSED</p>
-<p>&gt; CACHE_FLUSHED</p>
-<p class="animate-pulse">&gt; WAITING_FOR_INPUT...</p>
-</div>
-</div>
-</div>
-</section>
-<!-- Project Highlights Asymmetric Layout -->
-<section class="relative z-10 px-6 py-20">
-<div class="max-w-7xl mx-auto flex flex-col gap-32">
-<!-- Project 01 -->
-<div class="flex flex-col md:flex-row gap-12 items-center">
-<div class="w-full md:w-3/5 group relative overflow-hidden">
-<div></div>
-<img class="w-full aspect-video object-cover transition-all duration-700" alt="Construction VR" src="https://cdn.b12.io/client_media/kTZAsQks/09fc6db4-1639-11f0-b43d-0242ac110002-png-hero_image.png"/>
-<div class="absolute top-0 left-0 p-4 z-20">
-<span class="bg-primary-container text-on-primary text-[10px] font-bold px-3 py-1 font-label uppercase">Module_01</span>
-</div>
-</div>
-<div class="w-full md:w-2/5">
-<div class="mb-4 text-secondary-container font-label text-xs tracking-widest">PROJECT_CAT: CONSTRUCTION_SIM</div>
-<h4 class="font-headline font-black text-4xl text-secondary mb-6 leading-tight">VIRTUAL_REALITY ARCHITECT</h4>
-<p class="text-on-surface-variant font-body leading-relaxed mb-8">
-                            Developed a VR onboarding simulator for DSS+ on Oculus Quest 3, training 140,000+ industrial workers in electrical and construction safety.
-                        </p>
-<a href="projects.html" class="group flex items-center gap-4 text-primary font-headline text-xs font-bold tracking-widest hover:text-secondary-container transition-colors">
-                            DECRYPT_DATA_SET 
-                            <span class="material-symbols-outlined text-sm group-hover:translate-x-2 transition-transform">arrow_forward_ios</span>
-</a>
-</div>
-</div>
-<!-- Project 02 -->
-<div class="flex flex-col md:flex-row-reverse gap-12 items-center">
-<div class="w-full md:w-3/5 group relative overflow-hidden">
-<div></div>
-<img class="w-full aspect-video object-cover transition-all duration-700" alt="Project Superfun" src="https://cdn.b12.io/client_media/kTZAsQks/2bd5c754-38fe-11f0-8cbb-0242ac110002-png-hero_image.jpeg"/>
-<div class="absolute top-0 right-0 p-4 z-20 text-right">
-<span class="bg-secondary-container text-on-secondary text-[10px] font-bold px-3 py-1 font-label uppercase">Module_02</span>
-</div>
-</div>
-<div class="w-full md:w-2/5 text-right">
-<div class="mb-4 text-primary-container font-label text-xs tracking-widest">PROJECT_CAT: ARCADE_SHOOTER</div>
-<h4 class="font-headline font-black text-4xl text-secondary mb-6 leading-tight">SUPERFUN_CORE</h4>
-<p class="text-on-surface-variant font-body leading-relaxed mb-8">
-                            Contributed to the development of Project Superfun, a visually polished AA-level multiplayer game with modular gameplay systems.
-                        </p>
-<div class="flex justify-end">
-<a href="projects.html" class="group flex items-center gap-4 text-secondary-container font-headline text-xs font-bold tracking-widest hover:text-primary transition-colors">
-<span class="material-symbols-outlined text-sm group-hover:-translate-x-2 transition-transform">arrow_back_ios</span>
-                                ANALYZE_LOGS 
-                            </a>
-</div>
-</div>
-</div>
-</div>
+<body>
+<main>
+<section class="hero" id="home" aria-label="Jatin Suyal portfolio introduction">
+ <div class="stage">
+  <div class="loading" id="loading">Loading motion sequence…</div>
+  <img id="frame" alt="Animated product render sequence">
+  <div class="shade"></div>
+  <header class="top"><a class="brand" href="index.html">JATIN SUYAL</a><nav class="nav"><a href="projects.html">DOSSIER ↗</a><a href="https://github.com/jatinsuyal" target="_blank" rel="noreferrer">GITHUB ↗</a><a href="https://www.linkedin.com/in/jatin-suyal-855333173/" target="_blank" rel="noreferrer">LINKEDIN ↗</a></nav></header>
+  <div class="intro">
+   <p class="kicker">Unity Developer · XR &amp; Interactive Experiences</p>
+   <h1>Building<br>worlds<span>.</span><br>Beyond<br>the screen.</h1>
+   <p>I create immersive experiences, games, and interactive 3D applications.</p>
+   <div class="actions"><a class="button primary" href="projects.html">PROJECT DOSSIER ↗</a><a class="button" href="contact.html">GET IN TOUCH</a></div>
+  </div>
+  <div class="bottom"><span>Scroll to explore</span><span id="frameCount">001 / 408</span></div>
+  <div class="progress"><span id="progress"></span></div>
+ </div>
 </section>
 </main>
-<!-- Footer Component -->
-<footer class="w-full px-6 py-4 flex justify-between items-center border-l-4 border-[#CCFF00] bg-[#131315]">
-<div class="flex items-center gap-6">
-<span class="text-[#CCFF00] font-bold font-headline text-[10px] tracking-widest uppercase">© 2026 JATIN SUYAL</span>
-<div class="h-4 w-px bg-slate-800"></div>
-<div class="flex gap-4">
-<a class="font-['Space_Grotesk'] text-[10px] tracking-widest uppercase text-slate-600 hover:text-[#CCFF00] transition-colors" href="https://github.com/jatinsuyal" target="_blank">GITHUB</a>
-<a class="font-['Space_Grotesk'] text-[10px] tracking-widest uppercase text-slate-600 hover:text-[#CCFF00] transition-colors" href="https://www.linkedin.com/in/jatin-suyal-855333173/" target="_blank">LINKEDIN</a>
-</div>
-</div>
-<div class="hidden md:flex gap-4 items-center">
-<span class="material-symbols-outlined text-sm text-[#CCFF00]">terminal</span>
-<span class="font-['Space_Grotesk'] text-[10px] tracking-widest uppercase text-slate-600">STABLE_CONNECTION // 127.0.0.1</span>
-</div>
-</footer>
-</body></html>
+<script>
+(()=>{
+ const frame=document.getElementById('frame'),loading=document.getElementById('loading'),countLabel=document.getElementById('frameCount'),progressBar=document.getElementById('progress');
+ const total=408,base='https://raw.githubusercontent.com/jatinsuyal/jatinsuyal.github.io/main/FrameRenders/';
+ const frames=new Array(total);let desired=0,shown=-1,scheduled=false,nextToLoad=0,activeLoads=0,loaded=0;const concurrency=8;
+ function pump(){while(activeLoads<concurrency&&nextToLoad<total){const i=nextToLoad++,im=new Image();frames[i]=im;activeLoads++;im.onload=()=>{activeLoads--;loaded++;if(i===0){frame.src=im.src;frame.style.opacity='1';loading.style.display='none'}if(i===desired)paint();if(loaded===total)loading.style.display='none';pump()};im.onerror=()=>{activeLoads--;pump()};im.src=base+'frame_'+String(i).padStart(6,'0')+'.webp'}}
+ function paint(){let i=desired;if(!frames[i]||!frames[i].complete||!frames[i].naturalWidth){let found=-1;for(let d=1;d<total;d++){const a=desired-d,b=desired+d;if(a>=0&&frames[a]?.complete&&frames[a]?.naturalWidth){found=a;break}if(b<total&&frames[b]?.complete&&frames[b]?.naturalWidth){found=b;break}}if(found<0)return;i=found}shown=i;if(frame.src!==frames[i].src)frame.src=frames[i].src;countLabel.textContent=String(i+1).padStart(3,'0')+' / '+total}
+ function update(){const hero=document.querySelector('.hero'),range=Math.max(1,hero.offsetHeight-innerHeight),p=Math.max(0,Math.min(1,-hero.getBoundingClientRect().top/range));desired=Math.round(p*(total-1));progressBar.style.width=(p*100)+'%';if(desired!==shown)paint();scheduled=false}
+ function onScroll(){if(!scheduled){scheduled=true;requestAnimationFrame(update)}}window.addEventListener('scroll',onScroll,{passive:true});window.addEventListener('resize',onScroll);pump();update()
+})();
+</script>
+</body>
+</html>
